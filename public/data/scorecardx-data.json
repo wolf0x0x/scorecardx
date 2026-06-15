@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T15:05:57.678Z",
+  "updatedAt": "2026-06-15T15:21:09.392Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -24,7 +24,7 @@
     },
     "jolpicaF1": {
       "status": "ok",
-      "label": "Jolpica F1 unavailable",
+      "label": "Jolpica F1 network",
       "remainingQuota": null
     }
   },
@@ -331,6 +331,98 @@
     }
   ],
   "standings": {
+    "f1": [
+      {
+        "rank": 1,
+        "team": "Andrea Kimi Antonelli",
+        "played": "5",
+        "wins": "5",
+        "losses": "-",
+        "points": "156",
+        "note": "Mercedes"
+      },
+      {
+        "rank": 2,
+        "team": "Lewis Hamilton",
+        "played": "1",
+        "wins": "1",
+        "losses": "-",
+        "points": "115",
+        "note": "Ferrari"
+      },
+      {
+        "rank": 3,
+        "team": "George Russell",
+        "played": "1",
+        "wins": "1",
+        "losses": "-",
+        "points": "106",
+        "note": "Mercedes"
+      },
+      {
+        "rank": 4,
+        "team": "Charles Leclerc",
+        "played": "0",
+        "wins": "0",
+        "losses": "-",
+        "points": "75",
+        "note": "Ferrari"
+      },
+      {
+        "rank": 5,
+        "team": "Lando Norris",
+        "played": "0",
+        "wins": "0",
+        "losses": "-",
+        "points": "73",
+        "note": "McLaren"
+      },
+      {
+        "rank": 6,
+        "team": "Oscar Piastri",
+        "played": "0",
+        "wins": "0",
+        "losses": "-",
+        "points": "68",
+        "note": "McLaren"
+      },
+      {
+        "rank": 7,
+        "team": "Max Verstappen",
+        "played": "0",
+        "wins": "0",
+        "losses": "-",
+        "points": "55",
+        "note": "Red Bull"
+      },
+      {
+        "rank": 8,
+        "team": "Pierre Gasly",
+        "played": "0",
+        "wins": "0",
+        "losses": "-",
+        "points": "41",
+        "note": "Alpine F1 Team"
+      },
+      {
+        "rank": 9,
+        "team": "Isack Hadjar",
+        "played": "0",
+        "wins": "0",
+        "losses": "-",
+        "points": "34",
+        "note": "Red Bull"
+      },
+      {
+        "rank": 10,
+        "team": "Liam Lawson",
+        "played": "0",
+        "wins": "0",
+        "losses": "-",
+        "points": "28",
+        "note": "RB F1 Team"
+      }
+    ],
     "cricket": [
       {
         "rank": 1,
@@ -364,17 +456,6 @@
         "note": "Waiting for provider sync"
       }
     ],
-    "f1": [
-      {
-        "rank": 1,
-        "team": "F1 standings",
-        "played": "-",
-        "wins": "-",
-        "losses": "-",
-        "points": "-",
-        "note": "Waiting for provider sync"
-      }
-    ],
     "tennis": [
       {
         "rank": 1,
@@ -388,6 +469,78 @@
     ]
   },
   "playerStats": {
+    "f1": [
+      {
+        "rank": 1,
+        "name": "Andrea Kimi Antonelli",
+        "team": "Mercedes",
+        "metric": "Driver points",
+        "value": "156"
+      },
+      {
+        "rank": 2,
+        "name": "Lewis Hamilton",
+        "team": "Ferrari",
+        "metric": "Driver points",
+        "value": "115"
+      },
+      {
+        "rank": 3,
+        "name": "George Russell",
+        "team": "Mercedes",
+        "metric": "Driver points",
+        "value": "106"
+      },
+      {
+        "rank": 4,
+        "name": "Charles Leclerc",
+        "team": "Ferrari",
+        "metric": "Driver points",
+        "value": "75"
+      },
+      {
+        "rank": 5,
+        "name": "Lando Norris",
+        "team": "McLaren",
+        "metric": "Driver points",
+        "value": "73"
+      },
+      {
+        "rank": 6,
+        "name": "Oscar Piastri",
+        "team": "McLaren",
+        "metric": "Driver points",
+        "value": "68"
+      },
+      {
+        "rank": 7,
+        "name": "Max Verstappen",
+        "team": "Red Bull",
+        "metric": "Driver points",
+        "value": "55"
+      },
+      {
+        "rank": 8,
+        "name": "Pierre Gasly",
+        "team": "Alpine F1 Team",
+        "metric": "Driver points",
+        "value": "41"
+      },
+      {
+        "rank": 9,
+        "name": "Isack Hadjar",
+        "team": "Red Bull",
+        "metric": "Driver points",
+        "value": "34"
+      },
+      {
+        "rank": 10,
+        "name": "Liam Lawson",
+        "team": "RB F1 Team",
+        "metric": "Driver points",
+        "value": "28"
+      }
+    ],
     "cricket": [
       {
         "rank": 1,
@@ -415,15 +568,6 @@
         "value": "-"
       }
     ],
-    "f1": [
-      {
-        "rank": 1,
-        "name": "F1 leaders",
-        "team": "ScorecardX",
-        "metric": "Waiting for provider sync",
-        "value": "-"
-      }
-    ],
     "tennis": [
       {
         "rank": 1,
@@ -442,7 +586,7 @@
       "summary": "1/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-06-15T15:05:57.678Z"
+      "publishedAt": "2026-06-15T15:21:09.392Z"
     }
   ]
 }
