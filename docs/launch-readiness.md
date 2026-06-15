@@ -18,12 +18,13 @@ Full real-time score coverage still depends on valid production provider access.
 - Browser favicon exists as an X-letter ScorecardX mark at `/favicon.svg`.
 - Real provider clients are implemented for API-Football, API-Sports Cricket, BallDontLie NBA, ESPN football/NBA fallback scoreboards, and Jolpica F1.
 - Quota state, cache state, provider status, fixtures, live cards, standings, player leaders, and news are normalized into `public/data/scorecardx-data.json`.
-- Local scheduled update scripts are present for launchd and manual publish loops.
+- GitHub Actions scheduled data sync is present, using repository secrets and committed quota state.
+- Local scheduled update scripts remain available for emergency/local-only publish loops.
 - Pages now render provider health, deduplicated live cards, fixtures, standings, player stats, and news modules.
 
 ## Partial Or Placeholder
 
-- API-Football key access currently returned `HTTP 403` on 2026-06-15, so football uses the ESPN Premier League fallback until the RapidAPI subscription is fixed.
+- API-Football key access previously returned provider plan/rate-limit errors on 2026-06-15, so football uses the ESPN Premier League fallback until the RapidAPI subscription is fixed.
 - BallDontLie currently returned `HTTP 401` without a token on 2026-06-15, so basketball uses the ESPN NBA fallback unless `BALLDONTLIE_API_KEY` is configured.
 - API-Sports Cricket is configured but the current endpoint connection is being reset by the remote host, so cricket remains in provider-error mode until API-Sports connectivity/account access is restored.
 - Cricket standings/player stats and football league tables may require additional paid endpoint access depending on the provider plan.
@@ -42,8 +43,8 @@ Use this build for public launch as a static sports aggregation MVP with explici
 
 Do not market provider-key-backed sports as live until the corresponding provider status shows `ok` after `npm run sync:data`.
 
-1. Configure `.env` or launchd environment variables.
-2. Run `npm run sync:data`.
-3. Run `npm run build`.
-4. Verify provider status on the homepage.
-5. Install local automation with `npm run install:launchd`.
+1. Configure provider keys in GitHub repository secrets.
+2. Run the `Sync ScorecardX sports data` workflow manually once.
+3. Verify provider status on the homepage and in `public/data/sync_state.json`.
+4. Let the scheduled workflow run every 6 hours to stay within free-tier quota.
+5. Use local `.env` only for temporary debugging, not for production automation.

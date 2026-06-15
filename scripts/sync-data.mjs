@@ -9,12 +9,31 @@ const root = fileURLToPath(new URL("..", import.meta.url));
 const publicData = join(root, "public", "data");
 const cacheDir = join(root, ".scorecardx-cache");
 const quotaPath = join(cacheDir, "quota-state.json");
+const syncStatePath = join(publicData, "sync_state.json");
 
 await tryLoadEnv(join(root, ".env"));
 await mkdir(publicData, { recursive: true });
 await mkdir(cacheDir, { recursive: true });
 
-const quotaState = await readQuotaState(quotaPath);
+async function readPersistedQuotaState() {
+  try {
+    const cacheState = await readQuotaState(quotaPath);
+    if (Object.keys(cacheState.providers || {}).length) return cacheState;
+  } catch {
+    // Fall back to the public sync state below.
+  }
+
+  try {
+    const syncState = JSON.parse(await readFile(syncStatePath, "utf8"));
+    if (syncState.quota?.day && syncState.quota?.providers) return syncState.quota;
+  } catch {
+    // No persisted quota state yet.
+  }
+
+  return readQuotaState(quotaPath);
+}
+
+const quotaState = await readPersistedQuotaState();
 const quota = createQuotaManager(quotaState);
 
 const providerResults = {
@@ -81,7 +100,7 @@ await writeFile(join(publicData, "scorecardx-data.json"), `${JSON.stringify(data
 await writeFile(join(publicData, "live-scorecards.json"), `${JSON.stringify(live, null, 2)}\n`);
 await writeFile(join(publicData, "calendar.json"), `${JSON.stringify(calendar, null, 2)}\n`);
 await writeFile(
-  join(publicData, "sync_state.json"),
+  syncStatePath,
   `${JSON.stringify(
     {
       lastSyncAt: data.updatedAt,

@@ -1,0 +1,53 @@
+name: Sync ScorecardX sports data
+
+on:
+  schedule:
+    # Four runs per day keeps 100 req/day free-tier providers well below quota.
+    - cron: "12 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scorecardx-data-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+      API_FOOTBALL_BASE_URL: ${{ secrets.API_FOOTBALL_BASE_URL || 'https://api-football-v1.p.rapidapi.com/v3' }}
+      APISPORTS_CRICKET_KEY: ${{ secrets.APISPORTS_CRICKET_KEY }}
+      APISPORTS_CRICKET_BASE_URL: ${{ secrets.APISPORTS_CRICKET_BASE_URL || 'https://v1.cricket.api-sports.io' }}
+      BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
+      JOLPICA_BASE_URL: ${{ secrets.JOLPICA_BASE_URL || 'https://api.jolpi.ca/ergast/f1' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Sync provider data
+        run: npm run sync:data
+
+      - name: Build static pages
+        run: npm run build
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data
+          if git diff --cached --quiet; then
+            echo "No ScorecardX data changes to publish."
+            exit 0
+          fi
+          git commit -m "data: update ScorecardX sports data"
+          git push

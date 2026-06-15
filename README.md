@@ -14,7 +14,18 @@ The generated site is written to `dist/`. The `public/data` directory stores nor
 
 ## Live data setup
 
-Copy `.env.example` to `.env` and add any provider keys you have:
+Production provider keys should be stored in GitHub Actions secrets, not in local Codex automation and never in committed files:
+
+- `API_FOOTBALL_KEY`
+- `API_FOOTBALL_BASE_URL` (optional; RapidAPI default is `https://api-football-v1.p.rapidapi.com/v3`)
+- `APISPORTS_CRICKET_KEY`
+- `APISPORTS_CRICKET_BASE_URL` (optional)
+- `BALLDONTLIE_API_KEY` (optional)
+- `JOLPICA_BASE_URL` (optional)
+
+The `Sync ScorecardX sports data` workflow runs every 6 hours and can also be triggered manually from GitHub Actions. Four scheduled runs per day keeps 100 req/day free-tier providers well below quota. `public/data/sync_state.json` is committed so GitHub runners can carry daily quota state across runs.
+
+For local debugging only, copy `.env.example` to `.env` and add temporary provider keys:
 
 ```bash
 cp .env.example .env
@@ -32,28 +43,22 @@ Supported sync layers:
 
 The sync layer keeps provider status, quota state, cache state, fixtures, live cards, standings, player leaders, and news in `public/data/scorecardx-data.json`. Missing keys are shown as configuration states on the site instead of fake live data. API-Football supports both direct API-Sports keys and RapidAPI keys; use `API_FOOTBALL_BASE_URL=https://api-football-v1.p.rapidapi.com/v3` for RapidAPI. On 2026-06-15, BallDontLie's current v1 endpoint returned HTTP 401 without a token, so ScorecardX treats BallDontLie as optional and uses ESPN NBA as the no-key production fallback.
 
-## Local Codex scheduled update
+## Scheduled update
 
-For a 15-minute local GitHub Pages update loop:
-
-```bash
-npm run install:launchd
-```
-
-The scheduled task runs:
+The production update loop is handled by GitHub Actions:
 
 ```bash
 npm run sync:data
 npm run build
-git add public/data docs/launch-readiness.md
+git add public/data
 git commit -m "data: update ScorecardX sports data"
-git push origin main
+git push
 ```
 
-Manual one-shot publish:
+The legacy local launchd installer remains available for emergency/local-only operation, but provider keys should live in GitHub Secrets for the production site.
 
 ```bash
-npm run publish:data
+npm run install:launchd
 ```
 
 ## Pages
