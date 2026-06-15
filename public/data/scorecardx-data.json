@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T13:19:51.821Z",
+  "updatedAt": "2026-06-15T13:35:00.265Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,7 +10,7 @@
     "apiFootball": {
       "status": "ok",
       "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-06-15: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 75
+      "remainingQuota": 74
     },
     "apiSportsCricket": {
       "status": "quota_exhausted",
@@ -18,13 +18,13 @@
       "remainingQuota": 61
     },
     "basketball": {
-      "status": "ok",
-      "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-06-15&per_page=25: Unauthorized)",
+      "status": "quota_exhausted",
+      "label": "Basketball quota exhausted",
       "remainingQuota": 75
     },
     "jolpicaF1": {
       "status": "ok",
-      "label": "Jolpica F1 cache",
+      "label": "Jolpica F1 network",
       "remainingQuota": null
     }
   },
@@ -142,20 +142,6 @@
       "source": "espn-epl-fallback"
     },
     {
-      "id": "basketball-401859967",
-      "sport": "Basketball",
-      "league": "NBA",
-      "status": "Final",
-      "clock": "0.0",
-      "home": "San Antonio Spurs",
-      "away": "New York Knicks",
-      "homeScore": "90",
-      "awayScore": "94",
-      "accent": "basketball",
-      "note": "Frost Bank Center · ESPN NBA fallback",
-      "source": "espn-nba-fallback"
-    },
-    {
       "id": "f1-8",
       "sport": "F1",
       "league": "Formula 1",
@@ -181,6 +167,20 @@
       "awayScore": "waiting",
       "accent": "cricket",
       "note": "Set APISPORTS_CRICKET_KEY and run npm run sync:data.",
+      "source": "configuration"
+    },
+    {
+      "id": "config-basketball",
+      "sport": "Basketball",
+      "league": "Data setup",
+      "status": "CONFIG",
+      "clock": "key needed",
+      "home": "NBA provider",
+      "away": "ScorecardX",
+      "homeScore": "ready",
+      "awayScore": "waiting",
+      "accent": "basketball",
+      "note": "Set BALLDONTLIE_API_KEY and run npm run sync:data.",
       "source": "configuration"
     }
   ],
@@ -294,17 +294,6 @@
       "away": "Leeds United",
       "status": "FT",
       "source": "espn-epl-fallback"
-    },
-    {
-      "id": "basketball-fixture-401859967",
-      "date": "2026-06-14",
-      "time": "00:30",
-      "sport": "Basketball",
-      "league": "NBA",
-      "home": "San Antonio Spurs",
-      "away": "New York Knicks",
-      "status": "Final",
-      "source": "espn-nba-fallback"
     },
     {
       "id": "f1-fixture-1",
@@ -660,26 +649,6 @@
         "note": "ESPN team record"
       }
     ],
-    "basketball": [
-      {
-        "rank": 1,
-        "team": "San Antonio Spurs",
-        "played": "62-20",
-        "wins": "62",
-        "losses": "20",
-        "points": "90",
-        "note": "ESPN team record"
-      },
-      {
-        "rank": 2,
-        "team": "New York Knicks",
-        "played": "53-29",
-        "wins": "53",
-        "losses": "29",
-        "points": "94",
-        "note": "ESPN team record"
-      }
-    ],
     "f1": [
       {
         "rank": 1,
@@ -783,6 +752,17 @@
         "note": "Waiting for provider sync"
       }
     ],
+    "basketball": [
+      {
+        "rank": 1,
+        "team": "Basketball standings",
+        "played": "-",
+        "wins": "-",
+        "losses": "-",
+        "points": "-",
+        "note": "Waiting for provider sync"
+      }
+    ],
     "tennis": [
       {
         "rank": 1,
@@ -796,64 +776,6 @@
     ]
   },
   "playerStats": {
-    "basketball": [
-      {
-        "rank": 1,
-        "name": "Dylan Harper",
-        "team": "San Antonio Spurs",
-        "metric": "Points",
-        "value": "25"
-      },
-      {
-        "rank": 2,
-        "name": "Victor Wembanyama",
-        "team": "San Antonio Spurs",
-        "metric": "Rebounds",
-        "value": "14"
-      },
-      {
-        "rank": 3,
-        "name": "De'Aaron Fox",
-        "team": "San Antonio Spurs",
-        "metric": "Assists",
-        "value": "5"
-      },
-      {
-        "rank": 4,
-        "name": "Victor Wembanyama",
-        "team": "San Antonio Spurs",
-        "metric": "Rating",
-        "value": "19 PTS, 14 REB, 5 BLK"
-      },
-      {
-        "rank": 5,
-        "name": "Jalen Brunson",
-        "team": "New York Knicks",
-        "metric": "Points",
-        "value": "45"
-      },
-      {
-        "rank": 6,
-        "name": "Josh Hart",
-        "team": "New York Knicks",
-        "metric": "Rebounds",
-        "value": "11"
-      },
-      {
-        "rank": 7,
-        "name": "Mikal Bridges",
-        "team": "New York Knicks",
-        "metric": "Assists",
-        "value": "4"
-      },
-      {
-        "rank": 8,
-        "name": "Jalen Brunson",
-        "team": "New York Knicks",
-        "metric": "Rating",
-        "value": "45 PTS"
-      }
-    ],
     "f1": [
       {
         "rank": 1,
@@ -944,6 +866,15 @@
         "value": "-"
       }
     ],
+    "basketball": [
+      {
+        "rank": 1,
+        "name": "Basketball leaders",
+        "team": "ScorecardX",
+        "metric": "Waiting for provider sync",
+        "value": "-"
+      }
+    ],
     "tennis": [
       {
         "rank": 1,
@@ -959,10 +890,10 @@
       "id": "data-pipeline-status",
       "sport": "Platform",
       "title": "ScorecardX live data pipeline updated",
-      "summary": "3/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
+      "summary": "2/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-06-15T13:19:51.821Z"
+      "publishedAt": "2026-06-15T13:35:00.265Z"
     }
   ]
 }

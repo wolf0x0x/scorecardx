@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T13:19:51.821Z",
+  "updatedAt": "2026-06-15T13:35:00.265Z",
   "events": [
     {
       "date": "2026-05-24",
@@ -69,13 +69,6 @@
       "sport": "Football",
       "event": "Premier League: West Ham United vs Leeds United",
       "time": "15:00",
-      "priority": "P0"
-    },
-    {
-      "date": "2026-06-14",
-      "sport": "Basketball",
-      "event": "NBA: San Antonio Spurs vs New York Knicks",
-      "time": "00:30",
       "priority": "P0"
     },
     {

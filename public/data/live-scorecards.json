@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T13:19:51.821Z",
+  "updatedAt": "2026-06-15T13:35:00.265Z",
   "cards": [
     {
       "id": "football-740966",
@@ -114,20 +114,6 @@
       "source": "espn-epl-fallback"
     },
     {
-      "id": "basketball-401859967",
-      "sport": "Basketball",
-      "league": "NBA",
-      "status": "Final",
-      "clock": "0.0",
-      "home": "San Antonio Spurs",
-      "away": "New York Knicks",
-      "homeScore": "90",
-      "awayScore": "94",
-      "accent": "basketball",
-      "note": "Frost Bank Center · ESPN NBA fallback",
-      "source": "espn-nba-fallback"
-    },
-    {
       "id": "f1-8",
       "sport": "F1",
       "league": "Formula 1",
@@ -153,6 +139,20 @@
       "awayScore": "waiting",
       "accent": "cricket",
       "note": "Set APISPORTS_CRICKET_KEY and run npm run sync:data.",
+      "source": "configuration"
+    },
+    {
+      "id": "config-basketball",
+      "sport": "Basketball",
+      "league": "Data setup",
+      "status": "CONFIG",
+      "clock": "key needed",
+      "home": "NBA provider",
+      "away": "ScorecardX",
+      "homeScore": "ready",
+      "awayScore": "waiting",
+      "accent": "basketball",
+      "note": "Set BALLDONTLIE_API_KEY and run npm run sync:data.",
       "source": "configuration"
     }
   ]
