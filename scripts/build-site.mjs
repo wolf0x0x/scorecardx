@@ -14,14 +14,14 @@ const css = await readFile(join(root, "src/styles.css"), "utf8");
 const appJs = await readFile(join(root, "src/app.js"), "utf8");
 
 const heroImages = {
-  home: "url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1800&q=80')",
-  football: "url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1800&q=80')",
-  basketball: "url('https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1800&q=80')",
-  cricket: "url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1800&q=80')",
-  f1: "url('https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1800&q=80')",
-  tennis: "url('https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=1800&q=80')",
-  worldcup: "url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1800&q=80')",
-  calendar: "url('https://images.unsplash.com/photo-1505666287802-931dc83a55c1?auto=format&fit=crop&w=1800&q=80')"
+  home: "/assets/images/hero-home.webp",
+  football: "/assets/images/hero-football.webp",
+  basketball: "/assets/images/hero-basketball.webp",
+  cricket: "/assets/images/hero-cricket.webp",
+  f1: "/assets/images/hero-f1.webp",
+  tennis: "/assets/images/hero-tennis.webp",
+  worldcup: "/assets/images/hero-worldcup.webp",
+  calendar: "/assets/images/hero-calendar.webp"
 };
 
 const leagueRows = [
@@ -433,6 +433,7 @@ function pageHtml(page, lang) {
   const modules = page.modules[lang] || page.modules.en;
   const jsonLd = JSON.stringify(structuredData(page, lang));
   const relatedHeading = page.path === "/" ? labels.featHubs : labels.relPages;
+  const heroImage = `url('${assetHrefFor(heroImages[page.hero] || heroImages.home, page.path, lang)}')`;
   const contentTable =
     page.path === "/calendar/"
       ? calendarHtml()
@@ -463,14 +464,13 @@ function pageHtml(page, lang) {
   <link rel="icon" href="${assetHrefFor("/favicon.svg", page.path, lang)}" type="image/svg+xml">
   <link rel="mask-icon" href="${assetHrefFor("/favicon.svg", page.path, lang)}" color="${accent}">
   <meta name="theme-color" content="#0f172a">
-  <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
   <style>${css}</style>
   <script type="application/ld+json">${jsonLd}</script>
 </head>
-<body style="--accent:${accent};--hero-image:${heroImages[page.hero] || heroImages.home}">
+<body style="--accent:${accent};--hero-image:${heroImage}">
   <div class="shell">
     <header class="topbar">
       <div class="topbar-inner">
