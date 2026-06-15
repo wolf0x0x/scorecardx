@@ -108,14 +108,34 @@ function langSwitchHtml(currentPath, lang) {
 }
 
 function getAdHtml(zone) {
+  let styleStr = "margin:24px auto;text-align:center;background:rgba(30,41,59,0.3);border:1px dashed var(--border);padding:16px;border-radius:12px;max-width:100%;overflow:hidden;clear:both;";
+  let slotId = "1234567890";
+
+  if (zone === "zone_a") {
+    styleStr += " min-height:110px;max-height:140px;";
+    slotId = "8895390011";
+  } else if (zone === "zone_b") {
+    styleStr += " min-height:280px;width:100%;";
+    slotId = "8895390022";
+  } else if (zone === "zone_c") {
+    styleStr += " min-height:110px;";
+    slotId = "8895390033";
+  } else if (zone === "zone_d") {
+    styleStr += " min-height:150px;background:linear-gradient(90deg, rgba(30,41,59,0.4) 0%, rgba(15,23,42,0.6) 100%);border:1px solid var(--border-soft);";
+    slotId = "8895390044";
+  }
+
   return `
-  <div class="ad-container ad-${zone}" style="margin:20px auto;text-align:center;background:rgba(30,41,59,0.4);border:1px dashed var(--border);padding:15px;border-radius:8px;max-width:100%;">
-    <span style="font-size:10px;color:var(--faint);text-transform:uppercase;display:block;margin-bottom:8px;">Advertisement [${zone.toUpperCase()}]</span>
+  <div class="ad-wrapper-box ad-slot-${zone}" style="${styleStr}">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding:0 4px;">
+      <span style="font-size:10px;color:var(--faint);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">ADVERTISEMENT</span>
+      <span style="font-size:9px;color:var(--border);border:1px solid var(--border);border-radius:3px;padding:1px 3px;cursor:pointer;" onclick="this.parentElement.parentElement.style.display='none'">× Remove</span>
+    </div>
     <ins class="adsbygoogle"
-         style="display:block"
+         style="display:block;text-align:center;"
          data-ad-client="ca-pub-8695398658548679"
-         data-ad-slot="1234567890"
-         data-ad-format="auto"
+         data-ad-slot="${slotId}"
+         data-ad-format="${zone === "zone_b" ? "vertical" : "horizontal"}"
          data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>`;
@@ -484,6 +504,7 @@ function pageHtml(page, lang) {
       </section>
       ${tickerHtml()}
       ${providerHealthHtml()}
+      ${getAdHtml("zone_d")}
       <section class="section">
         <div class="section-head">
           <div>

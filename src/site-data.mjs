@@ -467,16 +467,16 @@ export const pages = [
     ],
     "i18n": {
       "en": {
-        "title": "ScorecardX - Live Sports Scores, Schedules & Analytics",
-        "eyebrow": "Global Sports Command Center",
-        "heading": "ScorecardX Live Hub",
-        "summary": "A comprehensive sports intelligence platform for IPL live scores, football leagues, NBA playoffs, and cross-sport calendars.",
+        "title": "ScorecardX - Live Sports Scores, Match Schedules & Analytics Standings",
+        "eyebrow": "Global Sports Command Center & Live Ticker",
+        "heading": "ScorecardX Live Match Center",
+        "summary": "Your premier comprehensive sports intelligence station. Realtime snapshot tracking for IPL live scores, premier football league fixtures, NBA championship standings, and long-tail player statistics.",
         "focus": [
-          "IPL live scores",
-          "Five major football leagues",
-          "NBA playoffs",
-          "World Cup 2026",
-          "F1 telemetry"
+          "IPL live scores today",
+          "Football leagues results",
+          "NBA playoffs stats",
+          "World Cup 2026 fixture",
+          "F1 realtime timing"
         ]
       },
       "es": {
@@ -545,16 +545,16 @@ export const pages = [
         ]
       },
       "zh": {
-        "title": "ScorecardX - 体育比分直播、赛程表与大数据中心",
-        "eyebrow": "全球体育赛事指挥中心",
-        "heading": "ScorecardX 赛事中心",
-        "summary": "一站式体育综合资讯聚合平台，重点覆盖IPL板球实时比分、欧冠五大联赛、NBA季后赛总决赛及全球跨界体育综合日历。",
+        "title": "ScorecardX - 体育比分直播、焦点赛事赛程表、历史战绩与联赛积分榜大数据中心",
+        "eyebrow": "全球体育赛事即时比分指挥中心",
+        "heading": "ScorecardX 核心赛事中心",
+        "summary": "一站式静态体育智能聚合平台。深度覆盖IPL板球即时记分卡、欧洲五大联赛及欧冠实时比分直播、NBA季后赛总决赛赛程对阵，以及高流量体育核心长尾大数据统计。",
         "focus": [
-          "IPL板球直播",
-          "欧洲五大联赛",
-          "NBA总决赛",
-          "2026美加墨世界杯",
-          "F1实时遥测"
+          "IPL板球直播比分",
+          "欧洲足球五大联赛积分榜",
+          "NBA总决赛实时战报",
+          "2026世界杯赛程对阵表",
+          "F1实时遥测时序图"
         ]
       }
     }
@@ -632,17 +632,17 @@ export const pages = [
     ],
     "i18n": {
       "en": {
-        "title": "Football News & Live Scores - ScorecardX",
-        "eyebrow": "Football Hub",
-        "heading": "World Football Pulse",
-        "summary": "Follow World Cup 2026 builds, European top flight standings, and lightning fast live score centers.",
+        "title": "Football News & Live Scores - ScorecardX | Fixtures, Standings & Match Stats",
+        "eyebrow": "Football Hub & Live Ticker",
+        "heading": "World Football Live Scores & League Standings",
+        "summary": "Track World Cup 2026 fixtures, European top-flight standings, and lightning-fast live football scores. Deep coverage of EPL, La Liga, Serie A, Bundesliga and Champions League match stats.",
         "focus": [
-          "World Cup 2026",
-          "EPL",
-          "La Liga",
-          "Serie A",
-          "Bundesliga",
-          "Champions League"
+          "World Cup 2026 fixtures",
+          "EPL live scores",
+          "La Liga standings",
+          "Serie A match stats",
+          "Bundesliga results",
+          "Champions League fixtures"
         ]
       },
       "es": {
@@ -716,17 +716,17 @@ export const pages = [
         ]
       },
       "zh": {
-        "title": "足球资讯与即时比分直播 - ScorecardX",
-        "eyebrow": "足球综合中心",
-        "heading": "全球足球脉搏监测",
-        "summary": "追踪2026年世界杯预选赛动态、欧洲五大联赛积分榜变动以及最密集的足球实时比分直播中心。",
+        "title": "足球比分直播与五大联赛积分榜 - ScorecardX | 英超西甲意甲德甲欧冠赛程",
+        "eyebrow": "足球即时比分与联赛数据中心",
+        "heading": "全球足球实时比分与积分榜监测",
+        "summary": "追踪2026世界杯预选赛赛程、欧洲五大联赛积分榜实时变动，以及英超、西甲、意甲、德甲和欧冠的最快即时比分直播与历史战绩统计。",
         "focus": [
-          "2026世界杯",
-          "英超联赛",
-          "西甲",
-          "意甲",
-          "德甲",
-          "欧洲冠军联赛"
+          "2026世界杯赛程",
+          "英超即时比分",
+          "西甲积分榜",
+          "意甲战绩统计",
+          "德甲赛果",
+          "欧冠赛程对阵"
         ]
       }
     }

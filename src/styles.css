@@ -759,3 +759,15 @@ tr:hover td {
     justify-content: flex-start;
   }
 }
+
+/* Ad slot mobile adaptivity and visual smoothness */
+.ad-wrapper-box {
+  transition: opacity 0.3s ease;
+}
+@media (max-width: 640px) {
+  .ad-wrapper-box {
+    margin: 16px 0 !important;
+    padding: 10px !important;
+    border-radius: 8px !important;
+  }
+}
