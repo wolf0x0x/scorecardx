@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T17:21:46.184Z",
+  "updatedAt": "2026-06-15T17:36:50.679Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -24,7 +24,7 @@
     },
     "jolpicaF1": {
       "status": "ok",
-      "label": "Jolpica F1 network",
+      "label": "Jolpica F1 cache",
       "remainingQuota": null
     }
   },
@@ -586,7 +586,7 @@
       "summary": "1/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-06-15T17:21:46.184Z"
+      "publishedAt": "2026-06-15T17:36:50.679Z"
     }
   ]
 }
