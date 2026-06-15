@@ -64,7 +64,7 @@ export function buildNews(providers) {
       sport: "Platform",
       title: configured ? "ScorecardX live data pipeline updated" : "ScorecardX awaits API keys for full live coverage",
       summary: configured
-        ? `${configured}/${total} provider groups refreshed. Static pages now distinguish live, cached, and provider states.`
+        ? `${configured}/${total} provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.`
         : "Set provider keys in .env or launchd to enable cricket, football, and basketball live data sync.",
       url: "/about/",
       source: "ScorecardX",

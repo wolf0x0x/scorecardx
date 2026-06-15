@@ -959,7 +959,7 @@
       "id": "data-pipeline-status",
       "sport": "Platform",
       "title": "ScorecardX live data pipeline updated",
-      "summary": "3/4 provider groups refreshed. Static pages now distinguish live, cached, and provider states.",
+      "summary": "3/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
       "publishedAt": "2026-06-15T08:46:44.766Z"

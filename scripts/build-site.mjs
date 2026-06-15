@@ -337,8 +337,8 @@ function metricsHtml(page, lang) {
   const modules = page.modules[lang] || page.modules.en;
   const values = [
     [content.focus[0] || "Live", "Primary surface"],
-    [modules[0] || "Scores", "Reusable static module"],
-    ["< 1.5s", "Static page load target"],
+    [modules[0] || "Scores", "Reusable module"],
+    ["< 1.5s", "Fast page load target"],
     [page.active === "Cricket" ? "5 min" : page.active === "Home" ? "5-30 min" : "15-30 min", "Planned data cadence"]
   ];
   return values

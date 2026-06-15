@@ -39,7 +39,7 @@ Full real-time score coverage still depends on valid production provider access.
 
 ## Release Recommendation
 
-Use this build for public launch as a static sports aggregation MVP with explicit provider health. Treat ESPN football/NBA fallbacks as production-safe public scoreboards, and treat cricket as pending provider recovery until API-Sports returns successful responses.
+Use this build for public launch as a sports aggregation MVP with explicit provider health. Treat ESPN football/NBA fallbacks as production-safe public scoreboards, and treat cricket as pending provider recovery until API-Sports returns successful responses.
 
 Do not market provider-key-backed sports as live until the corresponding provider status shows `ok` after `npm run sync:data`.
 

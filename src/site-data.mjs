@@ -393,7 +393,7 @@ export const pages = [
     "title": "ScorecardX - Live Sports Scores, Schedules and Data",
     "eyebrow": "Global Sports Command Center",
     "heading": "ScorecardX",
-    "summary": "A one-stop static sports intelligence platform for cricket-first live scores, football leagues, NBA coverage, F1 timing, tennis briefs, and cross-sport calendars.",
+    "summary": "A one-stop sports intelligence platform for cricket-first live scores, football leagues, NBA coverage, F1 timing, tennis briefs, and cross-sport calendars.",
     "active": "Home",
     "accent": "cricket",
     "hero": "home",
@@ -3545,7 +3545,7 @@ export const pages = [
     "title": "Other Sports Roadmap - ScorecardX",
     "eyebrow": "Other Sports / Roadmap",
     "heading": "Expandable lanes for additional sports.",
-    "summary": "A holding hub for sports with limited free data availability, ready for daily static content and future API coverage.",
+    "summary": "A holding hub for sports with limited free data availability, ready for daily coverage and future API expansion.",
     "active": "F1",
     "accent": "other",
     "hero": "home",
@@ -3604,7 +3604,7 @@ export const pages = [
         "title": "Other Sports Roadmap - ScorecardX",
         "eyebrow": "Other Sports / Roadmap",
         "heading": "Expandable lanes for additional sports.",
-        "summary": "A holding hub for sports with limited free data availability, ready for daily static content and future API coverage.",
+        "summary": "A holding hub for sports with limited free data availability, ready for daily coverage and future API expansion.",
         "focus": [
           "Rugby",
           "Baseball",
@@ -3616,7 +3616,7 @@ export const pages = [
         "title": "Other Sports Roadmap - ScorecardX",
         "eyebrow": "Other Sports / Roadmap",
         "heading": "Expandable lanes for additional sports.",
-        "summary": "A holding hub for sports with limited free data availability, ready for daily static content and future API coverage.",
+        "summary": "A holding hub for sports with limited free data availability, ready for daily coverage and future API expansion.",
         "focus": [
           "Rugby",
           "Baseball",
@@ -3628,7 +3628,7 @@ export const pages = [
         "title": "Other Sports Roadmap - ScorecardX",
         "eyebrow": "Other Sports / Roadmap",
         "heading": "Expandable lanes for additional sports.",
-        "summary": "A holding hub for sports with limited free data availability, ready for daily static content and future API coverage.",
+        "summary": "A holding hub for sports with limited free data availability, ready for daily coverage and future API expansion.",
         "focus": [
           "Rugby",
           "Baseball",
@@ -3640,7 +3640,7 @@ export const pages = [
         "title": "Other Sports Roadmap - ScorecardX",
         "eyebrow": "Other Sports / Roadmap",
         "heading": "Expandable lanes for additional sports.",
-        "summary": "A holding hub for sports with limited free data availability, ready for daily static content and future API coverage.",
+        "summary": "A holding hub for sports with limited free data availability, ready for daily coverage and future API expansion.",
         "focus": [
           "Rugby",
           "Baseball",
@@ -3652,7 +3652,7 @@ export const pages = [
         "title": "Other Sports Roadmap - ScorecardX",
         "eyebrow": "Other Sports / Roadmap",
         "heading": "Expandable lanes for additional sports.",
-        "summary": "A holding hub for sports with limited free data availability, ready for daily static content and future API coverage.",
+        "summary": "A holding hub for sports with limited free data availability, ready for daily coverage and future API expansion.",
         "focus": [
           "Rugby",
           "Baseball",
@@ -3664,7 +3664,7 @@ export const pages = [
         "title": "Other Sports Roadmap - ScorecardX",
         "eyebrow": "Other Sports / Roadmap",
         "heading": "Expandable lanes for additional sports.",
-        "summary": "A holding hub for sports with limited free data availability, ready for daily static content and future API coverage.",
+        "summary": "A holding hub for sports with limited free data availability, ready for daily coverage and future API expansion.",
         "focus": [
           "Rugby",
           "Baseball",
@@ -3676,7 +3676,7 @@ export const pages = [
         "title": "Other Sports Roadmap - ScorecardX",
         "eyebrow": "Other Sports / Roadmap",
         "heading": "Expandable lanes for additional sports.",
-        "summary": "A holding hub for sports with limited free data availability, ready for daily static content and future API coverage.",
+        "summary": "A holding hub for sports with limited free data availability, ready for daily coverage and future API expansion.",
         "focus": [
           "Rugby",
           "Baseball",
