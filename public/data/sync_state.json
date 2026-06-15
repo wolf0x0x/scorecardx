@@ -1,5 +1,5 @@
 {
-  "lastSyncAt": "2026-06-15T10:33:21.351Z",
+  "lastSyncAt": "2026-06-15T10:48:29.935Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,27 +10,27 @@
     "apiFootball": {
       "status": "ok",
       "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-06-15: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 86
+      "remainingQuota": 85
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 76
+      "remainingQuota": 73
     },
     "basketball": {
       "status": "ok",
       "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-06-15&per_page=25: Unauthorized)",
-      "remainingQuota": 86
+      "remainingQuota": 85
     },
     "jolpicaF1": {
       "status": "ok",
-      "label": "Jolpica F1 network",
+      "label": "Jolpica F1 cache",
       "remainingQuota": null
     }
   },
   "providerErrorStreaks": {
     "apiFootball": 0,
-    "apiSportsCricket": 5,
+    "apiSportsCricket": 6,
     "basketball": 0,
     "jolpicaF1": 0
   },
@@ -38,21 +38,21 @@
     "day": "2026-06-15",
     "providers": {
       "apiFootball": {
-        "used": 14,
+        "used": 15,
         "buckets": {
-          "live_scores": 14
+          "live_scores": 15
         }
       },
       "apiSportsCricket": {
-        "used": 24,
+        "used": 27,
         "buckets": {
-          "live_scores": 24
+          "live_scores": 27
         }
       },
       "basketball": {
-        "used": 14,
+        "used": 15,
         "buckets": {
-          "live_scores": 14
+          "live_scores": 15
         }
       }
     }
