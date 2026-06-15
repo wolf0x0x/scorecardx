@@ -1,53 +1,61 @@
 {
-  "updatedAt": "2026-06-15T05:30:00Z",
+  "updatedAt": "2026-06-15T07:31:17.258Z",
   "cards": [
     {
-      "sport": "Cricket",
-      "league": "IPL 2026",
-      "status": "LIVE",
-      "clock": "19.2 ov",
-      "home": "Mumbai Indians",
-      "away": "Chennai Super Kings",
-      "homeScore": "184/4",
-      "awayScore": "Yet to bat",
-      "accent": "cricket",
-      "note": "MI need a strong finish at Wankhede"
-    },
-    {
-      "sport": "Football",
-      "league": "La Liga",
-      "status": "72'",
-      "clock": "Live",
-      "home": "Real Madrid",
-      "away": "Barcelona",
-      "homeScore": "2",
-      "awayScore": "1",
-      "accent": "football",
-      "note": "Madrid lead possession 54%"
-    },
-    {
-      "sport": "Basketball",
-      "league": "NBA Finals",
-      "status": "Q3",
-      "clock": "06:14",
-      "home": "Boston",
-      "away": "Denver",
-      "homeScore": "86",
-      "awayScore": "82",
-      "accent": "basketball",
-      "note": "Jokic one rebound from triple-double"
-    },
-    {
+      "id": "f1-8",
       "sport": "F1",
-      "league": "Canadian GP",
-      "status": "FP2",
-      "clock": "12:08",
-      "home": "VER",
-      "away": "NOR",
-      "homeScore": "1:13.822",
-      "awayScore": "+0.184",
+      "league": "Formula 1",
+      "status": "NEXT",
+      "clock": "2026-06-28",
+      "home": "Austrian Grand Prix",
+      "away": "Red Bull Ring",
+      "homeScore": "R8",
+      "awayScore": "13:00:00 UTC",
       "accent": "f1",
-      "note": "Track temp 34C"
+      "note": "Spielberg, Austria",
+      "source": "jolpica"
+    },
+    {
+      "id": "config-cricket",
+      "sport": "Cricket",
+      "league": "Data setup",
+      "status": "CONFIG",
+      "clock": "key needed",
+      "home": "API-Sports Cricket",
+      "away": "ScorecardX",
+      "homeScore": "ready",
+      "awayScore": "waiting",
+      "accent": "cricket",
+      "note": "Set APISPORTS_CRICKET_KEY and run npm run sync:data.",
+      "source": "configuration"
+    },
+    {
+      "id": "config-football",
+      "sport": "Football",
+      "league": "Data setup",
+      "status": "CONFIG",
+      "clock": "key needed",
+      "home": "API-Football",
+      "away": "ScorecardX",
+      "homeScore": "ready",
+      "awayScore": "waiting",
+      "accent": "football",
+      "note": "Set API_FOOTBALL_KEY and run npm run sync:data.",
+      "source": "configuration"
+    },
+    {
+      "id": "config-basketball",
+      "sport": "Basketball",
+      "league": "Data setup",
+      "status": "CONFIG",
+      "clock": "key needed",
+      "home": "NBA provider",
+      "away": "ScorecardX",
+      "homeScore": "ready",
+      "awayScore": "waiting",
+      "accent": "basketball",
+      "note": "Set BALLDONTLIE_API_KEY and run npm run sync:data.",
+      "source": "configuration"
     }
   ]
 }
