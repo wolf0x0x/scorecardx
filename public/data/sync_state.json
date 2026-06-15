@@ -1,5 +1,5 @@
 {
-  "lastSyncAt": "2026-06-15T12:19:18.286Z",
+  "lastSyncAt": "2026-06-15T12:34:26.618Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,7 +10,7 @@
     "apiFootball": {
       "status": "ok",
       "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-06-15: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 79
+      "remainingQuota": 78
     },
     "apiSportsCricket": {
       "status": "quota_exhausted",
@@ -20,11 +20,11 @@
     "basketball": {
       "status": "ok",
       "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-06-15&per_page=25: Unauthorized)",
-      "remainingQuota": 79
+      "remainingQuota": 78
     },
     "jolpicaF1": {
       "status": "ok",
-      "label": "Jolpica F1 cache",
+      "label": "Jolpica F1 network",
       "remainingQuota": null
     }
   },
@@ -38,9 +38,9 @@
     "day": "2026-06-15",
     "providers": {
       "apiFootball": {
-        "used": 21,
+        "used": 22,
         "buckets": {
-          "live_scores": 21
+          "live_scores": 22
         }
       },
       "apiSportsCricket": {
@@ -50,9 +50,9 @@
         }
       },
       "basketball": {
-        "used": 21,
+        "used": 22,
         "buckets": {
-          "live_scores": 21
+          "live_scores": 22
         }
       }
     }
