@@ -5,11 +5,55 @@ ScorecardX is a static, GitHub Pages ready sports intelligence hub focused on cr
 ## Local workflow
 
 ```bash
+npm run sync:data
 npm run build
 python3 -m http.server 4173 -d dist
 ```
 
-The generated site is written to `dist/`. The `public/data` directory is reserved for Codex scheduled jobs that fetch, normalize, and publish sports data into static JSON files before each build.
+The generated site is written to `dist/`. The `public/data` directory stores normalized static JSON that is consumed by the page builder.
+
+## Live data setup
+
+Copy `.env.example` to `.env` and add any provider keys you have:
+
+```bash
+cp .env.example .env
+npm run sync:data
+npm run build
+```
+
+Supported sync layers:
+
+- API-Football via `API_FOOTBALL_KEY`
+- API-Sports Cricket via `APISPORTS_CRICKET_KEY`
+- NBA via `BALLDONTLIE_API_KEY`
+- F1 via public Jolpica endpoint
+
+The sync layer keeps provider status, quota state, cache state, fixtures, live cards, standings, player leaders, and news in `public/data/scorecardx-data.json`. Missing keys are shown as configuration states on the site instead of fake live data.
+
+## Local Codex scheduled update
+
+For a 15-minute local GitHub Pages update loop:
+
+```bash
+npm run install:launchd
+```
+
+The scheduled task runs:
+
+```bash
+npm run sync:data
+npm run build
+git add public/data docs/launch-readiness.md
+git commit -m "data: update ScorecardX sports data"
+git push origin main
+```
+
+Manual one-shot publish:
+
+```bash
+npm run publish:data
+```
 
 ## Pages
 

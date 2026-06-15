@@ -2,3 +2,6 @@ node_modules/
 .DS_Store
 dist/
 public/data/sync_state.json
+public/data/raw-cache/
+.scorecardx-cache/
+.env

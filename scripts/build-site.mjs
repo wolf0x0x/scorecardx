@@ -9,6 +9,7 @@ const publicDir = join(root, "public");
 
 const live = JSON.parse(await readFile(join(publicDir, "data/live-scorecards.json"), "utf8"));
 const calendar = JSON.parse(await readFile(join(publicDir, "data/calendar.json"), "utf8"));
+const scorecardxData = JSON.parse(await readFile(join(publicDir, "data/scorecardx-data.json"), "utf8"));
 const css = await readFile(join(root, "src/styles.css"), "utf8");
 const appJs = await readFile(join(root, "src/app.js"), "utf8");
 
@@ -120,8 +121,30 @@ function getAdHtml(zone) {
   </div>`;
 }
 
+function dataKeyForPage(page) {
+  if (page.active === "Cricket") return "cricket";
+  if (page.active === "Football") return "football";
+  if (page.active === "Basketball") return "basketball";
+  if (page.active === "F1") return "f1";
+  if (page.active === "Tennis") return "tennis";
+  return "all";
+}
+
+function liveCardsForPage(page) {
+  const cards = scorecardxData.liveCards?.length ? scorecardxData.liveCards : live.cards || [];
+  const wanted = page.active === "Home" || page.path === "/calendar/" ? cards : cards.filter((card) => card.sport === page.active || (page.active === "F1" && card.sport === "F1"));
+  const selected = wanted.length ? wanted : cards;
+  const seen = new Set();
+  return selected.filter((card) => {
+    const key = card.id || `${card.sport}-${card.league}-${card.home}-${card.away}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
 function tickerHtml() {
-  const cards = [...live.cards, ...live.cards];
+  const cards = liveCardsForPage({ active: "Home", path: "/" });
   return `<div class="ticker" aria-label="Live score ticker"><div class="ticker-track">${cards
     .map(
       (card) => `<article class="ticker-card glass-panel" style="--card-accent:${sportAccents[card.accent] || sportAccents.other}">
@@ -139,10 +162,7 @@ function tickerHtml() {
 
 function heroBoard(page, lang) {
   const labels = uiLabels[lang] || uiLabels.en;
-  const activeCards = live.cards.filter(
-    (card) => page.active === "Home" || card.sport === page.active || (page.active === "F1" && card.sport === "F1")
-  );
-  const cards = activeCards.length ? activeCards : live.cards.slice(0, 2);
+  const cards = liveCardsForPage(page).slice(0, 3);
   return `<aside class="hero-board glass-panel">
     <div class="section-head" style="margin-bottom:12px">
       <div>
@@ -165,6 +185,133 @@ function heroBoard(page, lang) {
         .join("")}
     </div>
   </aside>`;
+}
+
+function providerHealthHtml() {
+  const providers = scorecardxData.providers || {};
+  const entries = Object.entries(providers);
+  if (!entries.length) return "";
+  return `<section class="section">
+    <div class="section-head">
+      <div>
+        <div class="label">Data Health</div>
+        <h2>Provider Status</h2>
+        <p>${escapeHtml(scorecardxData.freshness?.label || "Provider status unavailable")} · Updated ${escapeHtml(scorecardxData.updatedAt || live.updatedAt)}</p>
+      </div>
+    </div>
+    <div class="grid metrics">${entries
+      .map(([name, state]) => `<article class="metric">
+        <h3>${escapeHtml(name)}</h3>
+        <span class="source-badge source-${escapeHtml(state.status || "unknown")}">${escapeHtml(state.status || "unknown")}</span>
+        <p>${escapeHtml(state.label || "")}</p>
+        <div class="metric-value">${state.remainingQuota === null || state.remainingQuota === undefined ? "∞" : escapeHtml(state.remainingQuota)}</div>
+      </article>`)
+      .join("")}</div>
+  </section>`;
+}
+
+function fixturesForPage(page) {
+  const fixtures = scorecardxData.fixtures || [];
+  if (page.path === "/calendar/" || page.active === "Home") return fixtures;
+  return fixtures.filter((fixture) => fixture.sport === page.active || (page.active === "F1" && fixture.sport === "F1"));
+}
+
+function fixturesHtml(page) {
+  const fixtures = fixturesForPage(page).slice(0, 10);
+  if (!fixtures.length) {
+    return `<div class="empty-state">No fixtures are available yet. The scheduled updater will publish fixtures after provider sync.</div>`;
+  }
+  return `<div class="fixture-list">${fixtures
+    .map((fixture) => `<article class="fixture-item">
+      <div class="fixture-time">
+        <strong>${escapeHtml(fixture.time || "TBA")}</strong>
+        <span>${escapeHtml(fixture.date || "")}</span>
+      </div>
+      <div class="fixture-teams">
+        <span>${escapeHtml(fixture.home || "Home")}</span>
+        <em>vs</em>
+        <span>${escapeHtml(fixture.away || "Away")}</span>
+      </div>
+      <div class="fixture-meta">
+        <span>${escapeHtml(fixture.league || fixture.sport || "")}</span>
+        <span class="source-badge">${escapeHtml(fixture.status || fixture.source || "scheduled")}</span>
+      </div>
+    </article>`)
+    .join("")}</div>`;
+}
+
+function domainRows(page, domain) {
+  const key = dataKeyForPage(page);
+  if (domain === "standings") {
+    if (key === "all") return Object.values(scorecardxData.standings || {}).flat().slice(0, 10);
+    return scorecardxData.standings?.[key] || [];
+  }
+  if (key === "all") return Object.values(scorecardxData.playerStats || {}).flat().slice(0, 10);
+  return scorecardxData.playerStats?.[key] || [];
+}
+
+function standingsHtml(page) {
+  const rows = domainRows(page, "standings");
+  if (!rows.length) return `<div class="empty-state">No standings published yet.</div>`;
+  return `<div class="table-panel"><table>
+    <thead><tr><th>Rank</th><th>Team / Driver</th><th>Played</th><th>Wins</th><th>Losses</th><th>Points</th></tr></thead>
+    <tbody>${rows
+      .map((row) => `<tr>
+        <td class="mono">${escapeHtml(row.rank ?? "-")}</td>
+        <td>${escapeHtml(row.team || row.name || "-")}<div class="note">${escapeHtml(row.note || "")}</div></td>
+        <td class="mono">${escapeHtml(row.played ?? "-")}</td>
+        <td class="mono">${escapeHtml(row.wins ?? "-")}</td>
+        <td class="mono">${escapeHtml(row.losses ?? "-")}</td>
+        <td class="mono">${escapeHtml(row.points ?? "-")}</td>
+      </tr>`)
+      .join("")}</tbody>
+  </table></div>`;
+}
+
+function playerStatsHtml(page) {
+  const rows = domainRows(page, "playerStats");
+  if (!rows.length) return `<div class="empty-state">No player statistics published yet.</div>`;
+  return `<div class="table-panel"><table>
+    <thead><tr><th>Rank</th><th>Name</th><th>Team</th><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>${rows
+      .map((row) => `<tr>
+        <td class="mono">${escapeHtml(row.rank ?? "-")}</td>
+        <td>${escapeHtml(row.name || "-")}</td>
+        <td>${escapeHtml(row.team || "-")}</td>
+        <td>${escapeHtml(row.metric || "-")}</td>
+        <td class="mono">${escapeHtml(row.value ?? "-")}</td>
+      </tr>`)
+      .join("")}</tbody>
+  </table></div>`;
+}
+
+function newsHtml(page) {
+  const key = dataKeyForPage(page);
+  const news = (scorecardxData.news || []).filter((item) => key === "all" || item.sport?.toLowerCase() === key || item.sport === "Platform").slice(0, 4);
+  if (!news.length) return `<div class="empty-state">No news items published yet.</div>`;
+  return `<div class="news-grid">${news
+    .map((item) => `<article class="news-card">
+      <div class="news-tag">${escapeHtml(item.sport || "Sports")} · ${escapeHtml(item.source || "ScorecardX")}</div>
+      <h3>${escapeHtml(item.title || "Untitled update")}</h3>
+      <p>${escapeHtml(item.summary || "")}</p>
+      <a class="button" href="${hrefFor(item.url || "/about/", page.path, "en")}">Read more</a>
+    </article>`)
+    .join("")}</div>`;
+}
+
+function liveGridHtml(page) {
+  const cards = liveCardsForPage(page).slice(0, 6);
+  return `<div class="grid cards">${cards
+    .map((card) => `<article class="ticker-card glass-panel" style="width:auto;--card-accent:${sportAccents[card.accent] || sportAccents.other}">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <span class="status">${escapeHtml(card.status)}</span>
+        <span class="label" style="color:var(--faint)">${escapeHtml(card.league)}</span>
+      </div>
+      <div class="score-line"><span class="team">${escapeHtml(card.home)}</span><span class="score score-update">${escapeHtml(card.homeScore)}</span></div>
+      <div class="score-line"><span class="team" style="color:var(--muted)">${escapeHtml(card.away)}</span><span class="score score-update">${escapeHtml(card.awayScore)}</span></div>
+      <p class="note">${escapeHtml(card.note || card.source || "")}</p>
+    </article>`)
+    .join("")}</div>`;
 }
 
 function cardsHtml(page, currentPath, lang) {
@@ -336,6 +483,7 @@ function pageHtml(page, lang) {
         ${heroBoard(page, lang)}
       </section>
       ${tickerHtml()}
+      ${providerHealthHtml()}
       <section class="section">
         <div class="section-head">
           <div>
@@ -372,6 +520,56 @@ function pageHtml(page, lang) {
             )
             .join("")}</div>
           ${getAdHtml("zone_b")}
+        </aside>
+      </section>
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <div class="label">Scoreboard</div>
+            <h2>Live, Cached, and Configuration-Aware Cards</h2>
+            <p>Cards now come from the synchronized data layer and are deduplicated before rendering.</p>
+          </div>
+        </div>
+        ${liveGridHtml(page)}
+      </section>
+      <section class="section split">
+        <div>
+          <div class="section-head">
+            <div>
+              <div class="label">Fixtures</div>
+              <h2>Schedule Feed</h2>
+            </div>
+          </div>
+          ${fixturesHtml(page)}
+        </div>
+        <aside>
+          <div class="section-head">
+            <div>
+              <div class="label">Standings</div>
+              <h2>Table / Rankings</h2>
+            </div>
+          </div>
+          ${standingsHtml(page)}
+        </aside>
+      </section>
+      <section class="section split">
+        <div>
+          <div class="section-head">
+            <div>
+              <div class="label">Players</div>
+              <h2>Leaders and Form</h2>
+            </div>
+          </div>
+          ${playerStatsHtml(page)}
+        </div>
+        <aside>
+          <div class="section-head">
+            <div>
+              <div class="label">News</div>
+              <h2>Latest Updates</h2>
+            </div>
+          </div>
+          ${newsHtml(page)}
         </aside>
       </section>
       <section class="section">

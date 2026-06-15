@@ -6,6 +6,8 @@
   "scripts": {
     "build": "node scripts/build-site.mjs",
     "dev": "node scripts/build-site.mjs --watch",
-    "sync:data": "node scripts/sync-data.mjs"
+    "sync:data": "node scripts/sync-data.mjs",
+    "publish:data": "node scripts/scheduled-update.mjs",
+    "install:launchd": "bash scripts/install-launchd.sh"
   }
 }
