@@ -33,8 +33,17 @@ async function readPersistedQuotaState() {
   return readQuotaState(quotaPath);
 }
 
+async function readPreviousSyncState() {
+  try {
+    return JSON.parse(await readFile(syncStatePath, "utf8"));
+  } catch {
+    return {};
+  }
+}
+
 const quotaState = await readPersistedQuotaState();
 const quota = createQuotaManager(quotaState);
+const previousSyncState = await readPreviousSyncState();
 
 const providerResults = {
   apiFootball: await Promise.allSettled([
@@ -49,6 +58,7 @@ const providerResults = {
     fetchApiSportsCricket({
       key: process.env.APISPORTS_CRICKET_KEY,
       baseUrl: process.env.APISPORTS_CRICKET_BASE_URL || "https://v1.cricket.api-sports.io",
+      baseUrls: process.env.APISPORTS_CRICKET_BASE_URLS,
       cacheDir,
       quota
     })
@@ -95,6 +105,12 @@ const live = {
   updatedAt: data.updatedAt,
   cards: data.liveCards
 };
+const providerErrorStreaks = Object.fromEntries(
+  Object.entries(data.providers || {}).map(([provider, state]) => {
+    const previous = Number(previousSyncState.providerErrorStreaks?.[provider] || 0);
+    return [provider, state.status === "error" ? previous + 1 : 0];
+  })
+);
 
 await writeFile(join(publicData, "scorecardx-data.json"), `${JSON.stringify(data, null, 2)}\n`);
 await writeFile(join(publicData, "live-scorecards.json"), `${JSON.stringify(live, null, 2)}\n`);
@@ -107,6 +123,7 @@ await writeFile(
       mode: data.mode,
       freshness: data.freshness,
       providers: data.providers,
+      providerErrorStreaks,
       quota: quota.snapshot()
     },
     null,

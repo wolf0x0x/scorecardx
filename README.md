@@ -20,10 +20,11 @@ Production provider keys should be stored in GitHub Actions secrets, not in loca
 - `API_FOOTBALL_BASE_URL` (optional; RapidAPI default is `https://api-football-v1.p.rapidapi.com/v3`)
 - `APISPORTS_CRICKET_KEY`
 - `APISPORTS_CRICKET_BASE_URL` (optional)
+- `APISPORTS_CRICKET_BASE_URLS` (optional comma-separated fallback hosts)
 - `BALLDONTLIE_API_KEY` (optional)
 - `JOLPICA_BASE_URL` (optional)
 
-The `Sync ScorecardX sports data` workflow runs every hour and can also be triggered manually from GitHub Actions. The sync script persists daily quota state and caps provider buckets so 100 req/day free-tier providers are not exhausted by the hourly schedule. `public/data/sync_state.json` is committed so GitHub runners can carry daily quota state across runs.
+The `Sync ScorecardX sports data` workflow runs every 6 hours and can also be triggered manually from GitHub Actions. The sync script persists daily quota state and caps provider buckets so 100 req/day free-tier providers are not exhausted. `public/data/sync_state.json` is committed so GitHub runners can carry daily quota state and provider error streaks across runs.
 
 For local debugging only, copy `.env.example` to `.env` and add temporary provider keys:
 
@@ -36,7 +37,7 @@ npm run build
 Supported sync layers:
 
 - API-Football via `API_FOOTBALL_KEY`
-- API-Sports Cricket via `APISPORTS_CRICKET_KEY`
+- API-Sports Cricket via `APISPORTS_CRICKET_KEY`, with v3/v2/v1 endpoint fallback
 - NBA via BallDontLie when configured, with ESPN NBA scoreboard fallback
 - Football via API-Football when configured, with ESPN Premier League scoreboard fallback
 - F1 via public Jolpica endpoint

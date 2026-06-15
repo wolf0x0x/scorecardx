@@ -92,6 +92,37 @@ function apiFootballHeaders(key, baseUrl) {
   return { "x-apisports-key": key };
 }
 
+function uniqueItems(items) {
+  return [...new Set(items.filter(Boolean))];
+}
+
+function cricketBaseUrlCandidates(primaryBaseUrl, configuredBaseUrls = "") {
+  const configured =
+    typeof configuredBaseUrls === "string"
+      ? configuredBaseUrls.split(",").map((item) => item.trim())
+      : Array.isArray(configuredBaseUrls)
+        ? configuredBaseUrls
+        : [];
+  return uniqueItems([
+    primaryBaseUrl,
+    ...configured,
+    "https://v3.cricket.api-sports.io",
+    "https://v2.cricket.api-sports.io",
+    "https://v1.cricket.api-sports.io"
+  ]);
+}
+
+function apiSportsCricketHeaders(key, baseUrl) {
+  const host = new URL(baseUrl).host;
+  if (host.includes("rapidapi.com") || key.includes("msh")) {
+    return {
+      "x-rapidapi-key": key,
+      "x-rapidapi-host": host
+    };
+  }
+  return { "x-apisports-key": key };
+}
+
 function espnScoreboardUrl(sport, league) {
   return `https://site.api.espn.com/apis/site/v2/sports/${sport}/${league}/scoreboard`;
 }
@@ -271,28 +302,57 @@ export async function fetchApiFootball({ key, baseUrl, cacheDir, quota, bucket =
   };
 }
 
-export async function fetchApiSportsCricket({ key, baseUrl, cacheDir, quota, bucket = "live_scores" }) {
+export async function fetchApiSportsCricket({ key, baseUrl, baseUrls, cacheDir, quota, bucket = "live_scores" }) {
   if (!key) return { status: "not_configured", label: "APISPORTS_CRICKET_KEY missing", liveCards: [], fixtures: [], standings: [], playerStats: [] };
-  if (!quota.canUse("apiSportsCricket", bucket)) {
+  const candidates = cricketBaseUrlCandidates(baseUrl, baseUrls);
+  const quotaCost = Math.min(3, candidates.length);
+  if (!quota.canUse("apiSportsCricket", bucket, quotaCost)) {
     return { status: "quota_exhausted", label: "API-Sports Cricket quota exhausted", liveCards: [], fixtures: [], standings: [], playerStats: [] };
   }
-  quota.record("apiSportsCricket", bucket);
+  quota.record("apiSportsCricket", bucket, quotaCost);
 
-  const headers = { "x-apisports-key": key };
-  const liveUrl = endpoint(baseUrl, "/games", { live: "all" });
-  let { json, source, error } = await tryCachedFetchJson(liveUrl, { headers }, `${cacheDir}/api-sports-cricket-live.json`, 5 * 60 * 1000);
-  let mode = "live";
-  if (error || !Array.isArray(json?.response) || json.response.length === 0) {
-    mode = "fixtures";
-    const gamesUrl = endpoint(baseUrl, "/games", { date: today() });
-    const fallback = await cachedFetchJson(gamesUrl, { headers }, `${cacheDir}/api-sports-cricket-games-today.json`, 15 * 60 * 1000);
-    json = fallback.json;
-    source = fallback.source;
+  const errors = [];
+  let json;
+  let source;
+  let mode = "";
+  let selectedBaseUrl = "";
+
+  for (const candidate of candidates) {
+    const headers = apiSportsCricketHeaders(key, candidate);
+    const baseKey = new URL(candidate).host.split(".")[0];
+    const liveUrl = endpoint(candidate, "/games", { live: "all" });
+    const liveResult = await tryCachedFetchJson(liveUrl, { headers }, `${cacheDir}/api-sports-cricket-${baseKey}-live.json`, 5 * 60 * 1000);
+
+    if (!liveResult.error && Array.isArray(liveResult.json?.response) && liveResult.json.response.length) {
+      json = liveResult.json;
+      source = liveResult.source;
+      mode = "live";
+      selectedBaseUrl = candidate;
+      break;
+    }
+
+    if (liveResult.error) errors.push(`${candidate} live: ${liveResult.error.message.slice(0, 120)}`);
+    const gamesUrl = endpoint(candidate, "/games", { date: today() });
+    const gamesResult = await tryCachedFetchJson(gamesUrl, { headers }, `${cacheDir}/api-sports-cricket-${baseKey}-games-today.json`, 15 * 60 * 1000);
+
+    if (!gamesResult.error && Array.isArray(gamesResult.json?.response)) {
+      json = gamesResult.json;
+      source = gamesResult.source;
+      mode = "fixtures";
+      selectedBaseUrl = candidate;
+      break;
+    }
+
+    if (gamesResult.error) errors.push(`${candidate} fixtures: ${gamesResult.error.message.slice(0, 120)}`);
+  }
+
+  if (!json) {
+    throw new Error(`API-Sports Cricket failed across ${candidates.length} endpoints: ${errors.join(" | ") || "empty responses"}`);
   }
   const games = Array.isArray(json.response) ? json.response : [];
   return {
     status: "ok",
-    label: `API-Sports Cricket ${mode} ${source}`,
+    label: `API-Sports Cricket ${mode} ${source} · ${new URL(selectedBaseUrl).host}`,
     liveCards: games.slice(0, 8).map((item) => {
       const teams = item.teams || {};
       const scores = item.scores || {};

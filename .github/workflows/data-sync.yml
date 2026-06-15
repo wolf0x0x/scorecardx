@@ -2,12 +2,13 @@ name: Sync ScorecardX sports data
 
 on:
   schedule:
-    # Hourly sync stays under 100 req/day provider limits through per-day quota state.
-    - cron: "12 * * * *"
+    # Four runs per day keeps 100 req/day free-tier providers well below quota.
+    - cron: "12 */6 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: scorecardx-data-sync
@@ -21,6 +22,7 @@ jobs:
       API_FOOTBALL_BASE_URL: ${{ secrets.API_FOOTBALL_BASE_URL || 'https://api-football-v1.p.rapidapi.com/v3' }}
       APISPORTS_CRICKET_KEY: ${{ secrets.APISPORTS_CRICKET_KEY }}
       APISPORTS_CRICKET_BASE_URL: ${{ secrets.APISPORTS_CRICKET_BASE_URL || 'https://v1.cricket.api-sports.io' }}
+      APISPORTS_CRICKET_BASE_URLS: ${{ secrets.APISPORTS_CRICKET_BASE_URLS }}
       BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
       JOLPICA_BASE_URL: ${{ secrets.JOLPICA_BASE_URL || 'https://api.jolpi.ca/ergast/f1' }}
     steps:
@@ -39,6 +41,67 @@ jobs:
 
       - name: Build static pages
         run: npm run build
+
+      - name: Alert on repeated provider errors
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node --input-type=module <<'NODE' > /tmp/scorecardx-provider-alerts.json
+          import { readFile } from "node:fs/promises";
+
+          const state = JSON.parse(await readFile("public/data/sync_state.json", "utf8"));
+          const streaks = state.providerErrorStreaks || {};
+          const providers = state.providers || {};
+          const alerts = Object.entries(streaks)
+            .filter(([, count]) => Number(count) >= 3)
+            .map(([provider, count]) => ({
+              provider,
+              count,
+              status: providers[provider]?.status || "unknown",
+              label: providers[provider]?.label || "No provider detail",
+              lastSyncAt: state.lastSyncAt
+            }));
+
+          process.stdout.write(JSON.stringify(alerts));
+          NODE
+
+          alerts="$(cat /tmp/scorecardx-provider-alerts.json)"
+          if [ "$alerts" = "[]" ]; then
+            echo "No repeated provider errors."
+            exit 0
+          fi
+
+          node --input-type=module <<'NODE' > /tmp/scorecardx-provider-alerts.md
+          import { readFile } from "node:fs/promises";
+
+          const alerts = JSON.parse(await readFile("/tmp/scorecardx-provider-alerts.json", "utf8"));
+          const lines = [
+            "ScorecardX detected provider errors in 3 or more consecutive sync runs.",
+            "",
+            ...alerts.flatMap((alert) => [
+              `- Provider: ${alert.provider}`,
+              `  Status: ${alert.status}`,
+              `  Consecutive failures: ${alert.count}`,
+              `  Last sync: ${alert.lastSyncAt}`,
+              `  Detail: ${alert.label}`,
+              ""
+            ]),
+            "Check provider subscriptions, endpoint availability, and quota status before marketing the affected feed as live."
+          ];
+
+          process.stdout.write(lines.join("\n"));
+          NODE
+
+          node --input-type=module -e 'const alerts=JSON.parse(process.argv[1]); for (const alert of alerts) console.log(alert.provider)' "$alerts" |
+          while IFS= read -r provider; do
+            title="ScorecardX provider error: ${provider}"
+            existing="$(gh issue list --state open --search "$title in:title" --json number --jq 'length')"
+            if [ "$existing" = "0" ]; then
+              gh issue create --title "$title" --body-file /tmp/scorecardx-provider-alerts.md
+            else
+              echo "Open issue already exists for ${provider}."
+            fi
+          done
 
       - name: Commit updated data
         run: |
