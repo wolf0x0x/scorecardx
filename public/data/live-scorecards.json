@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T11:49:02.570Z",
+  "updatedAt": "2026-06-15T12:04:10.910Z",
   "cards": [
     {
       "id": "football-740966",
@@ -144,16 +144,16 @@
     {
       "id": "config-cricket",
       "sport": "Cricket",
-      "league": "Provider unavailable",
-      "status": "ERROR",
-      "clock": "error",
+      "league": "Data setup",
+      "status": "CONFIG",
+      "clock": "key needed",
       "home": "API-Sports Cricket",
       "away": "ScorecardX",
-      "homeScore": "error",
+      "homeScore": "ready",
       "awayScore": "waiting",
       "accent": "cricket",
-      "note": "Provider response: API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "source": "provider-status"
+      "note": "Set APISPORTS_CRICKET_KEY and run npm run sync:data.",
+      "source": "configuration"
     }
   ]
 }
