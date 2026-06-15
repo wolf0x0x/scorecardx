@@ -52,14 +52,21 @@ const providerResults = {
 const data = aggregateProviderData(providerResults, quota);
 try {
   const previous = JSON.parse(await readFile(join(publicData, "scorecardx-data.json"), "utf8"));
-  const comparablePrevious = JSON.stringify({ ...previous, updatedAt: null });
-  const comparableNext = JSON.stringify({ ...data, updatedAt: null });
+  const comparable = (value) =>
+    JSON.stringify({
+      ...value,
+      updatedAt: null,
+      news: (value.news || []).map((item) => ({ ...item, publishedAt: null }))
+    });
+  const comparablePrevious = comparable(previous);
+  const comparableNext = comparable(data);
   if (comparablePrevious === comparableNext && previous.updatedAt) {
     data.updatedAt = previous.updatedAt;
   }
 } catch {
   // No previous data file yet.
 }
+data.news = (data.news || []).map((item) => ({ ...item, publishedAt: data.updatedAt }));
 
 const calendar = buildCalendar(data.fixtures);
 if (calendar.events.length && data.updatedAt) {
