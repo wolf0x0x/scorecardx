@@ -1,5 +1,5 @@
 {
-  "lastSyncAt": "2026-06-15T14:35:40.382Z",
+  "lastSyncAt": "2026-06-15T14:50:43.963Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -8,8 +8,8 @@
   },
   "providers": {
     "apiFootball": {
-      "status": "ok",
-      "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-06-15: {\"message\":\"Too many requests\"})",
+      "status": "quota_exhausted",
+      "label": "API-Football quota exhausted",
       "remainingQuota": 70
     },
     "apiSportsCricket": {
@@ -24,7 +24,7 @@
     },
     "jolpicaF1": {
       "status": "ok",
-      "label": "Jolpica F1 network",
+      "label": "Jolpica F1 cache",
       "remainingQuota": null
     }
   },
