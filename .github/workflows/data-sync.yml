@@ -2,8 +2,8 @@ name: Sync ScorecardX sports data
 
 on:
   schedule:
-    # Four runs per day keeps 100 req/day free-tier providers well below quota.
-    - cron: "12 */6 * * *"
+    # Hourly sync stays under 100 req/day provider limits through per-day quota state.
+    - cron: "12 * * * *"
   workflow_dispatch:
 
 permissions:

@@ -1,6 +1,6 @@
 # ScorecardX
 
-ScorecardX is a static, GitHub Pages ready sports intelligence hub focused on cricket, football, basketball, F1, tennis, and cross-sport calendars.
+ScorecardX is a fast sports intelligence hub focused on cricket, football, basketball, F1, tennis, and cross-sport calendars.
 
 ## Local workflow
 
@@ -10,7 +10,7 @@ npm run build
 python3 -m http.server 4173 -d dist
 ```
 
-The generated site is written to `dist/`. The `public/data` directory stores normalized static JSON that is consumed by the page builder.
+The generated site is written to `dist/`. The data layer stores normalized score, schedule, provider, and calendar snapshots for the page builder.
 
 ## Live data setup
 
@@ -23,7 +23,7 @@ Production provider keys should be stored in GitHub Actions secrets, not in loca
 - `BALLDONTLIE_API_KEY` (optional)
 - `JOLPICA_BASE_URL` (optional)
 
-The `Sync ScorecardX sports data` workflow runs every 6 hours and can also be triggered manually from GitHub Actions. Four scheduled runs per day keeps 100 req/day free-tier providers well below quota. `public/data/sync_state.json` is committed so GitHub runners can carry daily quota state across runs.
+The `Sync ScorecardX sports data` workflow runs every hour and can also be triggered manually from GitHub Actions. The sync script persists daily quota state and caps provider buckets so 100 req/day free-tier providers are not exhausted by the hourly schedule. `public/data/sync_state.json` is committed so GitHub runners can carry daily quota state across runs.
 
 For local debugging only, copy `.env.example` to `.env` and add temporary provider keys:
 

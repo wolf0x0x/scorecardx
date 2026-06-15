@@ -497,9 +497,9 @@ function pageHtml(page, lang) {
         <div>
           <div class="section-head">
             <div>
-              <div class="label">Static Data Surface</div>
+              <div class="label">Data Surface</div>
               <h2>${page.path === "/calendar/" ? "Cross-Sport Schedule" : "Data Sources and Cadence"}</h2>
-              <p>${page.path === "/calendar/" ? "Filter the consolidated calendar without leaving the static page." : "Each module is designed to be filled by scheduled Codex jobs and rebuilt into GitHub Pages."}</p>
+              <p>${page.path === "/calendar/" ? "Filter the consolidated calendar without leaving the page." : "Each module is refreshed on a predictable schedule with transparent provider status."}</p>
             </div>
           </div>
           ${contentTable}
@@ -515,7 +515,7 @@ function pageHtml(page, lang) {
             .map(
               (module) => `<article class="card" style="--accent:${accent};min-height:120px">
               <h3>${escapeHtml(module)}</h3>
-              <p>Prepared for static JSON hydration, cached fallback labels, and SEO-friendly standalone pages.</p>
+              <p>Prepared for live score snapshots, provider health, and focused sports discovery.</p>
             </article>`
             )
             .join("")}</div>
@@ -585,8 +585,8 @@ function pageHtml(page, lang) {
     </main>
     <footer class="footer">
       <div class="footer-inner">
-        <span>ScorecardX static build · updated from local JSON feeds</span>
-        <span>GitHub Pages ready · cricket-first sports aggregation</span>
+        <span>ScorecardX live sports intelligence · refreshed throughout the day</span>
+        <span>Cricket-first coverage with football, NBA, F1, tennis, and calendar views</span>
       </div>
     </footer>
   </div>

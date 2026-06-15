@@ -46,5 +46,5 @@ Do not market provider-key-backed sports as live until the corresponding provide
 1. Configure provider keys in GitHub repository secrets.
 2. Run the `Sync ScorecardX sports data` workflow manually once.
 3. Verify provider status on the homepage and in `public/data/sync_state.json`.
-4. Let the scheduled workflow run every 6 hours to stay within free-tier quota.
+4. Let the scheduled workflow run every hour; daily bucket quota state prevents free-tier providers from exceeding safe request limits.
 5. Use local `.env` only for temporary debugging, not for production automation.

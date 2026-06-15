@@ -3829,16 +3829,16 @@ export const pages = [
     "path": "/about/",
     "title": "About ScorecardX",
     "eyebrow": "About",
-    "heading": "A static-first sports data platform built for speed and coverage.",
-    "summary": "ScorecardX uses GitHub Pages, local scheduled Codex data jobs, static JSON, and page generation to keep operations light while covering high-traffic sports markets.",
+    "heading": "A fast sports data platform built for coverage and clarity.",
+    "summary": "ScorecardX brings live score snapshots, schedules, standings, and provider transparency into one lightweight sports hub for high-traffic cricket, football, basketball, and racing markets.",
     "active": "Home",
     "accent": "cricket",
     "hero": "home",
     "focus": [
-      "Static pages",
-      "Free API quotas",
-      "Fallback cache",
-      "SEO"
+      "Live score snapshots",
+      "Provider transparency",
+      "Coverage depth",
+      "Fast discovery"
     ],
     "modules": {
       "en": [
@@ -3888,85 +3888,85 @@ export const pages = [
       "en": {
         "title": "About ScorecardX",
         "eyebrow": "About",
-        "heading": "A static-first sports data platform built for speed and coverage.",
-        "summary": "ScorecardX uses GitHub Pages, local scheduled Codex data jobs, static JSON, and page generation to keep operations light while covering high-traffic sports markets.",
+        "heading": "A fast sports data platform built for coverage and clarity.",
+        "summary": "ScorecardX brings live score snapshots, schedules, standings, and provider transparency into one lightweight sports hub for high-traffic cricket, football, basketball, and racing markets.",
         "focus": [
-          "Static pages",
-          "Free API quotas",
-          "Fallback cache",
-          "SEO"
+          "Live score snapshots",
+          "Provider transparency",
+          "Coverage depth",
+          "Fast discovery"
         ]
       },
       "es": {
         "title": "About ScorecardX",
         "eyebrow": "About",
-        "heading": "A static-first sports data platform built for speed and coverage.",
-        "summary": "ScorecardX uses GitHub Pages, local scheduled Codex data jobs, static JSON, and page generation to keep operations light while covering high-traffic sports markets.",
+        "heading": "Una plataforma deportiva rápida creada para cobertura y claridad.",
+        "summary": "ScorecardX reúne marcadores, calendarios, clasificaciones y transparencia de proveedores en un centro ligero para críquet, fútbol, baloncesto y automovilismo.",
         "focus": [
-          "Static pages",
-          "Free API quotas",
-          "Fallback cache",
-          "SEO"
+          "Marcadores en vivo",
+          "Transparencia de datos",
+          "Cobertura profunda",
+          "Descubrimiento rápido"
         ]
       },
       "pt": {
         "title": "About ScorecardX",
         "eyebrow": "About",
-        "heading": "A static-first sports data platform built for speed and coverage.",
-        "summary": "ScorecardX uses GitHub Pages, local scheduled Codex data jobs, static JSON, and page generation to keep operations light while covering high-traffic sports markets.",
+        "heading": "Uma plataforma esportiva rápida criada para cobertura e clareza.",
+        "summary": "ScorecardX reúne placares, calendários, tabelas e transparência de provedores em um hub leve para críquete, futebol, basquete e automobilismo.",
         "focus": [
-          "Static pages",
-          "Free API quotas",
-          "Fallback cache",
-          "SEO"
+          "Placar em tempo real",
+          "Transparência de dados",
+          "Cobertura profunda",
+          "Descoberta rápida"
         ]
       },
       "fr": {
         "title": "About ScorecardX",
         "eyebrow": "About",
-        "heading": "A static-first sports data platform built for speed and coverage.",
-        "summary": "ScorecardX uses GitHub Pages, local scheduled Codex data jobs, static JSON, and page generation to keep operations light while covering high-traffic sports markets.",
+        "heading": "Une plateforme sportive rapide conçue pour la couverture et la clarté.",
+        "summary": "ScorecardX rassemble scores, calendriers, classements et transparence des fournisseurs dans un hub léger pour le cricket, le football, le basket et la course.",
         "focus": [
-          "Static pages",
-          "Free API quotas",
-          "Fallback cache",
-          "SEO"
+          "Scores en direct",
+          "Transparence des données",
+          "Couverture approfondie",
+          "Découverte rapide"
         ]
       },
       "de": {
         "title": "About ScorecardX",
         "eyebrow": "About",
-        "heading": "A static-first sports data platform built for speed and coverage.",
-        "summary": "ScorecardX uses GitHub Pages, local scheduled Codex data jobs, static JSON, and page generation to keep operations light while covering high-traffic sports markets.",
+        "heading": "Eine schnelle Sportdatenplattform für Abdeckung und Klarheit.",
+        "summary": "ScorecardX bündelt Live-Spielstände, Kalender, Tabellen und Anbietertransparenz in einem schlanken Hub für Cricket, Fußball, Basketball und Motorsport.",
         "focus": [
-          "Static pages",
-          "Free API quotas",
-          "Fallback cache",
-          "SEO"
+          "Live-Spielstände",
+          "Datentransparenz",
+          "Tiefe Abdeckung",
+          "Schnelle Orientierung"
         ]
       },
       "ja": {
         "title": "About ScorecardX",
         "eyebrow": "About",
-        "heading": "A static-first sports data platform built for speed and coverage.",
-        "summary": "ScorecardX uses GitHub Pages, local scheduled Codex data jobs, static JSON, and page generation to keep operations light while covering high-traffic sports markets.",
+        "heading": "カバレッジと見やすさを重視した高速スポーツデータプラットフォーム。",
+        "summary": "ScorecardX はライブスコア、日程、順位、データ提供元の状態をひとつにまとめ、クリケット、サッカー、バスケットボール、レースを軽快に追跡できます。",
         "focus": [
-          "Static pages",
-          "Free API quotas",
-          "Fallback cache",
-          "SEO"
+          "ライブスコア",
+          "データ透明性",
+          "深いカバレッジ",
+          "素早い発見"
         ]
       },
       "zh": {
         "title": "About ScorecardX",
         "eyebrow": "About",
-        "heading": "A static-first sports data platform built for speed and coverage.",
-        "summary": "ScorecardX uses GitHub Pages, local scheduled Codex data jobs, static JSON, and page generation to keep operations light while covering high-traffic sports markets.",
+        "heading": "面向覆盖深度与信息清晰度的高速体育数据平台。",
+        "summary": "ScorecardX 汇聚比分快照、赛程、积分榜和数据源状态，为板球、足球、篮球和赛车等高流量运动提供轻量清晰的赛事中心。",
         "focus": [
-          "Static pages",
-          "Free API quotas",
-          "Fallback cache",
-          "SEO"
+          "实时比分快照",
+          "数据源透明",
+          "深度覆盖",
+          "快速发现"
         ]
       }
     }
