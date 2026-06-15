@@ -1,0 +1,10 @@
+{
+  "updatedAt": "2026-06-15T05:30:00Z",
+  "events": [
+    {"date": "2026-06-15", "sport": "Cricket", "event": "IPL: MI vs CSK", "time": "19:30 IST", "priority": "P0"},
+    {"date": "2026-06-15", "sport": "Football", "event": "EPL fixture release watch", "time": "10:00 BST", "priority": "P0"},
+    {"date": "2026-06-16", "sport": "Basketball", "event": "NBA Finals Game 5", "time": "20:30 ET", "priority": "P0"},
+    {"date": "2026-06-17", "sport": "F1", "event": "Canadian GP media day", "time": "14:00 local", "priority": "P1"},
+    {"date": "2026-06-18", "sport": "Football", "event": "World Cup 2026 venue brief", "time": "09:00 ET", "priority": "P1"}
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "updatedAt": "2026-06-15T05:30:00Z",
+  "cards": [
+    {
+      "sport": "Cricket",
+      "league": "IPL 2026",
+      "status": "LIVE",
+      "clock": "19.2 ov",
+      "home": "Mumbai Indians",
+      "away": "Chennai Super Kings",
+      "homeScore": "184/4",
+      "awayScore": "Yet to bat",
+      "accent": "cricket",
+      "note": "MI need a strong finish at Wankhede"
+    },
+    {
+      "sport": "Football",
+      "league": "La Liga",
+      "status": "72'",
+      "clock": "Live",
+      "home": "Real Madrid",
+      "away": "Barcelona",
+      "homeScore": "2",
+      "awayScore": "1",
+      "accent": "football",
+      "note": "Madrid lead possession 54%"
+    },
+    {
+      "sport": "Basketball",
+      "league": "NBA Finals",
+      "status": "Q3",
+      "clock": "06:14",
+      "home": "Boston",
+      "away": "Denver",
+      "homeScore": "86",
+      "awayScore": "82",
+      "accent": "basketball",
+      "note": "Jokic one rebound from triple-double"
+    },
+    {
+      "sport": "F1",
+      "league": "Canadian GP",
+      "status": "FP2",
+      "clock": "12:08",
+      "home": "VER",
+      "away": "NOR",
+      "homeScore": "1:13.822",
+      "awayScore": "+0.184",
+      "accent": "f1",
+      "note": "Track temp 34C"
+    }
+  ]
+}
