@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T14:20:32.390Z",
+  "updatedAt": "2026-06-15T14:35:40.382Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,7 +10,7 @@
     "apiFootball": {
       "status": "ok",
       "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-06-15: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 71
+      "remainingQuota": 70
     },
     "apiSportsCricket": {
       "status": "quota_exhausted",
@@ -24,7 +24,7 @@
     },
     "jolpicaF1": {
       "status": "ok",
-      "label": "Jolpica F1 cache",
+      "label": "Jolpica F1 network",
       "remainingQuota": null
     }
   },
@@ -893,7 +893,7 @@
       "summary": "2/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-06-15T14:20:32.390Z"
+      "publishedAt": "2026-06-15T14:35:40.382Z"
     }
   ]
 }
