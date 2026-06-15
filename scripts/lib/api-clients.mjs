@@ -61,12 +61,141 @@ async function cachedFetchJson(url, options, cachePath, ttlMs) {
   return { json, source: "network", status: response.status };
 }
 
+async function tryCachedFetchJson(url, options, cachePath, ttlMs) {
+  try {
+    return await cachedFetchJson(url, options, cachePath, ttlMs);
+  } catch (error) {
+    return { error, json: null, source: "error", status: 0 };
+  }
+}
+
 function endpoint(base, path, params = {}) {
   const url = new URL(path.replace(/^\//, ""), `${base.replace(/\/$/, "")}/`);
   for (const [key, value] of Object.entries(params)) {
     if (value !== undefined && value !== null && value !== "") url.searchParams.set(key, value);
   }
   return url.toString();
+}
+
+function today() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function apiFootballHeaders(key, baseUrl) {
+  const host = new URL(baseUrl).host;
+  if (host.includes("rapidapi.com") || key.includes("msh")) {
+    return {
+      "x-rapidapi-key": key,
+      "x-rapidapi-host": host
+    };
+  }
+  return { "x-apisports-key": key };
+}
+
+function espnScoreboardUrl(sport, league) {
+  return `https://site.api.espn.com/apis/site/v2/sports/${sport}/${league}/scoreboard`;
+}
+
+function espnTeamName(competitor) {
+  return competitor?.team?.displayName || competitor?.team?.shortDisplayName || competitor?.team?.name || "Team";
+}
+
+function espnStatus(event) {
+  const type = event?.competitions?.[0]?.status?.type || event?.status?.type || {};
+  return type.shortDetail || type.detail || type.description || "Scheduled";
+}
+
+function normalizeEspnScoreboard({ json, sport, league, accent, sourceName }) {
+  const events = Array.isArray(json?.events) ? json.events : [];
+  const fixtures = [];
+  const liveCards = [];
+  const standingsMap = new Map();
+  const leaders = [];
+
+  for (const event of events) {
+    const competition = event.competitions?.[0] || {};
+    const competitors = Array.isArray(competition.competitors) ? competition.competitors : [];
+    const home = competitors.find((item) => item.homeAway === "home") || competitors[0] || {};
+    const away = competitors.find((item) => item.homeAway === "away") || competitors[1] || {};
+    const homeName = espnTeamName(home);
+    const awayName = espnTeamName(away);
+    const status = espnStatus(event);
+    const eventDate = event.date || competition.date || "";
+    const id = `${accent}-${event.id || `${homeName}-${awayName}`}`;
+
+    liveCards.push({
+      id,
+      sport,
+      league,
+      status,
+      clock: competition.status?.displayClock || competition.status?.type?.state || league,
+      home: homeName,
+      away: awayName,
+      homeScore: String(home.score ?? "-"),
+      awayScore: String(away.score ?? "-"),
+      accent,
+      note: `${competition.venue?.fullName || competition.venue?.address?.city || "Venue TBA"} · ${sourceName}`,
+      source: sourceName.toLowerCase().replace(/\s+/g, "-")
+    });
+
+    fixtures.push({
+      id: `${accent}-fixture-${event.id || `${homeName}-${awayName}`}`,
+      date: eventDate.slice(0, 10),
+      time: eventDate.slice(11, 16) || "TBA",
+      sport,
+      league,
+      home: homeName,
+      away: awayName,
+      status,
+      source: sourceName.toLowerCase().replace(/\s+/g, "-")
+    });
+
+    for (const competitor of competitors) {
+      const name = espnTeamName(competitor);
+      const record = competitor.records?.[0]?.summary || competitor.record || "";
+      const [wins = "-", losses = "-"] = String(record).split("-");
+      if (!standingsMap.has(name)) {
+        standingsMap.set(name, {
+          rank: standingsMap.size + 1,
+          team: name,
+          played: record || "-",
+          wins,
+          losses,
+          points: competitor.score ?? "-",
+          note: competitor.records?.[0]?.displayValue || "ESPN team record"
+        });
+      }
+
+      for (const category of competitor.leaders || []) {
+        for (const leader of category.leaders || []) {
+          leaders.push({
+            rank: leaders.length + 1,
+            name: leader.athlete?.displayName || leader.displayName || name,
+            team: name,
+            metric: category.displayName || category.name || "Leader",
+            value: leader.displayValue || String(leader.value ?? "-")
+          });
+        }
+      }
+    }
+  }
+
+  return {
+    liveCards: liveCards.slice(0, 8),
+    fixtures: fixtures.slice(0, 24),
+    standings: Array.from(standingsMap.values()).slice(0, 12),
+    playerStats: leaders.slice(0, 12)
+  };
+}
+
+async function fetchEspnScoreboard({ sportPath, leaguePath, sport, league, accent, sourceName, cacheDir, ttlMs }) {
+  const url = espnScoreboardUrl(sportPath, leaguePath);
+  const { json, source } = await cachedFetchJson(url, {}, `${cacheDir}/espn-${accent}-scoreboard.json`, ttlMs);
+  return {
+    status: "ok",
+    label: `${sourceName} ${source}`,
+    ...normalizeEspnScoreboard({ json, sport, league, accent, sourceName })
+  };
 }
 
 export async function fetchApiFootball({ key, baseUrl, cacheDir, quota, bucket = "live_scores" }) {
@@ -76,12 +205,37 @@ export async function fetchApiFootball({ key, baseUrl, cacheDir, quota, bucket =
   }
   quota.record("apiFootball", bucket);
 
+  const headers = apiFootballHeaders(key, baseUrl);
   const liveUrl = endpoint(baseUrl, "/fixtures", { live: "all" });
-  const { json, source } = await cachedFetchJson(liveUrl, { headers: { "x-apisports-key": key } }, `${cacheDir}/api-football-live.json`, 5 * 60 * 1000);
+  let { json, source, error } = await tryCachedFetchJson(liveUrl, { headers }, `${cacheDir}/api-football-live.json`, 5 * 60 * 1000);
+  let mode = "live";
+  if (error || !Array.isArray(json?.response) || json.response.length === 0) {
+    mode = "fixtures";
+    const fixturesUrl = endpoint(baseUrl, "/fixtures", { date: today() });
+    const fallback = await tryCachedFetchJson(fixturesUrl, { headers }, `${cacheDir}/api-football-fixtures-today.json`, 30 * 60 * 1000);
+    if (fallback.error) {
+      const espn = await fetchEspnScoreboard({
+        sportPath: "soccer",
+        leaguePath: "eng.1",
+        sport: "Football",
+        league: "Premier League",
+        accent: "football",
+        sourceName: "ESPN EPL fallback",
+        cacheDir,
+        ttlMs: 15 * 60 * 1000
+      });
+      return {
+        ...espn,
+        label: `${espn.label} · API-Football unavailable (${fallback.error.message.slice(0, 120)})`
+      };
+    }
+    json = fallback.json;
+    source = fallback.source;
+  }
   const fixtures = Array.isArray(json.response) ? json.response : [];
   return {
     status: "ok",
-    label: `API-Football ${source}`,
+    label: `API-Football ${mode} ${source}`,
     liveCards: fixtures.slice(0, 8).map((item) => {
       const fixture = item.fixture || {};
       const teams = item.teams || {};
@@ -91,14 +245,14 @@ export async function fetchApiFootball({ key, baseUrl, cacheDir, quota, bucket =
         id: `football-${fixture.id || `${teams.home?.name}-${teams.away?.name}`}`,
         sport: "Football",
         league: league.name || "Football",
-        status: fixture.status?.elapsed ? `${fixture.status.elapsed}'` : fixture.status?.short || "LIVE",
+        status: fixture.status?.elapsed ? `${fixture.status.elapsed}'` : fixture.status?.short || (mode === "live" ? "LIVE" : "SCHEDULED"),
         clock: fixture.status?.long || "Live",
         home: teams.home?.name || "Home",
         away: teams.away?.name || "Away",
         homeScore: String(goals.home ?? "-"),
         awayScore: String(goals.away ?? "-"),
         accent: "football",
-        note: `${league.country || "Global"} · ${fixture.venue?.name || "Venue TBA"}`,
+        note: `${mode === "fixtures" ? "Free/delayed data" : "Live"} · ${league.country || "Global"} · ${fixture.venue?.name || "Venue TBA"}`,
         source: "api-football"
       };
     }),
@@ -124,12 +278,21 @@ export async function fetchApiSportsCricket({ key, baseUrl, cacheDir, quota, buc
   }
   quota.record("apiSportsCricket", bucket);
 
+  const headers = { "x-apisports-key": key };
   const liveUrl = endpoint(baseUrl, "/games", { live: "all" });
-  const { json, source } = await cachedFetchJson(liveUrl, { headers: { "x-apisports-key": key } }, `${cacheDir}/api-sports-cricket-live.json`, 5 * 60 * 1000);
+  let { json, source, error } = await tryCachedFetchJson(liveUrl, { headers }, `${cacheDir}/api-sports-cricket-live.json`, 5 * 60 * 1000);
+  let mode = "live";
+  if (error || !Array.isArray(json?.response) || json.response.length === 0) {
+    mode = "fixtures";
+    const gamesUrl = endpoint(baseUrl, "/games", { date: today() });
+    const fallback = await cachedFetchJson(gamesUrl, { headers }, `${cacheDir}/api-sports-cricket-games-today.json`, 15 * 60 * 1000);
+    json = fallback.json;
+    source = fallback.source;
+  }
   const games = Array.isArray(json.response) ? json.response : [];
   return {
     status: "ok",
-    label: `API-Sports Cricket ${source}`,
+    label: `API-Sports Cricket ${mode} ${source}`,
     liveCards: games.slice(0, 8).map((item) => {
       const teams = item.teams || {};
       const scores = item.scores || {};
@@ -137,14 +300,14 @@ export async function fetchApiSportsCricket({ key, baseUrl, cacheDir, quota, buc
         id: `cricket-${item.id || `${teams.home?.name}-${teams.away?.name}`}`,
         sport: "Cricket",
         league: item.league?.name || "Cricket",
-        status: item.status?.short || item.status?.long || "LIVE",
+        status: item.status?.short || item.status?.long || (mode === "live" ? "LIVE" : "SCHEDULED"),
         clock: item.date ? item.date.slice(11, 16) : "Live",
         home: teams.home?.name || item.teams?.home || "Home",
         away: teams.away?.name || item.teams?.away || "Away",
         homeScore: scores.home?.total ? `${scores.home.total}/${scores.home.wickets ?? "-"}` : String(scores.home ?? "-"),
         awayScore: scores.away?.total ? `${scores.away.total}/${scores.away.wickets ?? "-"}` : String(scores.away ?? "-"),
         accent: "cricket",
-        note: item.venue?.name || "Live cricket scorecard",
+        note: `${mode === "fixtures" ? "Fixture feed" : "Live cricket scorecard"} · ${item.venue?.name || "Venue TBA"}`,
         source: "api-sports-cricket"
       };
     }),
@@ -165,19 +328,34 @@ export async function fetchApiSportsCricket({ key, baseUrl, cacheDir, quota, buc
 }
 
 export async function fetchBasketball({ ballDontLieKey, cacheDir, quota, bucket = "live_scores" }) {
-  if (!ballDontLieKey) return { status: "not_configured", label: "BALLDONTLIE_API_KEY missing", liveCards: [], fixtures: [], standings: [], playerStats: [] };
   if (!quota.canUse("basketball", bucket)) {
     return { status: "quota_exhausted", label: "Basketball quota exhausted", liveCards: [], fixtures: [], standings: [], playerStats: [] };
   }
   quota.record("basketball", bucket);
 
-  const today = new Date().toISOString().slice(0, 10);
-  const url = endpoint("https://api.balldontlie.io/v1", "/games", { "dates[]": today, per_page: 25 });
-  const { json, source } = await cachedFetchJson(url, { headers: { Authorization: ballDontLieKey } }, `${cacheDir}/balldontlie-games.json`, 15 * 60 * 1000);
+  const authHeaders = ballDontLieKey ? { Authorization: ballDontLieKey } : {};
+  const url = endpoint("https://api.balldontlie.io/v1", "/games", { "dates[]": today(), per_page: 25 });
+  let { json, source, error } = await tryCachedFetchJson(url, { headers: authHeaders }, `${cacheDir}/balldontlie-games.json`, 15 * 60 * 1000);
+  if (error) {
+    const espn = await fetchEspnScoreboard({
+      sportPath: "basketball",
+      leaguePath: "nba",
+      sport: "Basketball",
+      league: "NBA",
+      accent: "basketball",
+      sourceName: "ESPN NBA fallback",
+      cacheDir,
+      ttlMs: 10 * 60 * 1000
+    });
+    return {
+      ...espn,
+      label: `${espn.label} · BallDontLie unavailable (${error.message.slice(0, 120)})`
+    };
+  }
   const games = Array.isArray(json.data) ? json.data : [];
   return {
     status: "ok",
-    label: `BallDontLie ${source}`,
+    label: `BallDontLie ${ballDontLieKey ? "auth" : "no-key"} ${source}`,
     liveCards: games.slice(0, 8).map((game) => ({
       id: `nba-${game.id}`,
       sport: "Basketball",

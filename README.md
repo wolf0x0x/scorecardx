@@ -26,10 +26,11 @@ Supported sync layers:
 
 - API-Football via `API_FOOTBALL_KEY`
 - API-Sports Cricket via `APISPORTS_CRICKET_KEY`
-- NBA via `BALLDONTLIE_API_KEY`
+- NBA via BallDontLie when configured, with ESPN NBA scoreboard fallback
+- Football via API-Football when configured, with ESPN Premier League scoreboard fallback
 - F1 via public Jolpica endpoint
 
-The sync layer keeps provider status, quota state, cache state, fixtures, live cards, standings, player leaders, and news in `public/data/scorecardx-data.json`. Missing keys are shown as configuration states on the site instead of fake live data.
+The sync layer keeps provider status, quota state, cache state, fixtures, live cards, standings, player leaders, and news in `public/data/scorecardx-data.json`. Missing keys are shown as configuration states on the site instead of fake live data. API-Football supports both direct API-Sports keys and RapidAPI keys; use `API_FOOTBALL_BASE_URL=https://api-football-v1.p.rapidapi.com/v3` for RapidAPI. On 2026-06-15, BallDontLie's current v1 endpoint returned HTTP 401 without a token, so ScorecardX treats BallDontLie as optional and uses ESPN NBA as the no-key production fallback.
 
 ## Local Codex scheduled update
 

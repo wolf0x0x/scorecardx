@@ -97,25 +97,29 @@ export function aggregateProviderData(results, quota) {
   const uniqueFixtures = uniqueBy(fixtures, (item) => item.id || `${item.sport}-${item.date}-${item.home}-${item.away}`);
 
   const missingCards = [
-    ["Cricket", "API-Sports Cricket", "APISPORTS_CRICKET_KEY", "cricket"],
-    ["Football", "API-Football", "API_FOOTBALL_KEY", "football"],
-    ["Basketball", "NBA provider", "BALLDONTLIE_API_KEY", "basketball"]
+    ["Cricket", "API-Sports Cricket", "APISPORTS_CRICKET_KEY", "cricket", "apiSportsCricket"],
+    ["Football", "API-Football", "API_FOOTBALL_KEY", "football", "apiFootball"],
+    ["Basketball", "NBA provider", "BALLDONTLIE_API_KEY", "basketball", "basketball"]
   ]
     .filter(([sport]) => !uniqueLiveCards.some((card) => card.sport === sport))
-    .map(([sport, home, key, accent]) => ({
-      id: `config-${accent}`,
-      sport,
-      league: "Data setup",
-      status: "CONFIG",
-      clock: "key needed",
-      home,
-      away: "ScorecardX",
-      homeScore: "ready",
-      awayScore: "waiting",
-      accent,
-      note: `Set ${key} and run npm run sync:data.`,
-      source: "configuration"
-    }));
+    .map(([sport, home, key, accent, providerName]) => {
+      const provider = providers[providerName];
+      const providerFailed = provider && !["not_configured", "quota_exhausted"].includes(provider.status);
+      return {
+        id: `config-${accent}`,
+        sport,
+        league: providerFailed ? "Provider unavailable" : "Data setup",
+        status: providerFailed ? "ERROR" : "CONFIG",
+        clock: providerFailed ? provider.status : "key needed",
+        home,
+        away: "ScorecardX",
+        homeScore: providerFailed ? "error" : "ready",
+        awayScore: "waiting",
+        accent,
+        note: providerFailed ? `Provider response: ${provider.label}` : `Set ${key} and run npm run sync:data.`,
+        source: providerFailed ? "provider-status" : "configuration"
+      };
+    });
 
   const completeLiveCards = uniqueBy([...uniqueLiveCards, ...missingCards], (item) => item.id);
 
