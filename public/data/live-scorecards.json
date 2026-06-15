@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T09:17:02.290Z",
+  "updatedAt": "2026-06-15T09:32:12.583Z",
   "cards": [
     {
       "id": "football-740966",
@@ -152,7 +152,7 @@
       "homeScore": "error",
       "awayScore": "waiting",
       "accent": "cricket",
-      "note": "Provider response: fetch failed",
+      "note": "Provider response: API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
       "source": "provider-status"
     }
   ]
