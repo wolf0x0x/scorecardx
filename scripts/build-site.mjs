@@ -1,7 +1,7 @@
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join, posix } from "node:path";
 import { fileURLToPath } from "node:url";
-import { pages, nav, sportAccents } from "../src/site-data.mjs";
+import { pages, languages, i18nNav, uiLabels, sportAccents } from "../src/site-data.mjs";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
 const dist = join(root, "dist");
@@ -41,8 +41,6 @@ const dataRows = [
   ["Tennis", "Scrape or paid API", "Limited", "Tournament pages", "Fallback"]
 ];
 
-const pageByPath = new Map(pages.map((page) => [page.path, page]));
-
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -51,21 +49,75 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
-function siteUrl(path) {
-  return `https://wolf0x0x.github.io/scorecardx${path === "/" ? "/" : path}`;
+function siteUrl(lang, path) {
+  const base = "https://wolf0x0x.github.io/scorecardx";
+  const prefix = lang === "en" ? "" : `/${lang}`;
+  return `${base}${prefix}${path === "/" ? "/" : path}`;
 }
 
-function hrefFor(target, current) {
-  const from = current === "/" ? "/" : current.replace(/\/$/, "");
-  const to = target === "/" ? "/" : target.replace(/\/$/, "");
+function hrefFor(target, current, lang) {
+  const prefix = lang === "en" ? "" : `/${lang}`;
+  const actualTarget = target === "/" ? `${prefix}/` : `${prefix}${target}`;
+  const actualCurrent = current === "/" ? `${prefix}/` : `${prefix}${current}`;
+  const from = actualCurrent === "/" ? "/" : actualCurrent.replace(/\/$/, "");
+  const to = actualTarget === "/" ? "/" : actualTarget.replace(/\/$/, "");
   const relative = posix.relative(from, to) || ".";
   return `${relative}/`;
 }
 
-function navHtml(active, accent, currentPath) {
-  return nav
-    .map((item) => `<a class="${item.label === active ? "active" : ""}" style="--accent:${accent}" href="${hrefFor(item.href, currentPath)}">${escapeHtml(item.label)}</a>`)
+function langHrefFor(targetPath, currentPath, targetLang, currentLang) {
+  const actualCurrent = currentLang === "en" ? currentPath : `/${currentLang}${currentPath}`;
+  const actualTarget = targetLang === "en" ? targetPath : `/${targetLang}${targetPath}`;
+  const from = actualCurrent === "/" ? "/" : actualCurrent.replace(/\/$/, "");
+  const to = actualTarget === "/" ? "/" : actualTarget.replace(/\/$/, "");
+  const relative = posix.relative(from, to) || ".";
+  return `${relative}/`;
+}
+
+function assetHrefFor(assetPath, currentPath, lang) {
+  const current = lang === "en" ? currentPath : `/${lang}${currentPath}`;
+  const from = current === "/" ? "/" : current.replace(/\/$/, "");
+  const to = assetPath.replace(/\/$/, "");
+  const relative = posix.relative(from, to) || ".";
+  return relative;
+}
+
+function navHtml(active, accent, currentPath, lang) {
+  const items = i18nNav[lang] || i18nNav.en;
+  return items
+    .map((item) => {
+      const isActive =
+        item.href === "/"
+          ? currentPath === "/"
+          : currentPath.startsWith(item.href);
+      return `<a class="${isActive ? "active" : ""}" style="--accent:${accent}" href="${hrefFor(item.href, currentPath, lang)}">${escapeHtml(item.label)}</a>`;
+    })
     .join("");
+}
+
+function langSwitchHtml(currentPath, lang) {
+  const links = Object.keys(languages)
+    .map((l) => {
+      const isActive = l === lang;
+      const activeAttr = isActive ? 'style="color:var(--accent);font-weight:800;"' : "";
+      return `<a href="${langHrefFor(currentPath, currentPath, l, lang)}" ${activeAttr}>${languages[l].name}</a>`;
+    })
+    .join("<span style='color:var(--border)'>|</span>");
+  return `<div class="lang-selector" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">${links}</div>`;
+}
+
+function getAdHtml(zone) {
+  return `
+  <div class="ad-container ad-${zone}" style="margin:20px auto;text-align:center;background:rgba(30,41,59,0.4);border:1px dashed var(--border);padding:15px;border-radius:8px;max-width:100%;">
+    <span style="font-size:10px;color:var(--faint);text-transform:uppercase;display:block;margin-bottom:8px;">Advertisement [${zone.toUpperCase()}]</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-8695398658548679"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>`;
 }
 
 function tickerHtml() {
@@ -85,16 +137,19 @@ function tickerHtml() {
     .join("")}</div></div>`;
 }
 
-function heroBoard(page) {
-  const activeCards = live.cards.filter((card) => page.active === "Home" || card.sport === page.active || (page.active === "F1" && card.sport === "F1"));
+function heroBoard(page, lang) {
+  const labels = uiLabels[lang] || uiLabels.en;
+  const activeCards = live.cards.filter(
+    (card) => page.active === "Home" || card.sport === page.active || (page.active === "F1" && card.sport === "F1")
+  );
   const cards = activeCards.length ? activeCards : live.cards.slice(0, 2);
   return `<aside class="hero-board glass-panel">
     <div class="section-head" style="margin-bottom:12px">
       <div>
-        <div class="label">Live Layer</div>
-        <h2 style="font-size:22px;margin-top:4px">Realtime Snapshot</h2>
+        <div class="label">${escapeHtml(labels.liveLayer)}</div>
+        <h2 style="font-size:22px;margin-top:4px">${escapeHtml(labels.realtimeSnap)}</h2>
       </div>
-      <span class="chip">updated <span data-updated-at="${escapeHtml(live.updatedAt)}">${escapeHtml(live.updatedAt)}</span></span>
+      <span class="chip">${escapeHtml(labels.updated)} <span data-updated-at="${escapeHtml(live.updatedAt)}">${escapeHtml(live.updatedAt)}</span></span>
     </div>
     <div class="grid" style="gap:12px">
       ${cards
@@ -112,26 +167,30 @@ function heroBoard(page) {
   </aside>`;
 }
 
-function cardsHtml(page) {
+function cardsHtml(page, currentPath, lang) {
   const related = pages
     .filter((item) => item.path !== page.path && (item.active === page.active || page.active === "Home"))
     .slice(0, 6);
   const fallback = pages.filter((item) => item.path !== page.path).slice(0, 6);
   return (related.length ? related : fallback)
-    .map(
-      (item) => `<a class="card" style="--accent:${sportAccents[item.accent] || sportAccents.other}" href="${hrefFor(item.path, page.path)}">
-        <div class="label">${escapeHtml(item.eyebrow)}</div>
-        <h3>${escapeHtml(item.heading)}</h3>
-        <p>${escapeHtml(item.summary)}</p>
-      </a>`
-    )
+    .map((item) => {
+      const content = item.i18n[lang] || item.i18n.en;
+      return `<a class="card" style="--accent:${sportAccents[item.accent] || sportAccents.other}" href="${hrefFor(item.path, currentPath, lang)}">
+        <div class="label">${escapeHtml(content.eyebrow)}</div>
+        <h3>${escapeHtml(content.heading)}</h3>
+        <p>${escapeHtml(content.summary)}</p>
+      </a>`;
+    })
     .join("");
 }
 
-function metricsHtml(page) {
+function metricsHtml(page, lang) {
+  const labels = uiLabels[lang] || uiLabels.en;
+  const content = page.i18n[lang] || page.i18n.en;
+  const modules = page.modules[lang] || page.modules.en;
   const values = [
-    [page.focus[0] || "Live", "Primary surface for this section"],
-    [page.modules[0] || "Scores", "Reusable static module"],
+    [content.focus[0] || "Live", "Primary surface"],
+    [modules[0] || "Scores", "Reusable static module"],
     ["< 1.5s", "Static page load target"],
     [page.active === "Cricket" ? "5 min" : page.active === "Home" ? "5-30 min" : "15-30 min", "Planned data cadence"]
   ];
@@ -182,36 +241,61 @@ function calendarHtml() {
   </table></div>`;
 }
 
-function structuredData(page) {
+function structuredData(page, lang) {
+  const content = page.i18n[lang] || page.i18n.en;
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: page.title,
-    url: siteUrl(page.path),
-    description: page.summary,
+    name: content.title,
+    url: siteUrl(lang, page.path),
+    description: content.summary,
+    inLanguage: lang,
     isPartOf: {
       "@type": "WebSite",
       name: "ScorecardX",
-      url: siteUrl("/")
+      url: siteUrl("en", "/")
     },
-    about: page.focus.map((name) => ({ "@type": "Thing", name }))
+    about: content.focus.map((name) => ({ "@type": "Thing", name }))
   };
 }
 
-function pageHtml(page) {
+function pageHtml(page, lang) {
   const accent = sportAccents[page.accent] || sportAccents.other;
-  const jsonLd = JSON.stringify(structuredData(page));
-  const relatedHeading = page.path === "/" ? "Feature Hubs" : "Related Pages";
-  const contentTable = page.path === "/calendar/" ? calendarHtml() : tableHtml(page.active === "Home" ? leagueRows : dataRows, ["Module", "Sport", "Quota", "Coverage", "Status"]);
+  const content = page.i18n[lang] || page.i18n.en;
+  const labels = uiLabels[lang] || uiLabels.en;
+  const modules = page.modules[lang] || page.modules.en;
+  const jsonLd = JSON.stringify(structuredData(page, lang));
+  const relatedHeading = page.path === "/" ? labels.featHubs : labels.relPages;
+  const contentTable =
+    page.path === "/calendar/"
+      ? calendarHtml()
+      : tableHtml(page.active === "Home" ? leagueRows : dataRows, ["Module", "Sport", "Quota", "Coverage", "Status"]);
+
+  const hreflangs = Object.keys(languages)
+    .map((l) => `<link rel="alternate" hreflang="${l}" href="${siteUrl(l, page.path)}">`)
+    .join("\n  ");
 
   return `<!doctype html>
-<html lang="en">
+<html lang="${lang}">
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4ERJGDKYE8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4ERJGDKYE8');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8695398658548679" crossorigin="anonymous"></script>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${escapeHtml(page.title)}</title>
-  <meta name="description" content="${escapeHtml(page.summary)}">
-  <link rel="canonical" href="${siteUrl(page.path)}">
+  <title>${escapeHtml(content.title)}</title>
+  <meta name="description" content="${escapeHtml(content.summary)}">
+  <link rel="canonical" href="${siteUrl(lang, page.path)}">
+  ${hreflangs}
+  <link rel="icon" href="${assetHrefFor("/favicon.svg", page.path, lang)}" type="image/svg+xml">
+  <link rel="mask-icon" href="${assetHrefFor("/favicon.svg", page.path, lang)}" color="${accent}">
+  <meta name="theme-color" content="#0f172a">
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -223,41 +307,43 @@ function pageHtml(page) {
   <div class="shell">
     <header class="topbar">
       <div class="topbar-inner">
-        <a class="brand" href="${hrefFor("/", page.path)}">
+        <a class="brand" href="${hrefFor("/", page.path, lang)}">
           <span class="brand-mark">ScorecardX</span>
-          <span class="brand-sub">Live Sports Data</span>
+          <span class="brand-sub">${escapeHtml(labels.liveLayer)}</span>
         </a>
-        <nav class="nav" aria-label="Primary navigation">${navHtml(page.active, accent, page.path)}</nav>
+        <nav class="nav" aria-label="Primary navigation">${navHtml(page.active, accent, page.path, lang)}</nav>
         <label class="search">
           <span aria-hidden="true">⌕</span>
-          <input type="search" placeholder="Search matches">
+          <input type="search" placeholder="${escapeHtml(labels.search)}">
         </label>
+        ${langSwitchHtml(page.path, lang)}
       </div>
     </header>
     <main class="page">
+      ${getAdHtml("zone_a")}
       <section class="hero">
         <div class="hero-copy">
-          <div class="eyebrow">${escapeHtml(page.eyebrow)}</div>
-          <h1>${escapeHtml(page.heading)}</h1>
-          <p class="lead">${escapeHtml(page.summary)}</p>
-          <div class="chip-row">${page.focus.map((item) => `<span class="chip">${escapeHtml(item)}</span>`).join("")}</div>
+          <div class="eyebrow">${escapeHtml(content.eyebrow)}</div>
+          <h1>${escapeHtml(content.heading)}</h1>
+          <p class="lead">${escapeHtml(content.summary)}</p>
+          <div class="chip-row">${content.focus.map((item) => `<span class="chip">${escapeHtml(item)}</span>`).join("")}</div>
           <div class="hero-actions">
             ${(page.cta || [{ label: "Explore Calendar", href: "/calendar/" }, { label: "About Data", href: "/about/" }])
-              .map((item, index) => `<a class="button ${index === 0 ? "primary" : ""}" href="${hrefFor(item.href, page.path)}">${escapeHtml(item.label)}</a>`)
+              .map((item, index) => `<a class="button ${index === 0 ? "primary" : ""}" href="${hrefFor(item.href, page.path, lang)}">${escapeHtml(item.label)}</a>`)
               .join("")}
           </div>
         </div>
-        ${heroBoard(page)}
+        ${heroBoard(page, lang)}
       </section>
       ${tickerHtml()}
       <section class="section">
         <div class="section-head">
           <div>
-            <div class="label">Performance Layer</div>
-            <h2>What This Page Covers</h2>
+            <div class="label">${escapeHtml(labels.perfLayer)}</div>
+            <h2>${escapeHtml(labels.coverage)}</h2>
           </div>
         </div>
-        <div class="grid metrics">${metricsHtml(page)}</div>
+        <div class="grid metrics">${metricsHtml(page, lang)}</div>
       </section>
       <section class="section split">
         <div>
@@ -274,10 +360,10 @@ function pageHtml(page) {
           <div class="section-head">
             <div>
               <div class="label">Modules</div>
-              <h2>Ready Components</h2>
+              <h2>${escapeHtml(labels.readyComp)}</h2>
             </div>
           </div>
-          <div class="grid">${page.modules
+          <div class="grid">${modules
             .map(
               (module) => `<article class="card" style="--accent:${accent};min-height:120px">
               <h3>${escapeHtml(module)}</h3>
@@ -285,17 +371,19 @@ function pageHtml(page) {
             </article>`
             )
             .join("")}</div>
+          ${getAdHtml("zone_b")}
         </aside>
       </section>
       <section class="section">
         <div class="section-head">
           <div>
-            <div class="label">Navigation Map</div>
-            <h2>${relatedHeading}</h2>
+            <div class="label">${escapeHtml(labels.navMap)}</div>
+            <h2>${escapeHtml(relatedHeading)}</h2>
           </div>
         </div>
-        <div class="grid cards">${cardsHtml(page)}</div>
+        <div class="grid cards">${cardsHtml(page, page.path, lang)}</div>
       </section>
+      ${getAdHtml("zone_c")}
     </main>
     <footer class="footer">
       <div class="footer-inner">
@@ -309,26 +397,40 @@ function pageHtml(page) {
 </html>`;
 }
 
-async function writePage(page) {
-  const filePath = join(dist, page.path, "index.html");
-  await mkdir(dirname(filePath), { recursive: true });
-  await writeFile(filePath, pageHtml(page));
-}
-
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
-await Promise.all(pages.map(writePage));
+
+let pagesCount = 0;
+for (const lang of Object.keys(languages)) {
+  for (const page of pages) {
+    const langPrefix = lang === "en" ? "" : lang;
+    const pageTargetDir = join(dist, langPrefix, page.path);
+    const filePath = join(pageTargetDir, "index.html");
+    await mkdir(dirname(filePath), { recursive: true });
+    await writeFile(filePath, pageHtml(page, lang));
+    pagesCount++;
+  }
+}
+
 await cp(publicDir, dist, { recursive: true });
+
 await writeFile(
   join(dist, "robots.txt"),
   `User-agent: *\nAllow: /\nSitemap: https://wolf0x0x.github.io/scorecardx/sitemap.xml\n`
 );
+
 await writeFile(
-  join(dist, "sitemap.xml"),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages
-    .map((page) => `  <url><loc>${siteUrl(page.path)}</loc></url>`)
-    .join("\n")}\n</urlset>\n`
+  join(dist, "ads.txt"),
+  `google.com, pub-8695398658548679, DIRECT, f08c47fec0942fa0\n`
 );
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${Object.keys(languages)
+  .map((lang) => pages.map((page) => `  <url><loc>${siteUrl(lang, page.path)}</loc></url>`).join("\n"))
+  .join("\n")}
+</urlset>`;
+await writeFile(join(dist, "sitemap.xml"), sitemap);
 await writeFile(join(dist, ".nojekyll"), "");
 
-console.log(`Built ${pages.length} ScorecardX pages into dist/`);
+console.log(`[ScorecardX成功] Generated ${pagesCount} multi-language pages into dist/`);
