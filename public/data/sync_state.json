@@ -1,5 +1,5 @@
 {
-  "lastSyncAt": "2026-06-15T14:50:43.963Z",
+  "lastSyncAt": "2026-06-15T15:05:57.678Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -24,7 +24,7 @@
     },
     "jolpicaF1": {
       "status": "ok",
-      "label": "Jolpica F1 cache",
+      "label": "Jolpica F1 unavailable",
       "remainingQuota": null
     }
   },
