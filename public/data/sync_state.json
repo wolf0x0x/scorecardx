@@ -1,5 +1,5 @@
 {
-  "lastSyncAt": "2026-06-15T13:50:07.703Z",
+  "lastSyncAt": "2026-06-15T14:05:25.975Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -9,8 +9,8 @@
   "providers": {
     "apiFootball": {
       "status": "ok",
-      "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-06-15: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 73
+      "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 403 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-06-15: {\"message\":\"You are not subscribed to )",
+      "remainingQuota": 72
     },
     "apiSportsCricket": {
       "status": "quota_exhausted",
@@ -24,7 +24,7 @@
     },
     "jolpicaF1": {
       "status": "ok",
-      "label": "Jolpica F1 cache",
+      "label": "Jolpica F1 network",
       "remainingQuota": null
     }
   },
@@ -38,9 +38,9 @@
     "day": "2026-06-15",
     "providers": {
       "apiFootball": {
-        "used": 27,
+        "used": 28,
         "buckets": {
-          "live_scores": 27
+          "live_scores": 28
         }
       },
       "apiSportsCricket": {
