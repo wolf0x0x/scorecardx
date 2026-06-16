@@ -229,10 +229,44 @@ async function fetchEspnScoreboard({ sportPath, leaguePath, sport, league, accen
   };
 }
 
+async function fetchFootballEspnFallback({ cacheDir, reason }) {
+  const espn = await fetchEspnScoreboard({
+    sportPath: "soccer",
+    leaguePath: "eng.1",
+    sport: "Football",
+    league: "Premier League",
+    accent: "football",
+    sourceName: "ESPN EPL fallback",
+    cacheDir,
+    ttlMs: 15 * 60 * 1000
+  });
+  return {
+    ...espn,
+    label: reason ? `${espn.label} · ${reason}` : espn.label
+  };
+}
+
+async function fetchBasketballEspnFallback({ cacheDir, reason }) {
+  const espn = await fetchEspnScoreboard({
+    sportPath: "basketball",
+    leaguePath: "nba",
+    sport: "Basketball",
+    league: "NBA",
+    accent: "basketball",
+    sourceName: "ESPN NBA fallback",
+    cacheDir,
+    ttlMs: 10 * 60 * 1000
+  });
+  return {
+    ...espn,
+    label: reason ? `${espn.label} · ${reason}` : espn.label
+  };
+}
+
 export async function fetchApiFootball({ key, baseUrl, cacheDir, quota, bucket = "live_scores" }) {
   if (!key) return { status: "not_configured", label: "API_FOOTBALL_KEY missing", liveCards: [], fixtures: [], standings: [] };
   if (!quota.canUse("apiFootball", bucket)) {
-    return { status: "quota_exhausted", label: "API-Football quota exhausted", liveCards: [], fixtures: [], standings: [] };
+    return fetchFootballEspnFallback({ cacheDir, reason: "API-Football quota exhausted" });
   }
   quota.record("apiFootball", bucket);
 
@@ -245,20 +279,10 @@ export async function fetchApiFootball({ key, baseUrl, cacheDir, quota, bucket =
     const fixturesUrl = endpoint(baseUrl, "/fixtures", { date: today() });
     const fallback = await tryCachedFetchJson(fixturesUrl, { headers }, `${cacheDir}/api-football-fixtures-today.json`, 30 * 60 * 1000);
     if (fallback.error) {
-      const espn = await fetchEspnScoreboard({
-        sportPath: "soccer",
-        leaguePath: "eng.1",
-        sport: "Football",
-        league: "Premier League",
-        accent: "football",
-        sourceName: "ESPN EPL fallback",
+      return fetchFootballEspnFallback({
         cacheDir,
-        ttlMs: 15 * 60 * 1000
+        reason: `API-Football unavailable (${fallback.error.message.slice(0, 120)})`
       });
-      return {
-        ...espn,
-        label: `${espn.label} · API-Football unavailable (${fallback.error.message.slice(0, 120)})`
-      };
     }
     json = fallback.json;
     source = fallback.source;
@@ -389,7 +413,7 @@ export async function fetchApiSportsCricket({ key, baseUrl, baseUrls, cacheDir, 
 
 export async function fetchBasketball({ ballDontLieKey, cacheDir, quota, bucket = "live_scores" }) {
   if (!quota.canUse("basketball", bucket)) {
-    return { status: "quota_exhausted", label: "Basketball quota exhausted", liveCards: [], fixtures: [], standings: [], playerStats: [] };
+    return fetchBasketballEspnFallback({ cacheDir, reason: "Basketball quota exhausted" });
   }
   quota.record("basketball", bucket);
 
@@ -397,20 +421,10 @@ export async function fetchBasketball({ ballDontLieKey, cacheDir, quota, bucket 
   const url = endpoint("https://api.balldontlie.io/v1", "/games", { "dates[]": today(), per_page: 25 });
   let { json, source, error } = await tryCachedFetchJson(url, { headers: authHeaders }, `${cacheDir}/balldontlie-games.json`, 15 * 60 * 1000);
   if (error) {
-    const espn = await fetchEspnScoreboard({
-      sportPath: "basketball",
-      leaguePath: "nba",
-      sport: "Basketball",
-      league: "NBA",
-      accent: "basketball",
-      sourceName: "ESPN NBA fallback",
+    return fetchBasketballEspnFallback({
       cacheDir,
-      ttlMs: 10 * 60 * 1000
+      reason: `BallDontLie unavailable (${error.message.slice(0, 120)})`
     });
-    return {
-      ...espn,
-      label: `${espn.label} · BallDontLie unavailable (${error.message.slice(0, 120)})`
-    };
   }
   const games = Array.isArray(json.data) ? json.data : [];
   return {
