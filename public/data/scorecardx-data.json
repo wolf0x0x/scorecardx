@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T21:21:45.134Z",
+  "updatedAt": "2026-06-16T05:32:44.401Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -8,19 +8,19 @@
   },
   "providers": {
     "apiFootball": {
-      "status": "quota_exhausted",
-      "label": "API-Football quota exhausted",
-      "remainingQuota": 70
+      "status": "ok",
+      "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-06-16: {\"message\":\"Too many requests\"})",
+      "remainingQuota": 99
     },
     "apiSportsCricket": {
-      "status": "quota_exhausted",
-      "label": "API-Sports Cricket quota exhausted",
-      "remainingQuota": 61
+      "status": "error",
+      "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
+      "remainingQuota": 97
     },
     "basketball": {
-      "status": "quota_exhausted",
-      "label": "Basketball quota exhausted",
-      "remainingQuota": 75
+      "status": "ok",
+      "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-06-16&per_page=25: Unauthorized)",
+      "remainingQuota": 99
     },
     "jolpicaF1": {
       "status": "ok",
@@ -29,6 +29,132 @@
     }
   },
   "liveCards": [
+    {
+      "id": "football-740966",
+      "sport": "Football",
+      "league": "Premier League",
+      "status": "FT",
+      "clock": "90'+6'",
+      "home": "Brighton & Hove Albion",
+      "away": "Manchester United",
+      "homeScore": "0",
+      "awayScore": "3",
+      "accent": "football",
+      "note": "American Express Stadium · ESPN EPL fallback",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-740967",
+      "sport": "Football",
+      "league": "Premier League",
+      "status": "FT",
+      "clock": "90'+8'",
+      "home": "Burnley",
+      "away": "Wolverhampton Wanderers",
+      "homeScore": "1",
+      "awayScore": "1",
+      "accent": "football",
+      "note": "Turf Moor · ESPN EPL fallback",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-740968",
+      "sport": "Football",
+      "league": "Premier League",
+      "status": "FT",
+      "clock": "90'+9'",
+      "home": "Crystal Palace",
+      "away": "Arsenal",
+      "homeScore": "1",
+      "awayScore": "2",
+      "accent": "football",
+      "note": "Selhurst Park · ESPN EPL fallback",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-740969",
+      "sport": "Football",
+      "league": "Premier League",
+      "status": "FT",
+      "clock": "90'+9'",
+      "home": "Fulham",
+      "away": "Newcastle United",
+      "homeScore": "2",
+      "awayScore": "0",
+      "accent": "football",
+      "note": "Craven Cottage · ESPN EPL fallback",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-740975",
+      "sport": "Football",
+      "league": "Premier League",
+      "status": "FT",
+      "clock": "90'+11'",
+      "home": "Liverpool",
+      "away": "Brentford",
+      "homeScore": "1",
+      "awayScore": "1",
+      "accent": "football",
+      "note": "Anfield · ESPN EPL fallback",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-740970",
+      "sport": "Football",
+      "league": "Premier League",
+      "status": "FT",
+      "clock": "90'+12'",
+      "home": "Manchester City",
+      "away": "Aston Villa",
+      "homeScore": "1",
+      "awayScore": "2",
+      "accent": "football",
+      "note": "Etihad Stadium · ESPN EPL fallback",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-740972",
+      "sport": "Football",
+      "league": "Premier League",
+      "status": "FT",
+      "clock": "90'+12'",
+      "home": "Nottingham Forest",
+      "away": "AFC Bournemouth",
+      "homeScore": "1",
+      "awayScore": "1",
+      "accent": "football",
+      "note": "The City Ground · ESPN EPL fallback",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-740973",
+      "sport": "Football",
+      "league": "Premier League",
+      "status": "FT",
+      "clock": "90'+13'",
+      "home": "Sunderland",
+      "away": "Chelsea",
+      "homeScore": "2",
+      "awayScore": "1",
+      "accent": "football",
+      "note": "Stadium of Light · ESPN EPL fallback",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "basketball-401859967",
+      "sport": "Basketball",
+      "league": "NBA",
+      "status": "Final",
+      "clock": "0.0",
+      "home": "San Antonio Spurs",
+      "away": "New York Knicks",
+      "homeScore": "90",
+      "awayScore": "94",
+      "accent": "basketball",
+      "note": "Frost Bank Center · ESPN NBA fallback",
+      "source": "espn-nba-fallback"
+    },
     {
       "id": "f1-8",
       "sport": "F1",
@@ -46,47 +172,140 @@
     {
       "id": "config-cricket",
       "sport": "Cricket",
-      "league": "Data setup",
-      "status": "CONFIG",
-      "clock": "key needed",
+      "league": "Provider unavailable",
+      "status": "ERROR",
+      "clock": "error",
       "home": "API-Sports Cricket",
       "away": "ScorecardX",
-      "homeScore": "ready",
+      "homeScore": "error",
       "awayScore": "waiting",
       "accent": "cricket",
-      "note": "Set APISPORTS_CRICKET_KEY and run npm run sync:data.",
-      "source": "configuration"
-    },
-    {
-      "id": "config-football",
-      "sport": "Football",
-      "league": "Data setup",
-      "status": "CONFIG",
-      "clock": "key needed",
-      "home": "API-Football",
-      "away": "ScorecardX",
-      "homeScore": "ready",
-      "awayScore": "waiting",
-      "accent": "football",
-      "note": "Set API_FOOTBALL_KEY and run npm run sync:data.",
-      "source": "configuration"
-    },
-    {
-      "id": "config-basketball",
-      "sport": "Basketball",
-      "league": "Data setup",
-      "status": "CONFIG",
-      "clock": "key needed",
-      "home": "NBA provider",
-      "away": "ScorecardX",
-      "homeScore": "ready",
-      "awayScore": "waiting",
-      "accent": "basketball",
-      "note": "Set BALLDONTLIE_API_KEY and run npm run sync:data.",
-      "source": "configuration"
+      "note": "Provider response: API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
+      "source": "provider-status"
     }
   ],
   "fixtures": [
+    {
+      "id": "football-fixture-740966",
+      "date": "2026-05-24",
+      "time": "15:00",
+      "sport": "Football",
+      "league": "Premier League",
+      "home": "Brighton & Hove Albion",
+      "away": "Manchester United",
+      "status": "FT",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-fixture-740967",
+      "date": "2026-05-24",
+      "time": "15:00",
+      "sport": "Football",
+      "league": "Premier League",
+      "home": "Burnley",
+      "away": "Wolverhampton Wanderers",
+      "status": "FT",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-fixture-740968",
+      "date": "2026-05-24",
+      "time": "15:00",
+      "sport": "Football",
+      "league": "Premier League",
+      "home": "Crystal Palace",
+      "away": "Arsenal",
+      "status": "FT",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-fixture-740969",
+      "date": "2026-05-24",
+      "time": "15:00",
+      "sport": "Football",
+      "league": "Premier League",
+      "home": "Fulham",
+      "away": "Newcastle United",
+      "status": "FT",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-fixture-740975",
+      "date": "2026-05-24",
+      "time": "15:00",
+      "sport": "Football",
+      "league": "Premier League",
+      "home": "Liverpool",
+      "away": "Brentford",
+      "status": "FT",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-fixture-740970",
+      "date": "2026-05-24",
+      "time": "15:00",
+      "sport": "Football",
+      "league": "Premier League",
+      "home": "Manchester City",
+      "away": "Aston Villa",
+      "status": "FT",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-fixture-740972",
+      "date": "2026-05-24",
+      "time": "15:00",
+      "sport": "Football",
+      "league": "Premier League",
+      "home": "Nottingham Forest",
+      "away": "AFC Bournemouth",
+      "status": "FT",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-fixture-740973",
+      "date": "2026-05-24",
+      "time": "15:00",
+      "sport": "Football",
+      "league": "Premier League",
+      "home": "Sunderland",
+      "away": "Chelsea",
+      "status": "FT",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-fixture-740974",
+      "date": "2026-05-24",
+      "time": "15:00",
+      "sport": "Football",
+      "league": "Premier League",
+      "home": "Tottenham Hotspur",
+      "away": "Everton",
+      "status": "FT",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "football-fixture-740971",
+      "date": "2026-05-24",
+      "time": "15:00",
+      "sport": "Football",
+      "league": "Premier League",
+      "home": "West Ham United",
+      "away": "Leeds United",
+      "status": "FT",
+      "source": "espn-epl-fallback"
+    },
+    {
+      "id": "basketball-fixture-401859967",
+      "date": "2026-06-14",
+      "time": "00:30",
+      "sport": "Basketball",
+      "league": "NBA",
+      "home": "San Antonio Spurs",
+      "away": "New York Knicks",
+      "status": "Final",
+      "source": "espn-nba-fallback"
+    },
     {
       "id": "f1-fixture-1",
       "date": "2026-03-08",
@@ -331,6 +550,136 @@
     }
   ],
   "standings": {
+    "football": [
+      {
+        "rank": 1,
+        "team": "Brighton & Hove Albion",
+        "played": "14-11-13",
+        "wins": "14",
+        "losses": "11",
+        "points": "0",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 2,
+        "team": "Manchester United",
+        "played": "20-11-7",
+        "wins": "20",
+        "losses": "11",
+        "points": "3",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 3,
+        "team": "Burnley",
+        "played": "4-10-24",
+        "wins": "4",
+        "losses": "10",
+        "points": "1",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 4,
+        "team": "Wolverhampton Wanderers",
+        "played": "3-11-24",
+        "wins": "3",
+        "losses": "11",
+        "points": "1",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 5,
+        "team": "Crystal Palace",
+        "played": "11-12-15",
+        "wins": "11",
+        "losses": "12",
+        "points": "1",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 6,
+        "team": "Arsenal",
+        "played": "26-7-5",
+        "wins": "26",
+        "losses": "7",
+        "points": "2",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 7,
+        "team": "Fulham",
+        "played": "15-7-16",
+        "wins": "15",
+        "losses": "7",
+        "points": "2",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 8,
+        "team": "Newcastle United",
+        "played": "14-7-17",
+        "wins": "14",
+        "losses": "7",
+        "points": "0",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 9,
+        "team": "Liverpool",
+        "played": "17-9-12",
+        "wins": "17",
+        "losses": "9",
+        "points": "1",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 10,
+        "team": "Brentford",
+        "played": "14-11-13",
+        "wins": "14",
+        "losses": "11",
+        "points": "1",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 11,
+        "team": "Manchester City",
+        "played": "23-9-6",
+        "wins": "23",
+        "losses": "9",
+        "points": "1",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 12,
+        "team": "Aston Villa",
+        "played": "19-8-11",
+        "wins": "19",
+        "losses": "8",
+        "points": "2",
+        "note": "ESPN team record"
+      }
+    ],
+    "basketball": [
+      {
+        "rank": 1,
+        "team": "San Antonio Spurs",
+        "played": "62-20",
+        "wins": "62",
+        "losses": "20",
+        "points": "90",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 2,
+        "team": "New York Knicks",
+        "played": "53-29",
+        "wins": "53",
+        "losses": "29",
+        "points": "94",
+        "note": "ESPN team record"
+      }
+    ],
     "f1": [
       {
         "rank": 1,
@@ -434,28 +783,6 @@
         "note": "Waiting for provider sync"
       }
     ],
-    "football": [
-      {
-        "rank": 1,
-        "team": "Football standings",
-        "played": "-",
-        "wins": "-",
-        "losses": "-",
-        "points": "-",
-        "note": "Waiting for provider sync"
-      }
-    ],
-    "basketball": [
-      {
-        "rank": 1,
-        "team": "Basketball standings",
-        "played": "-",
-        "wins": "-",
-        "losses": "-",
-        "points": "-",
-        "note": "Waiting for provider sync"
-      }
-    ],
     "tennis": [
       {
         "rank": 1,
@@ -469,6 +796,64 @@
     ]
   },
   "playerStats": {
+    "basketball": [
+      {
+        "rank": 1,
+        "name": "Dylan Harper",
+        "team": "San Antonio Spurs",
+        "metric": "Points",
+        "value": "25"
+      },
+      {
+        "rank": 2,
+        "name": "Victor Wembanyama",
+        "team": "San Antonio Spurs",
+        "metric": "Rebounds",
+        "value": "14"
+      },
+      {
+        "rank": 3,
+        "name": "De'Aaron Fox",
+        "team": "San Antonio Spurs",
+        "metric": "Assists",
+        "value": "5"
+      },
+      {
+        "rank": 4,
+        "name": "Victor Wembanyama",
+        "team": "San Antonio Spurs",
+        "metric": "Rating",
+        "value": "19 PTS, 14 REB, 5 BLK"
+      },
+      {
+        "rank": 5,
+        "name": "Jalen Brunson",
+        "team": "New York Knicks",
+        "metric": "Points",
+        "value": "45"
+      },
+      {
+        "rank": 6,
+        "name": "Josh Hart",
+        "team": "New York Knicks",
+        "metric": "Rebounds",
+        "value": "11"
+      },
+      {
+        "rank": 7,
+        "name": "Mikal Bridges",
+        "team": "New York Knicks",
+        "metric": "Assists",
+        "value": "4"
+      },
+      {
+        "rank": 8,
+        "name": "Jalen Brunson",
+        "team": "New York Knicks",
+        "metric": "Rating",
+        "value": "45 PTS"
+      }
+    ],
     "f1": [
       {
         "rank": 1,
@@ -559,15 +944,6 @@
         "value": "-"
       }
     ],
-    "basketball": [
-      {
-        "rank": 1,
-        "name": "Basketball leaders",
-        "team": "ScorecardX",
-        "metric": "Waiting for provider sync",
-        "value": "-"
-      }
-    ],
     "tennis": [
       {
         "rank": 1,
@@ -583,10 +959,10 @@
       "id": "data-pipeline-status",
       "sport": "Platform",
       "title": "ScorecardX live data pipeline updated",
-      "summary": "1/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
+      "summary": "3/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-06-15T21:21:45.134Z"
+      "publishedAt": "2026-06-16T05:32:44.401Z"
     }
   ]
 }
