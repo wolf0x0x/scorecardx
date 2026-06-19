@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-19T05:24:17.047Z",
+  "updatedAt": "2026-06-19T10:57:04.837Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,17 +10,17 @@
     "apiFootball": {
       "status": "ok",
       "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-06-19: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 99
+      "remainingQuota": 98
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 97
+      "remainingQuota": 94
     },
     "basketball": {
       "status": "ok",
       "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-06-19&per_page=25: Unauthorized)",
-      "remainingQuota": 99
+      "remainingQuota": 98
     },
     "jolpicaF1": {
       "status": "ok",
@@ -30,115 +30,17 @@
   },
   "liveCards": [
     {
-      "id": "football-740966",
+      "id": "football-401879301",
       "sport": "Football",
       "league": "Premier League",
-      "status": "FT",
-      "clock": "90'+6'",
-      "home": "Brighton & Hove Albion",
-      "away": "Manchester United",
+      "status": "Scheduled",
+      "clock": "0'",
+      "home": "Arsenal",
+      "away": "Coventry City",
       "homeScore": "0",
-      "awayScore": "3",
-      "accent": "football",
-      "note": "American Express Stadium · ESPN EPL fallback",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-740967",
-      "sport": "Football",
-      "league": "Premier League",
-      "status": "FT",
-      "clock": "90'+8'",
-      "home": "Burnley",
-      "away": "Wolverhampton Wanderers",
-      "homeScore": "1",
-      "awayScore": "1",
-      "accent": "football",
-      "note": "Turf Moor · ESPN EPL fallback",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-740968",
-      "sport": "Football",
-      "league": "Premier League",
-      "status": "FT",
-      "clock": "90'+9'",
-      "home": "Crystal Palace",
-      "away": "Arsenal",
-      "homeScore": "1",
-      "awayScore": "2",
-      "accent": "football",
-      "note": "Selhurst Park · ESPN EPL fallback",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-740969",
-      "sport": "Football",
-      "league": "Premier League",
-      "status": "FT",
-      "clock": "90'+9'",
-      "home": "Fulham",
-      "away": "Newcastle United",
-      "homeScore": "2",
       "awayScore": "0",
       "accent": "football",
-      "note": "Craven Cottage · ESPN EPL fallback",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-740975",
-      "sport": "Football",
-      "league": "Premier League",
-      "status": "FT",
-      "clock": "90'+11'",
-      "home": "Liverpool",
-      "away": "Brentford",
-      "homeScore": "1",
-      "awayScore": "1",
-      "accent": "football",
-      "note": "Anfield · ESPN EPL fallback",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-740970",
-      "sport": "Football",
-      "league": "Premier League",
-      "status": "FT",
-      "clock": "90'+12'",
-      "home": "Manchester City",
-      "away": "Aston Villa",
-      "homeScore": "1",
-      "awayScore": "2",
-      "accent": "football",
-      "note": "Etihad Stadium · ESPN EPL fallback",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-740972",
-      "sport": "Football",
-      "league": "Premier League",
-      "status": "FT",
-      "clock": "90'+12'",
-      "home": "Nottingham Forest",
-      "away": "AFC Bournemouth",
-      "homeScore": "1",
-      "awayScore": "1",
-      "accent": "football",
-      "note": "The City Ground · ESPN EPL fallback",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-740973",
-      "sport": "Football",
-      "league": "Premier League",
-      "status": "FT",
-      "clock": "90'+13'",
-      "home": "Sunderland",
-      "away": "Chelsea",
-      "homeScore": "2",
-      "awayScore": "1",
-      "accent": "football",
-      "note": "Stadium of Light · ESPN EPL fallback",
+      "note": "Emirates Stadium · ESPN EPL fallback",
       "source": "espn-epl-fallback"
     },
     {
@@ -186,113 +88,14 @@
   ],
   "fixtures": [
     {
-      "id": "football-fixture-740966",
-      "date": "2026-05-24",
-      "time": "15:00",
+      "id": "football-fixture-401879301",
+      "date": "2026-08-21",
+      "time": "19:00",
       "sport": "Football",
       "league": "Premier League",
-      "home": "Brighton & Hove Albion",
-      "away": "Manchester United",
-      "status": "FT",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-fixture-740967",
-      "date": "2026-05-24",
-      "time": "15:00",
-      "sport": "Football",
-      "league": "Premier League",
-      "home": "Burnley",
-      "away": "Wolverhampton Wanderers",
-      "status": "FT",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-fixture-740968",
-      "date": "2026-05-24",
-      "time": "15:00",
-      "sport": "Football",
-      "league": "Premier League",
-      "home": "Crystal Palace",
-      "away": "Arsenal",
-      "status": "FT",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-fixture-740969",
-      "date": "2026-05-24",
-      "time": "15:00",
-      "sport": "Football",
-      "league": "Premier League",
-      "home": "Fulham",
-      "away": "Newcastle United",
-      "status": "FT",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-fixture-740975",
-      "date": "2026-05-24",
-      "time": "15:00",
-      "sport": "Football",
-      "league": "Premier League",
-      "home": "Liverpool",
-      "away": "Brentford",
-      "status": "FT",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-fixture-740970",
-      "date": "2026-05-24",
-      "time": "15:00",
-      "sport": "Football",
-      "league": "Premier League",
-      "home": "Manchester City",
-      "away": "Aston Villa",
-      "status": "FT",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-fixture-740972",
-      "date": "2026-05-24",
-      "time": "15:00",
-      "sport": "Football",
-      "league": "Premier League",
-      "home": "Nottingham Forest",
-      "away": "AFC Bournemouth",
-      "status": "FT",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-fixture-740973",
-      "date": "2026-05-24",
-      "time": "15:00",
-      "sport": "Football",
-      "league": "Premier League",
-      "home": "Sunderland",
-      "away": "Chelsea",
-      "status": "FT",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-fixture-740974",
-      "date": "2026-05-24",
-      "time": "15:00",
-      "sport": "Football",
-      "league": "Premier League",
-      "home": "Tottenham Hotspur",
-      "away": "Everton",
-      "status": "FT",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "football-fixture-740971",
-      "date": "2026-05-24",
-      "time": "15:00",
-      "sport": "Football",
-      "league": "Premier League",
-      "home": "West Ham United",
-      "away": "Leeds United",
-      "status": "FT",
+      "home": "Arsenal",
+      "away": "Coventry City",
+      "status": "Scheduled",
       "source": "espn-epl-fallback"
     },
     {
@@ -553,110 +356,20 @@
     "football": [
       {
         "rank": 1,
-        "team": "Brighton & Hove Albion",
-        "played": "14-11-13",
-        "wins": "14",
-        "losses": "11",
+        "team": "Arsenal",
+        "played": "0-0-0",
+        "wins": "0",
+        "losses": "0",
         "points": "0",
         "note": "ESPN team record"
       },
       {
         "rank": 2,
-        "team": "Manchester United",
-        "played": "20-11-7",
-        "wins": "20",
-        "losses": "11",
-        "points": "3",
-        "note": "ESPN team record"
-      },
-      {
-        "rank": 3,
-        "team": "Burnley",
-        "played": "4-10-24",
-        "wins": "4",
-        "losses": "10",
-        "points": "1",
-        "note": "ESPN team record"
-      },
-      {
-        "rank": 4,
-        "team": "Wolverhampton Wanderers",
-        "played": "3-11-24",
-        "wins": "3",
-        "losses": "11",
-        "points": "1",
-        "note": "ESPN team record"
-      },
-      {
-        "rank": 5,
-        "team": "Crystal Palace",
-        "played": "11-12-15",
-        "wins": "11",
-        "losses": "12",
-        "points": "1",
-        "note": "ESPN team record"
-      },
-      {
-        "rank": 6,
-        "team": "Arsenal",
-        "played": "26-7-5",
-        "wins": "26",
-        "losses": "7",
-        "points": "2",
-        "note": "ESPN team record"
-      },
-      {
-        "rank": 7,
-        "team": "Fulham",
-        "played": "15-7-16",
-        "wins": "15",
-        "losses": "7",
-        "points": "2",
-        "note": "ESPN team record"
-      },
-      {
-        "rank": 8,
-        "team": "Newcastle United",
-        "played": "14-7-17",
-        "wins": "14",
-        "losses": "7",
+        "team": "Coventry City",
+        "played": "0-0-0",
+        "wins": "0",
+        "losses": "0",
         "points": "0",
-        "note": "ESPN team record"
-      },
-      {
-        "rank": 9,
-        "team": "Liverpool",
-        "played": "17-9-12",
-        "wins": "17",
-        "losses": "9",
-        "points": "1",
-        "note": "ESPN team record"
-      },
-      {
-        "rank": 10,
-        "team": "Brentford",
-        "played": "14-11-13",
-        "wins": "14",
-        "losses": "11",
-        "points": "1",
-        "note": "ESPN team record"
-      },
-      {
-        "rank": 11,
-        "team": "Manchester City",
-        "played": "23-9-6",
-        "wins": "23",
-        "losses": "9",
-        "points": "1",
-        "note": "ESPN team record"
-      },
-      {
-        "rank": 12,
-        "team": "Aston Villa",
-        "played": "19-8-11",
-        "wins": "19",
-        "losses": "8",
-        "points": "2",
         "note": "ESPN team record"
       }
     ],
@@ -962,7 +675,7 @@
       "summary": "3/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-06-19T05:24:17.047Z"
+      "publishedAt": "2026-06-19T10:57:04.837Z"
     }
   ]
 }
