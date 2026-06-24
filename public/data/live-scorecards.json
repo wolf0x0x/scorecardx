@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T09:51:05.843Z",
+  "updatedAt": "2026-06-24T15:07:22.064Z",
   "cards": [
     {
       "id": "football-401879301",
@@ -28,6 +28,20 @@
       "accent": "basketball",
       "note": "Frost Bank Center · ESPN NBA fallback",
       "source": "espn-nba-fallback"
+    },
+    {
+      "id": "f1-8",
+      "sport": "F1",
+      "league": "Formula 1",
+      "status": "NEXT",
+      "clock": "2026-06-28",
+      "home": "Austrian Grand Prix",
+      "away": "Red Bull Ring",
+      "homeScore": "R8",
+      "awayScore": "13:00:00 UTC",
+      "accent": "f1",
+      "note": "Spielberg, Austria",
+      "source": "jolpica"
     },
     {
       "id": "config-cricket",
