@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T04:35:30.201Z",
+  "updatedAt": "2026-06-24T09:51:05.843Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,21 +10,21 @@
     "apiFootball": {
       "status": "ok",
       "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-06-24: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 99
+      "remainingQuota": 98
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 97
+      "remainingQuota": 94
     },
     "basketball": {
       "status": "ok",
       "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-06-24&per_page=25: Unauthorized)",
-      "remainingQuota": 99
+      "remainingQuota": 98
     },
     "jolpicaF1": {
-      "status": "ok",
-      "label": "Jolpica F1 network",
+      "status": "error",
+      "label": "Jolpica F1 unavailable",
       "remainingQuota": null
     }
   },
@@ -56,20 +56,6 @@
       "accent": "basketball",
       "note": "Frost Bank Center · ESPN NBA fallback",
       "source": "espn-nba-fallback"
-    },
-    {
-      "id": "f1-8",
-      "sport": "F1",
-      "league": "Formula 1",
-      "status": "NEXT",
-      "clock": "2026-06-28",
-      "home": "Austrian Grand Prix",
-      "away": "Red Bull Ring",
-      "homeScore": "R8",
-      "awayScore": "13:00:00 UTC",
-      "accent": "f1",
-      "note": "Spielberg, Austria",
-      "source": "jolpica"
     },
     {
       "id": "config-cricket",
@@ -108,248 +94,6 @@
       "away": "New York Knicks",
       "status": "Final",
       "source": "espn-nba-fallback"
-    },
-    {
-      "id": "f1-fixture-1",
-      "date": "2026-03-08",
-      "time": "04:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Australian Grand Prix",
-      "away": "Albert Park Grand Prix Circuit",
-      "status": "Completed",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-2",
-      "date": "2026-03-15",
-      "time": "07:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Chinese Grand Prix",
-      "away": "Shanghai International Circuit",
-      "status": "Completed",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-3",
-      "date": "2026-03-29",
-      "time": "05:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Japanese Grand Prix",
-      "away": "Suzuka Circuit",
-      "status": "Completed",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-4",
-      "date": "2026-05-03",
-      "time": "20:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Miami Grand Prix",
-      "away": "Miami International Autodrome",
-      "status": "Completed",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-5",
-      "date": "2026-05-24",
-      "time": "20:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Canadian Grand Prix",
-      "away": "Circuit Gilles Villeneuve",
-      "status": "Completed",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-6",
-      "date": "2026-06-07",
-      "time": "13:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Monaco Grand Prix",
-      "away": "Circuit de Monaco",
-      "status": "Completed",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-7",
-      "date": "2026-06-14",
-      "time": "13:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Barcelona Grand Prix",
-      "away": "Circuit de Barcelona-Catalunya",
-      "status": "Completed",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-8",
-      "date": "2026-06-28",
-      "time": "13:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Austrian Grand Prix",
-      "away": "Red Bull Ring",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-9",
-      "date": "2026-07-05",
-      "time": "14:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "British Grand Prix",
-      "away": "Silverstone Circuit",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-10",
-      "date": "2026-07-19",
-      "time": "13:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Belgian Grand Prix",
-      "away": "Circuit de Spa-Francorchamps",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-11",
-      "date": "2026-07-26",
-      "time": "13:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Hungarian Grand Prix",
-      "away": "Hungaroring",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-12",
-      "date": "2026-08-23",
-      "time": "13:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Dutch Grand Prix",
-      "away": "Circuit Park Zandvoort",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-13",
-      "date": "2026-09-06",
-      "time": "13:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Italian Grand Prix",
-      "away": "Autodromo Nazionale di Monza",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-14",
-      "date": "2026-09-13",
-      "time": "13:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Spanish Grand Prix",
-      "away": "Madring",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-15",
-      "date": "2026-09-26",
-      "time": "11:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Azerbaijan Grand Prix",
-      "away": "Baku City Circuit",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-16",
-      "date": "2026-10-11",
-      "time": "12:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Singapore Grand Prix",
-      "away": "Marina Bay Street Circuit",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-17",
-      "date": "2026-10-25",
-      "time": "20:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "United States Grand Prix",
-      "away": "Circuit of the Americas",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-18",
-      "date": "2026-11-01",
-      "time": "20:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Mexico City Grand Prix",
-      "away": "Autódromo Hermanos Rodríguez",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-19",
-      "date": "2026-11-08",
-      "time": "17:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Brazilian Grand Prix",
-      "away": "Autódromo José Carlos Pace",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-20",
-      "date": "2026-11-22",
-      "time": "04:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Las Vegas Grand Prix",
-      "away": "Las Vegas Strip Street Circuit",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-21",
-      "date": "2026-11-29",
-      "time": "16:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Qatar Grand Prix",
-      "away": "Losail International Circuit",
-      "status": "Scheduled",
-      "source": "jolpica"
-    },
-    {
-      "id": "f1-fixture-22",
-      "date": "2026-12-06",
-      "time": "13:00:00Z",
-      "sport": "F1",
-      "league": "Formula 1",
-      "home": "Abu Dhabi Grand Prix",
-      "away": "Yas Marina Circuit",
-      "status": "Scheduled",
-      "source": "jolpica"
     }
   ],
   "standings": {
@@ -393,102 +137,21 @@
         "note": "ESPN team record"
       }
     ],
-    "f1": [
-      {
-        "rank": 1,
-        "team": "Andrea Kimi Antonelli",
-        "played": "5",
-        "wins": "5",
-        "losses": "-",
-        "points": "156",
-        "note": "Mercedes"
-      },
-      {
-        "rank": 2,
-        "team": "Lewis Hamilton",
-        "played": "1",
-        "wins": "1",
-        "losses": "-",
-        "points": "115",
-        "note": "Ferrari"
-      },
-      {
-        "rank": 3,
-        "team": "George Russell",
-        "played": "1",
-        "wins": "1",
-        "losses": "-",
-        "points": "106",
-        "note": "Mercedes"
-      },
-      {
-        "rank": 4,
-        "team": "Charles Leclerc",
-        "played": "0",
-        "wins": "0",
-        "losses": "-",
-        "points": "75",
-        "note": "Ferrari"
-      },
-      {
-        "rank": 5,
-        "team": "Lando Norris",
-        "played": "0",
-        "wins": "0",
-        "losses": "-",
-        "points": "73",
-        "note": "McLaren"
-      },
-      {
-        "rank": 6,
-        "team": "Oscar Piastri",
-        "played": "0",
-        "wins": "0",
-        "losses": "-",
-        "points": "68",
-        "note": "McLaren"
-      },
-      {
-        "rank": 7,
-        "team": "Max Verstappen",
-        "played": "0",
-        "wins": "0",
-        "losses": "-",
-        "points": "55",
-        "note": "Red Bull"
-      },
-      {
-        "rank": 8,
-        "team": "Pierre Gasly",
-        "played": "0",
-        "wins": "0",
-        "losses": "-",
-        "points": "41",
-        "note": "Alpine F1 Team"
-      },
-      {
-        "rank": 9,
-        "team": "Isack Hadjar",
-        "played": "0",
-        "wins": "0",
-        "losses": "-",
-        "points": "34",
-        "note": "Red Bull"
-      },
-      {
-        "rank": 10,
-        "team": "Liam Lawson",
-        "played": "0",
-        "wins": "0",
-        "losses": "-",
-        "points": "28",
-        "note": "RB F1 Team"
-      }
-    ],
     "cricket": [
       {
         "rank": 1,
         "team": "Cricket standings",
+        "played": "-",
+        "wins": "-",
+        "losses": "-",
+        "points": "-",
+        "note": "Waiting for provider sync"
+      }
+    ],
+    "f1": [
+      {
+        "rank": 1,
+        "team": "F1 standings",
         "played": "-",
         "wins": "-",
         "losses": "-",
@@ -567,78 +230,6 @@
         "value": "45 PTS"
       }
     ],
-    "f1": [
-      {
-        "rank": 1,
-        "name": "Andrea Kimi Antonelli",
-        "team": "Mercedes",
-        "metric": "Driver points",
-        "value": "156"
-      },
-      {
-        "rank": 2,
-        "name": "Lewis Hamilton",
-        "team": "Ferrari",
-        "metric": "Driver points",
-        "value": "115"
-      },
-      {
-        "rank": 3,
-        "name": "George Russell",
-        "team": "Mercedes",
-        "metric": "Driver points",
-        "value": "106"
-      },
-      {
-        "rank": 4,
-        "name": "Charles Leclerc",
-        "team": "Ferrari",
-        "metric": "Driver points",
-        "value": "75"
-      },
-      {
-        "rank": 5,
-        "name": "Lando Norris",
-        "team": "McLaren",
-        "metric": "Driver points",
-        "value": "73"
-      },
-      {
-        "rank": 6,
-        "name": "Oscar Piastri",
-        "team": "McLaren",
-        "metric": "Driver points",
-        "value": "68"
-      },
-      {
-        "rank": 7,
-        "name": "Max Verstappen",
-        "team": "Red Bull",
-        "metric": "Driver points",
-        "value": "55"
-      },
-      {
-        "rank": 8,
-        "name": "Pierre Gasly",
-        "team": "Alpine F1 Team",
-        "metric": "Driver points",
-        "value": "41"
-      },
-      {
-        "rank": 9,
-        "name": "Isack Hadjar",
-        "team": "Red Bull",
-        "metric": "Driver points",
-        "value": "34"
-      },
-      {
-        "rank": 10,
-        "name": "Liam Lawson",
-        "team": "RB F1 Team",
-        "metric": "Driver points",
-        "value": "28"
-      }
-    ],
     "cricket": [
       {
         "rank": 1,
@@ -652,6 +243,15 @@
       {
         "rank": 1,
         "name": "Football leaders",
+        "team": "ScorecardX",
+        "metric": "Waiting for provider sync",
+        "value": "-"
+      }
+    ],
+    "f1": [
+      {
+        "rank": 1,
+        "name": "F1 leaders",
         "team": "ScorecardX",
         "metric": "Waiting for provider sync",
         "value": "-"
@@ -672,10 +272,10 @@
       "id": "data-pipeline-status",
       "sport": "Platform",
       "title": "ScorecardX live data pipeline updated",
-      "summary": "3/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
+      "summary": "2/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-06-24T04:35:30.201Z"
+      "publishedAt": "2026-06-24T09:51:05.843Z"
     }
   ]
 }
