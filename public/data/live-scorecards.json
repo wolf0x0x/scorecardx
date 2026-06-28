@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T09:32:29.396Z",
+  "updatedAt": "2026-06-28T14:15:24.115Z",
   "cards": [
     {
       "id": "football-401879301",
@@ -30,17 +30,17 @@
       "source": "espn-nba-fallback"
     },
     {
-      "id": "f1-8",
+      "id": "f1-9",
       "sport": "F1",
       "league": "Formula 1",
       "status": "NEXT",
-      "clock": "2026-06-28",
-      "home": "Austrian Grand Prix",
-      "away": "Red Bull Ring",
-      "homeScore": "R8",
-      "awayScore": "13:00:00 UTC",
+      "clock": "2026-07-05",
+      "home": "British Grand Prix",
+      "away": "Silverstone Circuit",
+      "homeScore": "R9",
+      "awayScore": "14:00:00 UTC",
       "accent": "f1",
-      "note": "Spielberg, Austria",
+      "note": "Silverstone, UK",
       "source": "jolpica"
     },
     {
