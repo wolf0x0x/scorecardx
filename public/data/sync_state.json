@@ -1,5 +1,5 @@
 {
-  "lastSyncAt": "2026-07-03T04:07:43.225Z",
+  "lastSyncAt": "2026-07-03T09:34:37.828Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,17 +10,17 @@
     "apiFootball": {
       "status": "ok",
       "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-07-03: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 99
+      "remainingQuota": 98
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 97
+      "remainingQuota": 94
     },
     "basketball": {
       "status": "ok",
       "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-07-03&per_page=25: Unauthorized)",
-      "remainingQuota": 99
+      "remainingQuota": 98
     },
     "jolpicaF1": {
       "status": "ok",
@@ -30,7 +30,7 @@
   },
   "providerErrorStreaks": {
     "apiFootball": 0,
-    "apiSportsCricket": 68,
+    "apiSportsCricket": 69,
     "basketball": 0,
     "jolpicaF1": 0
   },
@@ -38,21 +38,21 @@
     "day": "2026-07-03",
     "providers": {
       "apiFootball": {
-        "used": 1,
+        "used": 2,
         "buckets": {
-          "live_scores": 1
+          "live_scores": 2
         }
       },
       "apiSportsCricket": {
-        "used": 3,
+        "used": 6,
         "buckets": {
-          "live_scores": 3
+          "live_scores": 6
         }
       },
       "basketball": {
-        "used": 1,
+        "used": 2,
         "buckets": {
-          "live_scores": 1
+          "live_scores": 2
         }
       }
     }
