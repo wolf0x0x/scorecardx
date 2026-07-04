@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T13:57:09.895Z",
+  "updatedAt": "2026-07-04T19:36:05.927Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -9,18 +9,18 @@
   "providers": {
     "apiFootball": {
       "status": "ok",
-      "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-07-04: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 97
+      "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 403 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-07-04: {\"message\":\"You are not subscribed to )",
+      "remainingQuota": 96
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 91
+      "remainingQuota": 88
     },
     "basketball": {
       "status": "ok",
       "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-07-04&per_page=25: Unauthorized)",
-      "remainingQuota": 97
+      "remainingQuota": 96
     },
     "jolpicaF1": {
       "status": "ok",
@@ -400,7 +400,7 @@
         "played": "5",
         "wins": "5",
         "losses": "-",
-        "points": "171",
+        "points": "179",
         "note": "Mercedes"
       },
       {
@@ -409,7 +409,7 @@
         "played": "2",
         "wins": "2",
         "losses": "-",
-        "points": "131",
+        "points": "136",
         "note": "Mercedes"
       },
       {
@@ -418,35 +418,35 @@
         "played": "1",
         "wins": "1",
         "losses": "-",
-        "points": "125",
+        "points": "132",
         "note": "Ferrari"
       },
       {
         "rank": 4,
-        "team": "Oscar Piastri",
-        "played": "0",
-        "wins": "0",
-        "losses": "-",
-        "points": "80",
-        "note": "McLaren"
-      },
-      {
-        "rank": 5,
         "team": "Lando Norris",
         "played": "0",
         "wins": "0",
         "losses": "-",
-        "points": "79",
+        "points": "85",
         "note": "McLaren"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "team": "Charles Leclerc",
         "played": "0",
         "wins": "0",
         "losses": "-",
-        "points": "79",
+        "points": "83",
         "note": "Ferrari"
+      },
+      {
+        "rank": 6,
+        "team": "Oscar Piastri",
+        "played": "0",
+        "wins": "0",
+        "losses": "-",
+        "points": "82",
+        "note": "McLaren"
       },
       {
         "rank": 7,
@@ -454,7 +454,7 @@
         "played": "0",
         "wins": "0",
         "losses": "-",
-        "points": "73",
+        "points": "76",
         "note": "Red Bull"
       },
       {
@@ -481,7 +481,7 @@
         "played": "0",
         "wins": "0",
         "losses": "-",
-        "points": "30",
+        "points": "31",
         "note": "RB F1 Team"
       }
     ],
@@ -573,49 +573,49 @@
         "name": "Andrea Kimi Antonelli",
         "team": "Mercedes",
         "metric": "Driver points",
-        "value": "171"
+        "value": "179"
       },
       {
         "rank": 2,
         "name": "George Russell",
         "team": "Mercedes",
         "metric": "Driver points",
-        "value": "131"
+        "value": "136"
       },
       {
         "rank": 3,
         "name": "Lewis Hamilton",
         "team": "Ferrari",
         "metric": "Driver points",
-        "value": "125"
+        "value": "132"
       },
       {
         "rank": 4,
-        "name": "Oscar Piastri",
-        "team": "McLaren",
-        "metric": "Driver points",
-        "value": "80"
-      },
-      {
-        "rank": 5,
         "name": "Lando Norris",
         "team": "McLaren",
         "metric": "Driver points",
-        "value": "79"
+        "value": "85"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "name": "Charles Leclerc",
         "team": "Ferrari",
         "metric": "Driver points",
-        "value": "79"
+        "value": "83"
+      },
+      {
+        "rank": 6,
+        "name": "Oscar Piastri",
+        "team": "McLaren",
+        "metric": "Driver points",
+        "value": "82"
       },
       {
         "rank": 7,
         "name": "Max Verstappen",
         "team": "Red Bull",
         "metric": "Driver points",
-        "value": "73"
+        "value": "76"
       },
       {
         "rank": 8,
@@ -636,7 +636,7 @@
         "name": "Liam Lawson",
         "team": "RB F1 Team",
         "metric": "Driver points",
-        "value": "30"
+        "value": "31"
       }
     ],
     "cricket": [
@@ -675,7 +675,7 @@
       "summary": "3/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-07-04T13:57:09.895Z"
+      "publishedAt": "2026-07-04T19:36:05.927Z"
     }
   ]
 }
