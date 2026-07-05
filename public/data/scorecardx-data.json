@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T09:22:18.102Z",
+  "updatedAt": "2026-07-05T14:08:46.232Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,17 +10,17 @@
     "apiFootball": {
       "status": "ok",
       "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-07-05: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 98
+      "remainingQuota": 97
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 94
+      "remainingQuota": 91
     },
     "basketball": {
       "status": "ok",
       "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-07-05&per_page=25: Unauthorized)",
-      "remainingQuota": 98
+      "remainingQuota": 97
     },
     "jolpicaF1": {
       "status": "ok",
@@ -58,17 +58,17 @@
       "source": "espn-nba-fallback"
     },
     {
-      "id": "f1-9",
+      "id": "f1-10",
       "sport": "F1",
       "league": "Formula 1",
       "status": "NEXT",
-      "clock": "2026-07-05",
-      "home": "British Grand Prix",
-      "away": "Silverstone Circuit",
-      "homeScore": "R9",
-      "awayScore": "14:00:00 UTC",
+      "clock": "2026-07-19",
+      "home": "Belgian Grand Prix",
+      "away": "Circuit de Spa-Francorchamps",
+      "homeScore": "R10",
+      "awayScore": "13:00:00 UTC",
       "accent": "f1",
-      "note": "Silverstone, UK",
+      "note": "Spa, Belgium",
       "source": "jolpica"
     },
     {
@@ -205,7 +205,7 @@
       "league": "Formula 1",
       "home": "British Grand Prix",
       "away": "Silverstone Circuit",
-      "status": "Scheduled",
+      "status": "Completed",
       "source": "jolpica"
     },
     {
@@ -675,7 +675,7 @@
       "summary": "3/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-07-05T09:22:18.102Z"
+      "publishedAt": "2026-07-05T14:08:46.232Z"
     }
   ]
 }
