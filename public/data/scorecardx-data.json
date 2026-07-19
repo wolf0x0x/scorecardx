@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-19T08:32:20.982Z",
+  "updatedAt": "2026-07-19T13:52:35.390Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,17 +10,17 @@
     "apiFootball": {
       "status": "ok",
       "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-07-19: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 98
+      "remainingQuota": 97
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 94
+      "remainingQuota": 91
     },
     "basketball": {
       "status": "ok",
       "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-07-19&per_page=25: Unauthorized)",
-      "remainingQuota": 98
+      "remainingQuota": 97
     },
     "jolpicaF1": {
       "status": "ok",
@@ -58,17 +58,17 @@
       "source": "espn-nba-fallback"
     },
     {
-      "id": "f1-10",
+      "id": "f1-11",
       "sport": "F1",
       "league": "Formula 1",
       "status": "NEXT",
-      "clock": "2026-07-19",
-      "home": "Belgian Grand Prix",
-      "away": "Circuit de Spa-Francorchamps",
-      "homeScore": "R10",
+      "clock": "2026-07-26",
+      "home": "Hungarian Grand Prix",
+      "away": "Hungaroring",
+      "homeScore": "R11",
       "awayScore": "13:00:00 UTC",
       "accent": "f1",
-      "note": "Spa, Belgium",
+      "note": "Budapest, Hungary",
       "source": "jolpica"
     },
     {
@@ -216,7 +216,7 @@
       "league": "Formula 1",
       "home": "Belgian Grand Prix",
       "away": "Circuit de Spa-Francorchamps",
-      "status": "Scheduled",
+      "status": "Completed",
       "source": "jolpica"
     },
     {
@@ -675,7 +675,7 @@
       "summary": "3/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-07-19T08:32:20.982Z"
+      "publishedAt": "2026-07-19T13:52:35.390Z"
     }
   ]
 }
