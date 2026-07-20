@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T14:32:35.535Z",
+  "updatedAt": "2026-07-20T19:55:42.535Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,17 +10,17 @@
     "apiFootball": {
       "status": "ok",
       "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-07-20: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 97
+      "remainingQuota": 96
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 91
+      "remainingQuota": 88
     },
     "basketball": {
       "status": "ok",
       "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-07-20&per_page=25: Unauthorized)",
-      "remainingQuota": 97
+      "remainingQuota": 96
     },
     "jolpicaF1": {
       "status": "ok",
@@ -44,17 +44,17 @@
       "source": "espn-epl-fallback"
     },
     {
-      "id": "basketball-401859967",
+      "id": "basketball-401898388",
       "sport": "Basketball",
       "league": "NBA",
-      "status": "Final",
+      "status": "10/5 - 7:00 PM EDT",
       "clock": "0.0",
-      "home": "San Antonio Spurs",
-      "away": "New York Knicks",
-      "homeScore": "90",
-      "awayScore": "94",
+      "home": "Atlanta Hawks",
+      "away": "Memphis Grizzlies",
+      "homeScore": "0",
+      "awayScore": "0",
       "accent": "basketball",
-      "note": "Frost Bank Center · ESPN NBA fallback",
+      "note": "State Farm Arena · ESPN NBA fallback",
       "source": "espn-nba-fallback"
     },
     {
@@ -99,14 +99,14 @@
       "source": "espn-epl-fallback"
     },
     {
-      "id": "basketball-fixture-401859967",
-      "date": "2026-06-14",
-      "time": "00:30",
+      "id": "basketball-fixture-401898388",
+      "date": "2026-10-05",
+      "time": "23:00",
       "sport": "Basketball",
       "league": "NBA",
-      "home": "San Antonio Spurs",
-      "away": "New York Knicks",
-      "status": "Final",
+      "home": "Atlanta Hawks",
+      "away": "Memphis Grizzlies",
+      "status": "10/5 - 7:00 PM EDT",
       "source": "espn-nba-fallback"
     },
     {
@@ -376,20 +376,20 @@
     "basketball": [
       {
         "rank": 1,
-        "team": "San Antonio Spurs",
-        "played": "62-20",
-        "wins": "62",
-        "losses": "20",
-        "points": "90",
+        "team": "Atlanta Hawks",
+        "played": "-",
+        "wins": "",
+        "losses": "-",
+        "points": "0",
         "note": "ESPN team record"
       },
       {
         "rank": 2,
-        "team": "New York Knicks",
-        "played": "53-29",
-        "wins": "53",
-        "losses": "29",
-        "points": "94",
+        "team": "Memphis Grizzlies",
+        "played": "-",
+        "wins": "",
+        "losses": "-",
+        "points": "0",
         "note": "ESPN team record"
       }
     ],
@@ -509,64 +509,6 @@
     ]
   },
   "playerStats": {
-    "basketball": [
-      {
-        "rank": 1,
-        "name": "Dylan Harper",
-        "team": "San Antonio Spurs",
-        "metric": "Points",
-        "value": "25"
-      },
-      {
-        "rank": 2,
-        "name": "Victor Wembanyama",
-        "team": "San Antonio Spurs",
-        "metric": "Rebounds",
-        "value": "14"
-      },
-      {
-        "rank": 3,
-        "name": "De'Aaron Fox",
-        "team": "San Antonio Spurs",
-        "metric": "Assists",
-        "value": "5"
-      },
-      {
-        "rank": 4,
-        "name": "Victor Wembanyama",
-        "team": "San Antonio Spurs",
-        "metric": "Rating",
-        "value": "19 PTS, 14 REB, 5 BLK"
-      },
-      {
-        "rank": 5,
-        "name": "Jalen Brunson",
-        "team": "New York Knicks",
-        "metric": "Points",
-        "value": "45"
-      },
-      {
-        "rank": 6,
-        "name": "Josh Hart",
-        "team": "New York Knicks",
-        "metric": "Rebounds",
-        "value": "11"
-      },
-      {
-        "rank": 7,
-        "name": "Mikal Bridges",
-        "team": "New York Knicks",
-        "metric": "Assists",
-        "value": "4"
-      },
-      {
-        "rank": 8,
-        "name": "Jalen Brunson",
-        "team": "New York Knicks",
-        "metric": "Rating",
-        "value": "45 PTS"
-      }
-    ],
     "f1": [
       {
         "rank": 1,
@@ -657,6 +599,15 @@
         "value": "-"
       }
     ],
+    "basketball": [
+      {
+        "rank": 1,
+        "name": "Basketball leaders",
+        "team": "ScorecardX",
+        "metric": "Waiting for provider sync",
+        "value": "-"
+      }
+    ],
     "tennis": [
       {
         "rank": 1,
@@ -675,7 +626,7 @@
       "summary": "3/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-07-20T14:32:35.535Z"
+      "publishedAt": "2026-07-20T19:55:42.535Z"
     }
   ]
 }

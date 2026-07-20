@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T14:32:35.535Z",
+  "updatedAt": "2026-07-20T19:55:42.535Z",
   "events": [
     {
       "date": "2026-08-21",
@@ -9,10 +9,10 @@
       "priority": "P0"
     },
     {
-      "date": "2026-06-14",
+      "date": "2026-10-05",
       "sport": "Basketball",
-      "event": "NBA: San Antonio Spurs vs New York Knicks",
-      "time": "00:30",
+      "event": "NBA: Atlanta Hawks vs Memphis Grizzlies",
+      "time": "23:00",
       "priority": "P0"
     },
     {

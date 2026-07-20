@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T14:32:35.535Z",
+  "updatedAt": "2026-07-20T19:55:42.535Z",
   "cards": [
     {
       "id": "football-401879301",
@@ -16,17 +16,17 @@
       "source": "espn-epl-fallback"
     },
     {
-      "id": "basketball-401859967",
+      "id": "basketball-401898388",
       "sport": "Basketball",
       "league": "NBA",
-      "status": "Final",
+      "status": "10/5 - 7:00 PM EDT",
       "clock": "0.0",
-      "home": "San Antonio Spurs",
-      "away": "New York Knicks",
-      "homeScore": "90",
-      "awayScore": "94",
+      "home": "Atlanta Hawks",
+      "away": "Memphis Grizzlies",
+      "homeScore": "0",
+      "awayScore": "0",
       "accent": "basketball",
-      "note": "Frost Bank Center · ESPN NBA fallback",
+      "note": "State Farm Arena · ESPN NBA fallback",
       "source": "espn-nba-fallback"
     },
     {
