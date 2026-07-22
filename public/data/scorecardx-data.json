@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T19:50:38.332Z",
+  "updatedAt": "2026-07-22T03:45:14.549Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -9,18 +9,18 @@
   "providers": {
     "apiFootball": {
       "status": "ok",
-      "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-07-21: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 96
+      "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-07-22: {\"message\":\"Too many requests\"})",
+      "remainingQuota": 99
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 88
+      "remainingQuota": 97
     },
     "basketball": {
       "status": "ok",
-      "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-07-21&per_page=25: Unauthorized)",
-      "remainingQuota": 96
+      "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-07-22&per_page=25: Unauthorized)",
+      "remainingQuota": 99
     },
     "jolpicaF1": {
       "status": "ok",
@@ -42,6 +42,20 @@
       "accent": "football",
       "note": "Emirates Stadium · ESPN EPL fallback",
       "source": "espn-epl-fallback"
+    },
+    {
+      "id": "basketball-401898716",
+      "sport": "Basketball",
+      "league": "NBA",
+      "status": "TBD",
+      "clock": "0.0",
+      "home": "Sacramento Kings",
+      "away": "Los Angeles Lakers",
+      "homeScore": "0",
+      "awayScore": "0",
+      "accent": "basketball",
+      "note": "Golden 1 Center · ESPN NBA fallback",
+      "source": "espn-nba-fallback"
     },
     {
       "id": "basketball-401898388",
@@ -97,6 +111,17 @@
       "away": "Coventry City",
       "status": "Scheduled",
       "source": "espn-epl-fallback"
+    },
+    {
+      "id": "basketball-fixture-401898716",
+      "date": "2026-10-05",
+      "time": "04:00",
+      "sport": "Basketball",
+      "league": "NBA",
+      "home": "Sacramento Kings",
+      "away": "Los Angeles Lakers",
+      "status": "TBD",
+      "source": "espn-nba-fallback"
     },
     {
       "id": "basketball-fixture-401898388",
@@ -376,7 +401,7 @@
     "basketball": [
       {
         "rank": 1,
-        "team": "Atlanta Hawks",
+        "team": "Sacramento Kings",
         "played": "-",
         "wins": "",
         "losses": "-",
@@ -385,6 +410,24 @@
       },
       {
         "rank": 2,
+        "team": "Los Angeles Lakers",
+        "played": "-",
+        "wins": "",
+        "losses": "-",
+        "points": "0",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 3,
+        "team": "Atlanta Hawks",
+        "played": "-",
+        "wins": "",
+        "losses": "-",
+        "points": "0",
+        "note": "ESPN team record"
+      },
+      {
+        "rank": 4,
         "team": "Memphis Grizzlies",
         "played": "-",
         "wins": "",
@@ -626,7 +669,7 @@
       "summary": "3/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-07-21T19:50:38.332Z"
+      "publishedAt": "2026-07-22T03:45:14.549Z"
     }
   ]
 }

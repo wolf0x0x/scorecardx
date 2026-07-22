@@ -1,11 +1,18 @@
 {
-  "updatedAt": "2026-07-21T19:50:38.332Z",
+  "updatedAt": "2026-07-22T03:45:14.549Z",
   "events": [
     {
       "date": "2026-08-21",
       "sport": "Football",
       "event": "Premier League: Arsenal vs Coventry City",
       "time": "19:00",
+      "priority": "P0"
+    },
+    {
+      "date": "2026-10-05",
+      "sport": "Basketball",
+      "event": "NBA: Sacramento Kings vs Los Angeles Lakers",
+      "time": "04:00",
       "priority": "P0"
     },
     {
