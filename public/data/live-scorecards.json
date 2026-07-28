@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-27T19:53:17.435Z",
+  "updatedAt": "2026-07-28T03:33:59.406Z",
   "cards": [
     {
       "id": "football-401879301",
@@ -16,20 +16,6 @@
       "source": "espn-epl-fallback"
     },
     {
-      "id": "basketball-401898716",
-      "sport": "Basketball",
-      "league": "NBA",
-      "status": "TBD",
-      "clock": "0.0",
-      "home": "Sacramento Kings",
-      "away": "Los Angeles Lakers",
-      "homeScore": "0",
-      "awayScore": "0",
-      "accent": "basketball",
-      "note": "Golden 1 Center · ESPN NBA fallback",
-      "source": "espn-nba-fallback"
-    },
-    {
       "id": "basketball-401898388",
       "sport": "Basketball",
       "league": "NBA",
@@ -41,6 +27,20 @@
       "awayScore": "0",
       "accent": "basketball",
       "note": "State Farm Arena · ESPN NBA fallback",
+      "source": "espn-nba-fallback"
+    },
+    {
+      "id": "basketball-401898716",
+      "sport": "Basketball",
+      "league": "NBA",
+      "status": "10/5 - 10:00 PM EDT",
+      "clock": "0.0",
+      "home": "Sacramento Kings",
+      "away": "Los Angeles Lakers",
+      "homeScore": "0",
+      "awayScore": "0",
+      "accent": "basketball",
+      "note": "Golden 1 Center · ESPN NBA fallback",
       "source": "espn-nba-fallback"
     },
     {
