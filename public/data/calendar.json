@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-29T14:30:38.954Z",
+  "updatedAt": "2026-07-29T19:41:46.666Z",
   "events": [
     {
       "date": "2026-08-21",
@@ -9,17 +9,10 @@
       "priority": "P0"
     },
     {
-      "date": "2026-10-05",
+      "date": "2026-10-03",
       "sport": "Basketball",
-      "event": "NBA: Atlanta Hawks vs Memphis Grizzlies",
-      "time": "23:00",
-      "priority": "P0"
-    },
-    {
-      "date": "2026-10-06",
-      "sport": "Basketball",
-      "event": "NBA: Sacramento Kings vs Los Angeles Lakers",
-      "time": "02:00",
+      "event": "NBA: Toronto Raptors vs Miami Heat",
+      "time": "04:00",
       "priority": "P0"
     },
     {

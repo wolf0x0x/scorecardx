@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-29T14:30:38.954Z",
+  "updatedAt": "2026-07-29T19:41:46.666Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,17 +10,17 @@
     "apiFootball": {
       "status": "ok",
       "label": "ESPN EPL fallback network · API-Football unavailable (HTTP 429 from https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2026-07-29: {\"message\":\"Too many requests\"})",
-      "remainingQuota": 97
+      "remainingQuota": 96
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 91
+      "remainingQuota": 88
     },
     "basketball": {
       "status": "ok",
       "label": "ESPN NBA fallback network · BallDontLie unavailable (HTTP 401 from https://api.balldontlie.io/v1/games?dates%5B%5D=2026-07-29&per_page=25: Unauthorized)",
-      "remainingQuota": 97
+      "remainingQuota": 96
     },
     "jolpicaF1": {
       "status": "ok",
@@ -44,31 +44,17 @@
       "source": "espn-epl-fallback"
     },
     {
-      "id": "basketball-401898388",
+      "id": "basketball-401902644",
       "sport": "Basketball",
       "league": "NBA",
-      "status": "10/5 - 7:00 PM EDT",
+      "status": "TBD",
       "clock": "0.0",
-      "home": "Atlanta Hawks",
-      "away": "Memphis Grizzlies",
+      "home": "Toronto Raptors",
+      "away": "Miami Heat",
       "homeScore": "0",
       "awayScore": "0",
       "accent": "basketball",
-      "note": "State Farm Arena · ESPN NBA fallback",
-      "source": "espn-nba-fallback"
-    },
-    {
-      "id": "basketball-401898716",
-      "sport": "Basketball",
-      "league": "NBA",
-      "status": "10/5 - 10:00 PM EDT",
-      "clock": "0.0",
-      "home": "Sacramento Kings",
-      "away": "Los Angeles Lakers",
-      "homeScore": "0",
-      "awayScore": "0",
-      "accent": "basketball",
-      "note": "Golden 1 Center · ESPN NBA fallback",
+      "note": "Videotron Centre · ESPN NBA fallback",
       "source": "espn-nba-fallback"
     },
     {
@@ -113,25 +99,14 @@
       "source": "espn-epl-fallback"
     },
     {
-      "id": "basketball-fixture-401898388",
-      "date": "2026-10-05",
-      "time": "23:00",
+      "id": "basketball-fixture-401902644",
+      "date": "2026-10-03",
+      "time": "04:00",
       "sport": "Basketball",
       "league": "NBA",
-      "home": "Atlanta Hawks",
-      "away": "Memphis Grizzlies",
-      "status": "10/5 - 7:00 PM EDT",
-      "source": "espn-nba-fallback"
-    },
-    {
-      "id": "basketball-fixture-401898716",
-      "date": "2026-10-06",
-      "time": "02:00",
-      "sport": "Basketball",
-      "league": "NBA",
-      "home": "Sacramento Kings",
-      "away": "Los Angeles Lakers",
-      "status": "10/5 - 10:00 PM EDT",
+      "home": "Toronto Raptors",
+      "away": "Miami Heat",
+      "status": "TBD",
       "source": "espn-nba-fallback"
     },
     {
@@ -401,7 +376,7 @@
     "basketball": [
       {
         "rank": 1,
-        "team": "Atlanta Hawks",
+        "team": "Toronto Raptors",
         "played": "-",
         "wins": "",
         "losses": "-",
@@ -410,25 +385,7 @@
       },
       {
         "rank": 2,
-        "team": "Memphis Grizzlies",
-        "played": "-",
-        "wins": "",
-        "losses": "-",
-        "points": "0",
-        "note": "ESPN team record"
-      },
-      {
-        "rank": 3,
-        "team": "Sacramento Kings",
-        "played": "-",
-        "wins": "",
-        "losses": "-",
-        "points": "0",
-        "note": "ESPN team record"
-      },
-      {
-        "rank": 4,
-        "team": "Los Angeles Lakers",
+        "team": "Miami Heat",
         "played": "-",
         "wins": "",
         "losses": "-",
@@ -669,7 +626,7 @@
       "summary": "3/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-07-29T14:30:38.954Z"
+      "publishedAt": "2026-07-29T19:41:46.666Z"
     }
   ]
 }
