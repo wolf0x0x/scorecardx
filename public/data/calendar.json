@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-31T03:48:29.891Z",
+  "updatedAt": "2026-07-31T09:15:32.535Z",
   "events": [
     {
       "date": "2026-08-21",
@@ -118,6 +118,13 @@
       "sport": "F1",
       "event": "Formula 1: Azerbaijan Grand Prix vs Baku City Circuit",
       "time": "11:00:00Z",
+      "priority": "P1"
+    },
+    {
+      "date": "2026-10-04",
+      "sport": "F1",
+      "event": "Formula 1: Bahrain Grand Prix in Malaysia vs Sepang International Circuit",
+      "time": "07:00:00Z",
       "priority": "P1"
     },
     {
