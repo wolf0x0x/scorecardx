@@ -1,34 +1,6 @@
 {
-  "updatedAt": "2026-08-04T14:38:29.293Z",
+  "updatedAt": "2026-08-04T19:55:35.341Z",
   "cards": [
-    {
-      "id": "football-401879301",
-      "sport": "Football",
-      "league": "Premier League",
-      "status": "Scheduled",
-      "clock": "0'",
-      "home": "Arsenal",
-      "away": "Coventry City",
-      "homeScore": "0",
-      "awayScore": "0",
-      "accent": "football",
-      "note": "Emirates Stadium · ESPN EPL fallback",
-      "source": "espn-epl-fallback"
-    },
-    {
-      "id": "basketball-401902644",
-      "sport": "Basketball",
-      "league": "NBA",
-      "status": "10/3 - 7:00 PM EDT",
-      "clock": "0.0",
-      "home": "Toronto Raptors",
-      "away": "Miami Heat",
-      "homeScore": "0",
-      "awayScore": "0",
-      "accent": "basketball",
-      "note": "Videotron Centre · ESPN NBA fallback",
-      "source": "espn-nba-fallback"
-    },
     {
       "id": "f1-12",
       "sport": "F1",
@@ -55,6 +27,34 @@
       "awayScore": "waiting",
       "accent": "cricket",
       "note": "Provider response: API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
+      "source": "provider-status"
+    },
+    {
+      "id": "config-football",
+      "sport": "Football",
+      "league": "Provider unavailable",
+      "status": "ERROR",
+      "clock": "error",
+      "home": "API-Football",
+      "away": "ScorecardX",
+      "homeScore": "error",
+      "awayScore": "waiting",
+      "accent": "football",
+      "note": "Provider response: HTTP 403 from https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard: <HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;site&#46;api&#46;espn&#46;com&#47;apis&#47;site&#47;v2&#47;sports&#47;soccer&#47;en",
+      "source": "provider-status"
+    },
+    {
+      "id": "config-basketball",
+      "sport": "Basketball",
+      "league": "Provider unavailable",
+      "status": "ERROR",
+      "clock": "error",
+      "home": "NBA provider",
+      "away": "ScorecardX",
+      "homeScore": "error",
+      "awayScore": "waiting",
+      "accent": "basketball",
+      "note": "Provider response: HTTP 403 from https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard: <HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;site&#46;api&#46;espn&#46;com&#47;apis&#47;site&#47;v2&#47;sports&#47;basketball&#4",
       "source": "provider-status"
     }
   ]

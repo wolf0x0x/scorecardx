@@ -1,20 +1,6 @@
 {
-  "updatedAt": "2026-08-04T14:38:29.293Z",
+  "updatedAt": "2026-08-04T19:55:35.341Z",
   "events": [
-    {
-      "date": "2026-08-21",
-      "sport": "Football",
-      "event": "Premier League: Arsenal vs Coventry City",
-      "time": "19:00",
-      "priority": "P0"
-    },
-    {
-      "date": "2026-10-03",
-      "sport": "Basketball",
-      "event": "NBA: Toronto Raptors vs Miami Heat",
-      "time": "23:00",
-      "priority": "P0"
-    },
     {
       "date": "2026-03-08",
       "sport": "F1",
