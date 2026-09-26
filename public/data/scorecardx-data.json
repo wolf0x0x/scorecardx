@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-26T11:23:42.052Z",
+  "updatedAt": "2026-09-26T16:22:36.011Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,17 +10,17 @@
     "apiFootball": {
       "status": "error",
       "label": "HTTP 403 from https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard: <HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;site&#46;api&#46;espn&#46;com&#47;apis&#47;site&#47;v2&#47;sports&#47;soccer&#47;en",
-      "remainingQuota": 98
+      "remainingQuota": 97
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 94
+      "remainingQuota": 91
     },
     "basketball": {
       "status": "error",
       "label": "HTTP 403 from https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard: <HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;site&#46;api&#46;espn&#46;com&#47;apis&#47;site&#47;v2&#47;sports&#47;basketball&#4",
-      "remainingQuota": 98
+      "remainingQuota": 97
     },
     "jolpicaF1": {
       "status": "ok",
@@ -349,16 +349,16 @@
         "played": "8",
         "wins": "8",
         "losses": "-",
-        "points": "292",
+        "points": "302",
         "note": "Mercedes"
       },
       {
         "rank": 2,
         "team": "George Russell",
-        "played": "2",
-        "wins": "2",
+        "played": "3",
+        "wins": "3",
         "losses": "-",
-        "points": "211",
+        "points": "236",
         "note": "Mercedes"
       },
       {
@@ -367,7 +367,7 @@
         "played": "1",
         "wins": "1",
         "losses": "-",
-        "points": "191",
+        "points": "199",
         "note": "Ferrari"
       },
       {
@@ -385,7 +385,7 @@
         "played": "1",
         "wins": "1",
         "losses": "-",
-        "points": "167",
+        "points": "179",
         "note": "Ferrari"
       },
       {
@@ -394,7 +394,7 @@
         "played": "0",
         "wins": "0",
         "losses": "-",
-        "points": "145",
+        "points": "163",
         "note": "Red Bull"
       },
       {
@@ -412,7 +412,7 @@
         "played": "0",
         "wins": "0",
         "losses": "-",
-        "points": "71",
+        "points": "86",
         "note": "Red Bull"
       },
       {
@@ -486,21 +486,21 @@
         "name": "Andrea Kimi Antonelli",
         "team": "Mercedes",
         "metric": "Driver points",
-        "value": "292"
+        "value": "302"
       },
       {
         "rank": 2,
         "name": "George Russell",
         "team": "Mercedes",
         "metric": "Driver points",
-        "value": "211"
+        "value": "236"
       },
       {
         "rank": 3,
         "name": "Lewis Hamilton",
         "team": "Ferrari",
         "metric": "Driver points",
-        "value": "191"
+        "value": "199"
       },
       {
         "rank": 4,
@@ -514,14 +514,14 @@
         "name": "Charles Leclerc",
         "team": "Ferrari",
         "metric": "Driver points",
-        "value": "167"
+        "value": "179"
       },
       {
         "rank": 6,
         "name": "Max Verstappen",
         "team": "Red Bull",
         "metric": "Driver points",
-        "value": "145"
+        "value": "163"
       },
       {
         "rank": 7,
@@ -535,7 +535,7 @@
         "name": "Isack Hadjar",
         "team": "Red Bull",
         "metric": "Driver points",
-        "value": "71"
+        "value": "86"
       },
       {
         "rank": 9,
@@ -597,7 +597,7 @@
       "summary": "1/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-09-26T11:23:42.052Z"
+      "publishedAt": "2026-09-26T16:22:36.011Z"
     }
   ]
 }
