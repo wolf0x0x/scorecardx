@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-10-04T05:51:09.700Z",
+  "updatedAt": "2026-10-04T12:20:31.303Z",
   "cards": [
     {
-      "id": "f1-16",
+      "id": "f1-17",
       "sport": "F1",
       "league": "Formula 1",
       "status": "NEXT",
-      "clock": "2026-10-04",
-      "home": "Bahrain Grand Prix in Malaysia",
-      "away": "Sepang International Circuit",
-      "homeScore": "R16",
-      "awayScore": "07:00:00 UTC",
+      "clock": "2026-10-11",
+      "home": "Singapore Grand Prix",
+      "away": "Marina Bay Street Circuit",
+      "homeScore": "R17",
+      "awayScore": "12:00:00 UTC",
       "accent": "f1",
-      "note": "Kuala Lumpur, Malaysia",
+      "note": "Marina Bay, Singapore",
       "source": "jolpica"
     },
     {
