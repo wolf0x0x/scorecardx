@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-10-25T16:16:36.868Z",
+  "updatedAt": "2026-10-25T20:49:30.690Z",
   "cards": [
     {
-      "id": "f1-18",
+      "id": "f1-19",
       "sport": "F1",
       "league": "Formula 1",
       "status": "NEXT",
-      "clock": "2026-10-25",
-      "home": "United States Grand Prix",
-      "away": "Circuit of the Americas",
-      "homeScore": "R18",
+      "clock": "2026-11-01",
+      "home": "Mexico City Grand Prix",
+      "away": "Autódromo Hermanos Rodríguez",
+      "homeScore": "R19",
       "awayScore": "20:00:00 UTC",
       "accent": "f1",
-      "note": "Austin, USA",
+      "note": "Mexico City, Mexico",
       "source": "jolpica"
     },
     {
