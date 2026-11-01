@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-11-01T13:21:38.599Z",
+  "updatedAt": "2026-11-01T22:00:13.673Z",
   "cards": [
     {
-      "id": "f1-19",
+      "id": "f1-20",
       "sport": "F1",
       "league": "Formula 1",
       "status": "NEXT",
-      "clock": "2026-11-01",
-      "home": "Mexico City Grand Prix",
-      "away": "Autódromo Hermanos Rodríguez",
-      "homeScore": "R19",
-      "awayScore": "20:00:00 UTC",
+      "clock": "2026-11-08",
+      "home": "Brazilian Grand Prix",
+      "away": "Autódromo José Carlos Pace",
+      "homeScore": "R20",
+      "awayScore": "17:00:00 UTC",
       "accent": "f1",
-      "note": "Mexico City, Mexico",
+      "note": "São Paulo, Brazil",
       "source": "jolpica"
     },
     {
