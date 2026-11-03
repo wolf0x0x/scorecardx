@@ -1,5 +1,5 @@
 {
-  "lastSyncAt": "2026-11-02T15:48:23.186Z",
+  "lastSyncAt": "2026-11-03T00:56:51.064Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,17 +10,17 @@
     "apiFootball": {
       "status": "error",
       "label": "HTTP 403 from https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard: <HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;site&#46;api&#46;espn&#46;com&#47;apis&#47;site&#47;v2&#47;sports&#47;soccer&#47;en",
-      "remainingQuota": 98
+      "remainingQuota": 99
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 94
+      "remainingQuota": 97
     },
     "basketball": {
       "status": "error",
       "label": "HTTP 403 from https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard: <HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;site&#46;api&#46;espn&#46;com&#47;apis&#47;site&#47;v2&#47;sports&#47;basketball&#4",
-      "remainingQuota": 98
+      "remainingQuota": 99
     },
     "jolpicaF1": {
       "status": "ok",
@@ -29,30 +29,30 @@
     }
   },
   "providerErrorStreaks": {
-    "apiFootball": 325,
-    "apiSportsCricket": 523,
-    "basketball": 325,
+    "apiFootball": 326,
+    "apiSportsCricket": 524,
+    "basketball": 326,
     "jolpicaF1": 0
   },
   "quota": {
-    "day": "2026-11-02",
+    "day": "2026-11-03",
     "providers": {
       "apiFootball": {
-        "used": 2,
+        "used": 1,
         "buckets": {
-          "live_scores": 2
+          "live_scores": 1
         }
       },
       "apiSportsCricket": {
-        "used": 6,
+        "used": 3,
         "buckets": {
-          "live_scores": 6
+          "live_scores": 3
         }
       },
       "basketball": {
-        "used": 2,
+        "used": 1,
         "buckets": {
-          "live_scores": 2
+          "live_scores": 1
         }
       }
     }

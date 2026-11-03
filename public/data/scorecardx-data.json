@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T15:48:23.186Z",
+  "updatedAt": "2026-11-03T00:56:51.064Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,17 +10,17 @@
     "apiFootball": {
       "status": "error",
       "label": "HTTP 403 from https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard: <HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;site&#46;api&#46;espn&#46;com&#47;apis&#47;site&#47;v2&#47;sports&#47;soccer&#47;en",
-      "remainingQuota": 98
+      "remainingQuota": 99
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 94
+      "remainingQuota": 97
     },
     "basketball": {
       "status": "error",
       "label": "HTTP 403 from https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard: <HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;site&#46;api&#46;espn&#46;com&#47;apis&#47;site&#47;v2&#47;sports&#47;basketball&#4",
-      "remainingQuota": 98
+      "remainingQuota": 99
     },
     "jolpicaF1": {
       "status": "ok",
@@ -403,7 +403,7 @@
         "played": "0",
         "wins": "0",
         "losses": "-",
-        "points": "150",
+        "points": "144",
         "note": "McLaren"
       },
       {
@@ -412,7 +412,7 @@
         "played": "0",
         "wins": "0",
         "losses": "-",
-        "points": "105",
+        "points": "107",
         "note": "Red Bull"
       },
       {
@@ -421,7 +421,7 @@
         "played": "0",
         "wins": "0",
         "losses": "-",
-        "points": "79",
+        "points": "83",
         "note": "RB F1 Team"
       },
       {
@@ -430,7 +430,7 @@
         "played": "0",
         "wins": "0",
         "losses": "-",
-        "points": "43",
+        "points": "42",
         "note": "Alpine F1 Team"
       }
     ],
@@ -528,28 +528,28 @@
         "name": "Oscar Piastri",
         "team": "McLaren",
         "metric": "Driver points",
-        "value": "150"
+        "value": "144"
       },
       {
         "rank": 8,
         "name": "Isack Hadjar",
         "team": "Red Bull",
         "metric": "Driver points",
-        "value": "105"
+        "value": "107"
       },
       {
         "rank": 9,
         "name": "Liam Lawson",
         "team": "RB F1 Team",
         "metric": "Driver points",
-        "value": "79"
+        "value": "83"
       },
       {
         "rank": 10,
         "name": "Pierre Gasly",
         "team": "Alpine F1 Team",
         "metric": "Driver points",
-        "value": "43"
+        "value": "42"
       }
     ],
     "cricket": [
@@ -597,7 +597,7 @@
       "summary": "1/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-11-02T15:48:23.186Z"
+      "publishedAt": "2026-11-03T00:56:51.064Z"
     }
   ]
 }
