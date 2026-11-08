@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-11-08T13:22:59.361Z",
+  "updatedAt": "2026-11-08T22:02:54.797Z",
   "cards": [
     {
-      "id": "f1-20",
+      "id": "f1-21",
       "sport": "F1",
       "league": "Formula 1",
       "status": "NEXT",
-      "clock": "2026-11-08",
-      "home": "Brazilian Grand Prix",
-      "away": "Autódromo José Carlos Pace",
-      "homeScore": "R20",
-      "awayScore": "17:00:00 UTC",
+      "clock": "2026-11-22",
+      "home": "Las Vegas Grand Prix",
+      "away": "Las Vegas Strip Street Circuit",
+      "homeScore": "R21",
+      "awayScore": "04:00:00 UTC",
       "accent": "f1",
-      "note": "São Paulo, Brazil",
+      "note": "Las Vegas, USA",
       "source": "jolpica"
     },
     {
