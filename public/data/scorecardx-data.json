@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T06:45:38.157Z",
+  "updatedAt": "2026-11-22T19:37:37.987Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,17 +10,17 @@
     "apiFootball": {
       "status": "error",
       "label": "HTTP 403 from https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard: <HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;site&#46;api&#46;espn&#46;com&#47;apis&#47;site&#47;v2&#47;sports&#47;soccer&#47;en",
-      "remainingQuota": 99
+      "remainingQuota": 98
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 97
+      "remainingQuota": 94
     },
     "basketball": {
       "status": "error",
       "label": "HTTP 403 from https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard: <HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;site&#46;api&#46;espn&#46;com&#47;apis&#47;site&#47;v2&#47;sports&#47;basketball&#4",
-      "remainingQuota": 99
+      "remainingQuota": 98
     },
     "jolpicaF1": {
       "status": "ok",
@@ -349,53 +349,53 @@
         "played": "9",
         "wins": "9",
         "losses": "-",
-        "points": "390",
+        "points": "402",
         "note": "Mercedes"
       },
       {
         "rank": 2,
         "team": "Max Verstappen",
-        "played": "3",
-        "wins": "3",
+        "played": "4",
+        "wins": "4",
         "losses": "-",
-        "points": "279",
+        "points": "304",
         "note": "Red Bull"
       },
       {
         "rank": 3,
-        "team": "George Russell",
-        "played": "3",
-        "wins": "3",
-        "losses": "-",
-        "points": "262",
-        "note": "Mercedes"
-      },
-      {
-        "rank": 4,
         "team": "Lewis Hamilton",
         "played": "1",
         "wins": "1",
         "losses": "-",
-        "points": "261",
+        "points": "267",
         "note": "Ferrari"
+      },
+      {
+        "rank": 4,
+        "team": "George Russell",
+        "played": "3",
+        "wins": "3",
+        "losses": "-",
+        "points": "264",
+        "note": "Mercedes"
       },
       {
         "rank": 5,
-        "team": "Charles Leclerc",
-        "played": "1",
-        "wins": "1",
-        "losses": "-",
-        "points": "249",
-        "note": "Ferrari"
-      },
-      {
-        "rank": 6,
         "team": "Lando Norris",
         "played": "3",
         "wins": "3",
         "losses": "-",
-        "points": "246",
+        "points": "264",
         "note": "McLaren"
+      },
+      {
+        "rank": 6,
+        "team": "Charles Leclerc",
+        "played": "1",
+        "wins": "1",
+        "losses": "-",
+        "points": "250",
+        "note": "Ferrari"
       },
       {
         "rank": 7,
@@ -403,7 +403,7 @@
         "played": "0",
         "wins": "0",
         "losses": "-",
-        "points": "152",
+        "points": "167",
         "note": "McLaren"
       },
       {
@@ -430,7 +430,7 @@
         "played": "0",
         "wins": "0",
         "losses": "-",
-        "points": "42",
+        "points": "52",
         "note": "Alpine F1 Team"
       }
     ],
@@ -486,49 +486,49 @@
         "name": "Andrea Kimi Antonelli",
         "team": "Mercedes",
         "metric": "Driver points",
-        "value": "390"
+        "value": "402"
       },
       {
         "rank": 2,
         "name": "Max Verstappen",
         "team": "Red Bull",
         "metric": "Driver points",
-        "value": "279"
+        "value": "304"
       },
       {
         "rank": 3,
-        "name": "George Russell",
-        "team": "Mercedes",
-        "metric": "Driver points",
-        "value": "262"
-      },
-      {
-        "rank": 4,
         "name": "Lewis Hamilton",
         "team": "Ferrari",
         "metric": "Driver points",
-        "value": "261"
+        "value": "267"
+      },
+      {
+        "rank": 4,
+        "name": "George Russell",
+        "team": "Mercedes",
+        "metric": "Driver points",
+        "value": "264"
       },
       {
         "rank": 5,
-        "name": "Charles Leclerc",
-        "team": "Ferrari",
-        "metric": "Driver points",
-        "value": "249"
-      },
-      {
-        "rank": 6,
         "name": "Lando Norris",
         "team": "McLaren",
         "metric": "Driver points",
-        "value": "246"
+        "value": "264"
+      },
+      {
+        "rank": 6,
+        "name": "Charles Leclerc",
+        "team": "Ferrari",
+        "metric": "Driver points",
+        "value": "250"
       },
       {
         "rank": 7,
         "name": "Oscar Piastri",
         "team": "McLaren",
         "metric": "Driver points",
-        "value": "152"
+        "value": "167"
       },
       {
         "rank": 8,
@@ -549,7 +549,7 @@
         "name": "Pierre Gasly",
         "team": "Alpine F1 Team",
         "metric": "Driver points",
-        "value": "42"
+        "value": "52"
       }
     ],
     "cricket": [
@@ -597,7 +597,7 @@
       "summary": "1/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-11-22T06:45:38.157Z"
+      "publishedAt": "2026-11-22T19:37:37.987Z"
     }
   ]
 }
