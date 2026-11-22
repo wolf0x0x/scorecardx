@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-11-21T19:13:53.828Z",
+  "updatedAt": "2026-11-22T06:45:38.157Z",
   "cards": [
     {
-      "id": "f1-21",
+      "id": "f1-22",
       "sport": "F1",
       "league": "Formula 1",
       "status": "NEXT",
-      "clock": "2026-11-22",
-      "home": "Las Vegas Grand Prix",
-      "away": "Las Vegas Strip Street Circuit",
-      "homeScore": "R21",
-      "awayScore": "04:00:00 UTC",
+      "clock": "2026-11-29",
+      "home": "Qatar Grand Prix",
+      "away": "Lusail International Circuit",
+      "homeScore": "R22",
+      "awayScore": "16:00:00 UTC",
       "accent": "f1",
-      "note": "Las Vegas, USA",
+      "note": "Lusail, Qatar",
       "source": "jolpica"
     },
     {

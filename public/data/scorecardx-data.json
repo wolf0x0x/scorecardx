@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T19:13:53.828Z",
+  "updatedAt": "2026-11-22T06:45:38.157Z",
   "mode": "automated-sync",
   "freshness": {
     "status": "live_or_cached",
@@ -10,17 +10,17 @@
     "apiFootball": {
       "status": "error",
       "label": "HTTP 403 from https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard: <HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;site&#46;api&#46;espn&#46;com&#47;apis&#47;site&#47;v2&#47;sports&#47;soccer&#47;en",
-      "remainingQuota": 98
+      "remainingQuota": 99
     },
     "apiSportsCricket": {
       "status": "error",
       "label": "API-Sports Cricket failed across 3 endpoints: https://v1.cricket.api-sports.io live: fetch failed | https://v1.cricket.api-sports.io fixtures: fetch failed | https://v3.cricket.api-sports.io live: fetch failed | https://v3.cricket.api-sports.io fixtures: fetch failed | https://v2.cricket.api-sports.io live: fetch failed | https://v2.cricket.api-sports.io fixtures: fetch failed",
-      "remainingQuota": 94
+      "remainingQuota": 97
     },
     "basketball": {
       "status": "error",
       "label": "HTTP 403 from https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard: <HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don't have permission to access \"http&#58;&#47;&#47;site&#46;api&#46;espn&#46;com&#47;apis&#47;site&#47;v2&#47;sports&#47;basketball&#4",
-      "remainingQuota": 98
+      "remainingQuota": 99
     },
     "jolpicaF1": {
       "status": "ok",
@@ -30,17 +30,17 @@
   },
   "liveCards": [
     {
-      "id": "f1-21",
+      "id": "f1-22",
       "sport": "F1",
       "league": "Formula 1",
       "status": "NEXT",
-      "clock": "2026-11-22",
-      "home": "Las Vegas Grand Prix",
-      "away": "Las Vegas Strip Street Circuit",
-      "homeScore": "R21",
-      "awayScore": "04:00:00 UTC",
+      "clock": "2026-11-29",
+      "home": "Qatar Grand Prix",
+      "away": "Lusail International Circuit",
+      "homeScore": "R22",
+      "awayScore": "16:00:00 UTC",
       "accent": "f1",
-      "note": "Las Vegas, USA",
+      "note": "Lusail, Qatar",
       "source": "jolpica"
     },
     {
@@ -315,7 +315,7 @@
       "league": "Formula 1",
       "home": "Las Vegas Grand Prix",
       "away": "Las Vegas Strip Street Circuit",
-      "status": "Scheduled",
+      "status": "Completed",
       "source": "jolpica"
     },
     {
@@ -597,7 +597,7 @@
       "summary": "1/4 provider groups refreshed. ScorecardX now distinguishes live, cached, and provider states.",
       "url": "/about/",
       "source": "ScorecardX",
-      "publishedAt": "2026-11-21T19:13:53.828Z"
+      "publishedAt": "2026-11-22T06:45:38.157Z"
     }
   ]
 }
